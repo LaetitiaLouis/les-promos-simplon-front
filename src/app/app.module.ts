@@ -7,14 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {MatButtonModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from './accueil/accueil.component';
+import { PromoComponent } from './promo/promo.component';
+import { ProjetComponent } from './projet/projet.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
+  {path: 'utilisateur', component: UtilisateurComponent},
+  {path: 'promo/:specialite/:nom', component: PromoComponent},
+  {path: 'projet', component: ProjetComponent},
+  {path: 'connexion', component: ConnexionComponent},
   {path: 'galerie', component: GalerieComponent}
 ]
 
@@ -25,7 +32,10 @@ const routes: Routes =  [
     FooterComponent,
     UtilisateurComponent,
     GalerieComponent,
-    AccueilComponent
+    AccueilComponent,
+    PromoComponent,
+    ProjetComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,9 @@ const routes: Routes =  [
     MatButtonModule,
     ExtendedModule,
     FlexModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
