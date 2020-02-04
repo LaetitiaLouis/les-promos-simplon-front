@@ -35,6 +35,7 @@ const routes: Routes =  [
     MatMenuModule,
     MatButtonModule,
     ExtendedModule,
+    FlexModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
