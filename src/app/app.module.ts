@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {MatMenuModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
 
 
@@ -24,7 +24,8 @@ import { GalerieComponent } from './galerie/galerie.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
