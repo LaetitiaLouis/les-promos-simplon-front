@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {MatMenuModule, MatToolbarModule} from '@angular/material';
+import { GalerieComponent } from './galerie/galerie.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatMenuModule, MatToolbarModule} from '@angular/material';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    GalerieComponent
   ],
   imports: [
     BrowserModule,
