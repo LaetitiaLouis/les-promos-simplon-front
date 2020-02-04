@@ -1,0 +1,20 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  }
+img {
+  height: 27px;
+  margin-left: 10px;
+  cursor: pointer;
+ }
+
+p {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.container {
+  width: 15%;
+  text-align: right;
+}

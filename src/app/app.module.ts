@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {MatButtonModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
-import {ExtendedModule} from '@angular/flex-layout';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -20,15 +20,17 @@ import {ExtendedModule} from '@angular/flex-layout';
     UtilisateurComponent,
     GalerieComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatButtonModule,
-        ExtendedModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    ExtendedModule,
+    FlexModule,
+    MatIconModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
