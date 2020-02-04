@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
+import {RouterModule, Routes} from '@angular/router';
+import {AccueilComponent} from './accueil/accueil.component';
 
+const routes: Routes =  [
+  {path: '', component: AccueilComponent},
+  {path: 'galerie', component: GalerieComponent}
+]
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import {ExtendedModule, FlexModule} from '@angular/flex-layout';
     NavbarComponent,
     FooterComponent,
     UtilisateurComponent,
-    GalerieComponent
+    GalerieComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +35,7 @@ import {ExtendedModule, FlexModule} from '@angular/flex-layout';
     MatMenuModule,
     MatButtonModule,
     ExtendedModule,
-    FlexModule,
-    MatIconModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

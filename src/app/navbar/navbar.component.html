@@ -1,8 +1,7 @@
 <mat-toolbar class="mat-elevation-z6 navbar" color="primary">
   <div class="brand">PromosPro</div>
-  <div class="nav" >
-    <a mat-button>Accueil</a>
-    <a mat-button>Utilisateur</a>
+  <div class="nav">
+    <a mat-button routerLink="/">Accueil</a>
     <a mat-button [matMenuTriggerFor]="promo">Promo</a>
     <mat-menu #promo="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="devWeb">Développeur Web</button>
@@ -18,7 +17,7 @@
       <button mat-menu-item ="1">Promo 1</button>
     </mat-menu>
     <a mat-button>Projets</a>
-    <a mat-button>Galerie</a>
+    <a mat-button routerLink="/galerie">Galerie</a>
     <a mat-button>Connexion</a>
 </div>
 </mat-toolbar>
