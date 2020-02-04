@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {MatButtonModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
+import {ExtendedModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -19,14 +20,15 @@ import { GalerieComponent } from './galerie/galerie.component';
     UtilisateurComponent,
     GalerieComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatButtonModule,
+        ExtendedModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
