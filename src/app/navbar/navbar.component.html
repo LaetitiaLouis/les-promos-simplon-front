@@ -2,6 +2,7 @@
   <div class="brand">PromosPro</div>
   <div class="nav">
     <a mat-button routerLink="/">Accueil</a>
+    <a mat-button routerLink="/utilisateur">Utilisateur</a>
     <a mat-button [matMenuTriggerFor]="promos">Promo</a>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
