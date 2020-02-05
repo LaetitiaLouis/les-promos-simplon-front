@@ -1,1 +1,15 @@
-<p>accueil works!</p>
+<div class="banner">
+  <div class="mat-display-3" [ngClass.lt-md]="'mat-display-2'">
+    Les promos Simplon
+    <div class="mat-title" [ngClass.lt-md]="'mat-subheading-2'">Toutes les infos sur les promotions professionnelles</div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-evenly start" fxHide.lt-sm="true" class="img-container">
+    <img src="http://localhost:8080/api/photos/download/EnCours.jpg" alt="" class="img-rounded">
+    <img src="http://localhost:8080/api/photos/download/groupe.jpg" alt="" class="img-rounded">
+    <img src="http://localhost:8080/api/photos/download/P4.jpg" alt="" class="img-rounded">
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center start" fxHide.gt-xs="true" fxShow.lt-sm="true" class="img-container">
+    <img src="http://localhost:8080/api/photos/download/P4.jpg" alt="" class="img-full">
+  </div>
+</div>

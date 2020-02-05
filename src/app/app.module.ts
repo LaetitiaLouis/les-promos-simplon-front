@@ -7,7 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule, MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { GalerieComponent } from './galerie/galerie.component';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {RouterModule, Routes} from '@angular/router';
@@ -15,6 +23,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -40,6 +49,7 @@ const routes: Routes =  [
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
@@ -48,7 +58,10 @@ const routes: Routes =  [
     FlexModule,
     RouterModule.forRoot(routes),
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+.page {
+  height: 80%;
+}
+
+.form-container {
+  max-width: 400px;
+}
+
+.form-content {
+  padding: 30px;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.form-title {
+  background-color: #3F51B5;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.mat-small {
+  text-align: right;
+  color: #FF4081;
+  cursor: pointer;
+}
