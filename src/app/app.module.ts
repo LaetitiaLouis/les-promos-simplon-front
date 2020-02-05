@@ -24,6 +24,7 @@ import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -31,6 +32,7 @@ const routes: Routes =  [
   {path: 'promo/:specialite/:nom', component: PromoComponent},
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'galerie', component: GalerieComponent}
 ]
 
@@ -44,7 +46,8 @@ const routes: Routes =  [
     AccueilComponent,
     PromoComponent,
     ProjetComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

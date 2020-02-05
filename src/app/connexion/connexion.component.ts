@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Utilisateur} from '../model/utilisateur';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -13,7 +14,8 @@ export class ConnexionComponent implements OnInit {
   connexionForm: FormGroup;
   submitted = false;
   constructor(private fb: FormBuilder,
-              private auth: AuthService) { }
+              private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.connexionForm = this.fb.group({
@@ -27,7 +29,9 @@ export class ConnexionComponent implements OnInit {
     if (this.connexionForm.invalid) { return; }
     this.auth.login(form.pseudo, form.motDePasse);
   }
-
+  redirectRegister() {
+    router.na
+  }
   get f() { return this.connexionForm.controls; }
 
 }

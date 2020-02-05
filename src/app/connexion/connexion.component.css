@@ -3,7 +3,9 @@
 }
 
 .form-container {
+  border-radius: 10px;
   max-width: 400px;
+  padding-bottom: 20px;
 }
 
 .form-content {
@@ -14,6 +16,8 @@ mat-form-field {
 }
 
 .form-title {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   background-color: #3F51B5;
   padding: 10px;
   text-align: center;
