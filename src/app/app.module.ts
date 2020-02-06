@@ -27,6 +27,7 @@ import { DetailUtilisateurComponent } from './détail-utilisateur/detail-utilisa
 import { AppercuUtilisateurComponent } from './appercu-utilisateur/appercu-utilisateur.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { PageComponent } from './page/page.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -53,7 +54,9 @@ const routes: Routes =  [
     RegisterComponent,
     ConnexionComponent,
     DetailUtilisateurComponent,
-    AppercuUtilisateurComponent
+    AppercuUtilisateurComponent,
+    RegisterComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
