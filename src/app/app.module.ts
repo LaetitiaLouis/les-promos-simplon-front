@@ -16,7 +16,7 @@ import {
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import { GalerieComponent } from './galerie/galerie.component';
+import { PhotoComponent } from './photo/photo.component';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from './accueil/accueil.component';
@@ -28,6 +28,7 @@ import { AppercuUtilisateurComponent } from './appercu-utilisateur/appercu-utili
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { PageComponent } from './page/page.component';
+import { AppercuPhotoComponent } from './appercu-photo/appercu-photo.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -37,7 +38,8 @@ const routes: Routes =  [
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'galerie', component: GalerieComponent}
+  {path: 'galerie', component: PhotoComponent},
+  {path: 'galerie/:id', component: PhotoComponent}
 ]
 
 @NgModule({
@@ -46,7 +48,7 @@ const routes: Routes =  [
     NavbarComponent,
     FooterComponent,
     UtilisateurComponent,
-    GalerieComponent,
+    PhotoComponent,
     AccueilComponent,
     PromoComponent,
     ProjetComponent,
@@ -56,7 +58,8 @@ const routes: Routes =  [
     DetailUtilisateurComponent,
     AppercuUtilisateurComponent,
     RegisterComponent,
-    PageComponent
+    PageComponent,
+    AppercuPhotoComponent
   ],
   imports: [
     BrowserModule,

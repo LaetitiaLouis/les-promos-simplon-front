@@ -1,0 +1,9 @@
+.appercuPhoto{
+  height: 50%;
+  width: 50%;
+  border-radius: 10%;
+  border: 4px white solid;
+}
+.container{
+  text-align: center;
+}

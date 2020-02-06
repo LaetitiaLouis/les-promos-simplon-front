@@ -3,4 +3,12 @@
 }
 h1{
   text-align: center;
+  font-size: 40px;
+}
+.userList{
+  justify-content: center;
+  display: inline-block;
+  max-width: 920px;
+  margin: 0 auto;
+  margin-top: 60px;
 }

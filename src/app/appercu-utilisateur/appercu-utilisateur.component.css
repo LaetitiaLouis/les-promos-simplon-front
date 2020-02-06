@@ -1,7 +1,8 @@
-
 .avatarList {
   height: 27px;
   margin-left: 10px;
   cursor: pointer;
 
-}
+.appercu{
+  text-align: center;
+ }

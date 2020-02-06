@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Promo} from './model/promo';
+import {Utilisateur} from './model/utilisateur';
 
 
 @Injectable({
@@ -14,8 +17,8 @@ BASE_URL = 'http://localhost:8080/api/utilisateurs'
     return this.http.get(`${this.BASE_URL}/all`);
   }
 
-  getUserById(id: number) {
-    return this.http.get(`${this.BASE_URL}/findById?id=${id}`);
+  getUserById(id: number): Observable<Utilisateur> {
+    return this.http.get<Utilisateur>(`${this.BASE_URL}/findById?id=${id}`);
   }
 
   getUserByNomPrenom(nomPrenom: string) {

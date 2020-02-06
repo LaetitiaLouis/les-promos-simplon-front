@@ -19,7 +19,7 @@ export class PromoComponent implements OnInit {
         promo => this.promo = promo
       )
     );
-
+  //
   }
 
 }
