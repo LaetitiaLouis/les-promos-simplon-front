@@ -18,7 +18,6 @@ p {
   margin-right: 15px;
 }
 
-.container {
-  width: 25%;
-  text-align: right;
+footer p, footer img {
+  margin-right: 10px;
 }

@@ -1,11 +1,14 @@
 <mat-toolbar class="mat-elevation-z6 navbar" color="primary">
   <div class="brand" fxHide.lt-md="true">PromosPro</div>
 
-  <div fxLayout="row" fxLayoutAlign.gt-sm="flex-end start" class="nav">
+  <div fxLayout="row" fxLayoutAlign.gt-sm="flex-end center" class="nav" fxLayoutAlign="space-between center ">
 
-    <a mat-button routerLink="/">Accueil</a>
-    <a mat-button routerLink="/utilisateur">Utilisateur</a>
-    <a mat-button [matMenuTriggerFor]="promos">Promo</a>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/">Accueil</div>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'"  mat-button routerLink="/utilisateur">Utilisateur</div>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button [matMenuTriggerFor]="promos">Promo</div>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/projet">Projets</div>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/galerie">Galerie</div>
+    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/connexion">Connexion</div>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
       <button mat-menu-item [matMenuTriggerFor]="cybersecu" *ngIf="cyber">Cyber sécurité</button>
@@ -16,10 +19,6 @@
     <mat-menu #cybersecu="matMenu">
       <button *ngFor="let promo of cyber" [routerLink]="['/promo', promo.specialite, promo.nom]" mat-menu-item>{{promo.nom}}</button>
     </mat-menu>
-    <a mat-button routerLink="/projet">Projets</a>
-    <a mat-button routerLink="/galerie">Galerie</a>
-    <a mat-button routerLink="/connexion">Connexion</a>
-
 </div>
 
 
