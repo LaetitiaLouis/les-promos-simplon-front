@@ -29,6 +29,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { PageComponent } from './page/page.component';
 import { AppercuPhotoComponent } from './appercu-photo/appercu-photo.component';
+import { AffichagePhotoComponent } from './affichage-photo/affichage-photo.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -39,7 +40,7 @@ const routes: Routes =  [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'galerie', component: PhotoComponent},
-  {path: 'galerie/:id', component: PhotoComponent}
+  {path: 'galerie/:id', component: AffichagePhotoComponent}
 ]
 
 @NgModule({
@@ -59,7 +60,8 @@ const routes: Routes =  [
     AppercuUtilisateurComponent,
     RegisterComponent,
     PageComponent,
-    AppercuPhotoComponent
+    AppercuPhotoComponent,
+    AffichagePhotoComponent
   ],
   imports: [
     BrowserModule,
