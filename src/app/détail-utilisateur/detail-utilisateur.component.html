@@ -1,8 +1,8 @@
-<img class="avatarList" src="../../assets/avatar.png">
-<p mat-line>Nom :{{utilisateur.nom}}</p>
-<p mat-line>Prenom : {{utilisateur.prenom}}</p>
-<p mat-line>Pseudo : {{utilisateur.pseudo}}</p>
-<p mat-line>Date de naissance : {{utilisateur.dateDeNaissance}}</p>
-<p mat-line>Présentation : {{utilisateur.presentation}}</p>
-<p mat-line>Commentaires : {{utilisateur.commentaires}}</p>
 
+<img class="avatarList" [src]="user.avatarUrl">
+<p mat-line>Nom :{{user.nom}}</p>
+<p mat-line>Prenom : {{user.prenom}}</p>
+<p mat-line>Pseudo : {{user.pseudo}}</p>
+<p mat-line>Date de naissance : {{user.dateDeNaissance}}</p>
+<p mat-line>Présentation : {{user.presentation}}</p>
+<p mat-line>Commentaires : {{user.commentaires}}</p>
