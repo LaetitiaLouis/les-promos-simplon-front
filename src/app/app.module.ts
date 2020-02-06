@@ -23,12 +23,15 @@ import {AccueilComponent} from './accueil/accueil.component';
 import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { DetailUtilisateurComponent } from './détail-utilisateur/detail-utilisateur.component';
+import { AppercuUtilisateurComponent } from './appercu-utilisateur/appercu-utilisateur.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
   {path: 'utilisateur', component: UtilisateurComponent},
+  {path: 'utilisateur/:id', component: DetailUtilisateurComponent},
   {path: 'promo/:specialite/:nom', component: PromoComponent},
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
@@ -47,7 +50,10 @@ const routes: Routes =  [
     PromoComponent,
     ProjetComponent,
     ConnexionComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConnexionComponent,
+    DetailUtilisateurComponent,
+    AppercuUtilisateurComponent
   ],
   imports: [
     BrowserModule,
