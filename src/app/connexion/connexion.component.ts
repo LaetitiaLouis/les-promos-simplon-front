@@ -29,9 +29,7 @@ export class ConnexionComponent implements OnInit {
     if (this.connexionForm.invalid) { return; }
     this.auth.login(form.pseudo, form.motDePasse);
   }
-  redirectRegister() {
-    router.na
-  }
+
   get f() { return this.connexionForm.controls; }
 
 }

@@ -25,6 +25,7 @@ import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { PageComponent } from './page/page.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -34,7 +35,7 @@ const routes: Routes =  [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'galerie', component: GalerieComponent}
-]
+];
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ const routes: Routes =  [
     PromoComponent,
     ProjetComponent,
     ConnexionComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
