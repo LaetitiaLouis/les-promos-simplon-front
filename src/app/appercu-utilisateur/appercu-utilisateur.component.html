@@ -2,6 +2,6 @@
 
 <button mat-menu-item [routerLink]="['/utilisateur', utilisateur.id]" mat-menu-item>
   <img class="avatarList" src="../../assets/avatar.png"></button>
-<p mat-line (click)="utilisateurService.getUserById(utilisateur.id)">{{utilisateur.nom + ' ' + utilisateur.prenom}}</p>
+<p mat-line>{{utilisateur.nom + ' ' + utilisateur.prenom}}</p>
 <p mat-line>{{utilisateur.pseudo}}</p>
 
