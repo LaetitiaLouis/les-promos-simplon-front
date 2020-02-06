@@ -1,8 +1,9 @@
-<div *ngIf="utilisateur" class="mat-typography container">
+<div *ngIf="utilisateur" class="mat-typography" >
   <h1 >{{'Liste des utilisateurs'}}</h1>
   <mat-list fxLayout="row" class="userList" *ngIf="utilisateur.length > 0">
     <mat-list-item class="user" *ngFor="let user of utilisateur">
       <app-appercu-utilisateur [utilisateur]="user"></app-appercu-utilisateur>
     </mat-list-item>
   </mat-list>
+
 </div>

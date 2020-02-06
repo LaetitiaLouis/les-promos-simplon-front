@@ -2,6 +2,7 @@ mat-toolbar {
   position: fixed;
   top: 0;
   width: 100% !important;
+  z-index: 20;
 }
 .nav {
   width: 100%;
