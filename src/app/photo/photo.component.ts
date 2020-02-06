@@ -15,7 +15,7 @@ export class PhotoComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
       this.photoService.getAllPhotos().subscribe(
-        photos => this.photos = photos
+        (photos: Photo[]) => this.photos = photos
       )
     );
   }

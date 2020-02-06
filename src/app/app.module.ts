@@ -8,11 +8,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {
-  MatButtonModule,
+  MatButtonModule, MatDatepickerModule,
   MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatMenuModule,
+  MatMenuModule, MatNativeDateModule, MatRadioModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -41,7 +41,7 @@ const routes: Routes =  [
   {path: 'register', component: RegisterComponent},
   {path: 'galerie', component: PhotoComponent},
   {path: 'galerie/:id', component: AffichagePhotoComponent}
-]
+];
 
 @NgModule({
   declarations: [
@@ -78,7 +78,10 @@ const routes: Routes =  [
     MatIconModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

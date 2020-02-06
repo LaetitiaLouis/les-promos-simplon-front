@@ -1,0 +1,34 @@
+.page-container {
+  padding-top: 80px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+.form-content {
+  padding: 20px;
+}
+.mat-title {
+  text-align: center;
+  background-color: #3F51B5;
+  color: white;
+  padding: 10px 0;
+}
+mat-radio-group {
+  margin-bottom: 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+input {
+  width: 100%;
+  display: block;
+}
+
+button {
+  margin: 0 0 10px 0;
+}
+mat-form-field {
+  display: block;
+  margin-bottom: 10px;
+}
+

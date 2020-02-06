@@ -9,14 +9,14 @@ import {Utilisateur} from '../model/utilisateur';
   styleUrls: ['./utilisateur.component.css']
 })
 export class UtilisateurComponent implements OnInit {
-utilisateur: Utilisateur[];
+  utilisateur: Utilisateur[];
   constructor(private utilisateurService: UtilisateurService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
       this.utilisateurService.getAllUsers().subscribe(
-        utilisateur => this.utilisateur = utilisateur
+        (utilisateurs: Utilisateur[]) => this.utilisateur = utilisateurs
       )
     );
   }

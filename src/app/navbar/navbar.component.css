@@ -18,4 +18,9 @@ mat-toolbar {
   margin: 0 15px 0 0;
 
 }
+@media (max-width: 360px) {
+  .mat-small {
+    margin: 0 8px 0 0;
+  }
+}
 
