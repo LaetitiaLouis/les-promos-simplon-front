@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
-import {Utilisateur} from '../model/utilisateur';
-import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,8 +12,7 @@ export class ConnexionComponent implements OnInit {
   connexionForm: FormGroup;
   submitted = false;
   constructor(private fb: FormBuilder,
-              private auth: AuthService,
-              private router: Router) { }
+              private auth: AuthService) { }
 
   ngOnInit() {
     this.connexionForm = this.fb.group({
