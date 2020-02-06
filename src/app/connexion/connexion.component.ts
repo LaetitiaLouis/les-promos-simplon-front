@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {Utilisateur} from '../model/utilisateur';
+import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({
