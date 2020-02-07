@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProjetService {
-  BASE_URL = 'http://localhost:8080/api/projet';
+  BASE_URL = 'http://localhost:8080/api/projets';
 
   constructor(private http: HttpClient) {
   }

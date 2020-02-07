@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {PromoService} from '../promo.service';
 import {ActivatedRoute} from '@angular/router';
@@ -19,7 +20,6 @@ export class PromoComponent implements OnInit {
         promo => this.promo = promo
       )
     );
-  //
   }
 
 }

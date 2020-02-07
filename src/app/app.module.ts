@@ -24,6 +24,7 @@ import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailUtilisateurComponent } from './détail-utilisateur/detail-utilisateur.component';
+import { AppercuUtilisateurComponent } from './appercu-utilisateur/appercu-utilisateur.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { PageComponent } from './page/page.component';

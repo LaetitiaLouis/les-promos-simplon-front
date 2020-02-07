@@ -1,12 +1,10 @@
-
-  <div class="mat-typography">
-    <h1 >Liste des utilisateurs</h1>
-  </div>
-  <div *ngIf="utilisateurs" class="list-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+<div class="mat-typography">
+  <h1 >Liste des utilisateurs</h1>
+</div>
+<div *ngIf="utilisateurs" class="list-container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px">
   <div fxLayout="column" fxLayoutAlign="center center" *ngFor="let utilisateur of utilisateurs" class="card mat-elevation-z2">
     <img [routerLink]="['/utilisateur', utilisateur.id]" class="avatar" src="../../assets/avatar.png" alt="Photo de profil">
     <p class="nomPrenom" mat-line [routerLink]="['/utilisateur', utilisateur.id]">{{utilisateur.prenom | titlecase}} {{utilisateur.nom | titlecase}}</p>
     <p class="pseudo" mat-line>{{utilisateur.pseudo}}</p>
   </div>
-  </div>
-
+</div>

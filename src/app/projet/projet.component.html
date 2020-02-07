@@ -1,15 +1,25 @@
-<div *ngIf="projets" fxLayout="column" fxLayoutAlign="start center" class="mat-typography container">
+<div *ngIf="projets" fxLayout="row" fxLayoutAlign="center" class="mat-typography container">
 
-  <mat-list *ngIf="projets > 0" fxLayout="row">
-    <h3>Veille:</h3>
-    
-    <mat-list-item *ngFor="let projets of projets">
-      <p class="appercu" mat-line>{{projets.nom}}</p>
-    </mat-list-item>
+  <div class="projet" class="mat-typography container-vp">
+
     <h3>Projets:</h3>
 
-    <mat-list-item *ngFor="let projets of projets">
-      <p class="appercu" mat-line>{{projets.nom}}</p>
+    <mat-list *ngIf="projets.length > 0" class="list-container" fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+      <mat-list-item *ngFor="let projets of projets" fxLayout="column" fxLayoutAlign="center" class="card mat-elevation-z2">
+        <p class="appercu" mat-line>{{projets.nom}}</p>
+        <p class="appercu" mat-line>{{projets.descriptif}}</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+<div class="veille" class="mat-typography container-vp">
+  <h3>Veille:</h3>
+  <mat-list *ngIf="veille.length > 0" class="list-container" fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+    <mat-list-item *ngFor="let veille of veille" fxLayout="column" fxLayoutAlign="center" class="card mat-elevation-z2">
+      <p class="appercu" mat-line>{{veille.nom}}</p>
+      <p class="appercu" mat-line>{{veille.descriptif}}</p>
     </mat-list-item>
-  </mat-list>
+    </mat-list>
+</div>
+
 </div>
