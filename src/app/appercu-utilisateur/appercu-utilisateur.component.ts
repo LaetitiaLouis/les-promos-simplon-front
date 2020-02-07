@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class AppercuUtilisateurComponent implements OnInit {
   @Input() utilisateur;
 
+
   constructor(private utilisateurService: UtilisateurService,
               private route: ActivatedRoute) { }
 

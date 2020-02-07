@@ -4,11 +4,10 @@
 <p class="detail" mat-line>{{'Prenom :'+ ' ' +user.prenom}}</p>
 <p class="detail" mat-line>{{'Pseudo :'+ ' ' +user.pseudo}}</p>
 <p class="detail" mat-line>{{'Date de naissance :'+ ' ' +user.dateDeNaissance}}</p>
-  <button mat-raised-button routerLink="/utilisateur">Retour</button>
 </div>
 <div class="container2">
 <p class="detail" mat-line>{{'Présentation :'+ ' ' +user.presentation}}</p>
 <p class="detail" mat-line>{{'Commentaires :'+ ' ' +user.commentaires}}</p>
 </div>
-
+<input mat-raised-button type="button" value="Retour" onclick="history.go(-1)">
 
