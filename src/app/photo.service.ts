@@ -7,7 +7,7 @@ import {Photo} from './model/photo';
   providedIn: 'root'
 })
 export class PhotoService {
-  BASE_URL = 'http://localhost:8080/api/photos'
+  BASE_URL = 'http://localhost:8080/api/photos';
   constructor(private http: HttpClient) {
   }
   getAllPhotos() {
