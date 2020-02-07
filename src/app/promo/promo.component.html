@@ -1,16 +1,14 @@
 <div *ngIf="promo" fxLayout="column" fxLayoutAlign="start center" class="mat-typography container">
   <h1>{{promo.specialite.toUpperCase() + ' ' + promo.anneeFin + ':'}}</h1>
 
-  <mat-list *ngIf="promo.apprenants.length > 0">
+  <mat-list *ngIf="promo.apprenants.length > 0" fxLayout="row">
     <h3>Apprenants:</h3>
     <mat-list-item *ngFor="let apprenant of promo.apprenants">
-      <mat-icon mat-list-icon>person</mat-icon>
-      <h4 mat-line [routerLink]="['/utilisateur', apprenant.id]">{{apprenant.nom + ' ' + apprenant.prenom}}</h4>
+      <app-appercu-utilisateur [utilisateur]="apprenant"></app-appercu-utilisateur>
     </mat-list-item>
-    <h3>Foramteurs:</h3>
+    <h3>Formateurs:</h3>
     <mat-list-item *ngFor="let formateur of promo.formateurs">
-      <mat-icon mat-list-icon>person</mat-icon>
-      <h4 mat-line [routerLink]="['/utilisateur', formateur.id]">{{formateur.nom + ' ' + formateur.prenom}}</h4>
+      <app-appercu-utilisateur [utilisateur]="formateur"></app-appercu-utilisateur>
     </mat-list-item>
   </mat-list>
 </div>
