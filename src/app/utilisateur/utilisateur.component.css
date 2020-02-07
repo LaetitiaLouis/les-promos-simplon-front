@@ -1,5 +1,6 @@
 .container {
   padding-top: 20px;
+  width: 100%;
 }
 h1{
   text-align: center;
@@ -8,7 +9,9 @@ h1{
 .userList{
   justify-content: center;
   display: inline-block;
-  max-width: 920px;
   margin: 0 auto;
   margin-top: 60px;
+}
+mat-list, mat-list-item {
+  width: 100%;
 }

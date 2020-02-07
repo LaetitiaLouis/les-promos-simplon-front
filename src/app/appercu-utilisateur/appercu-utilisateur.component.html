@@ -1,4 +1,7 @@
-<img [routerLink]="['/utilisateur', utilisateur.id]" class="avatarList" [src]="utilisateur.avatarUrl" alt="Photo de profil">
-<p class="appercu" mat-line [routerLink]="['/utilisateur', utilisateur.id]">{{utilisateur.nom + ' ' + utilisateur.prenom}}</p>
-<p class="appercu" mat-line>{{utilisateur.pseudo}}</p>
-
+<div fxLayout fxLayoutAlign="center center" class="container">
+  <div>
+<img [routerLink]="['/utilisateur', utilisateur.id]" class="avatarList" src="../../assets/avatar.png" alt="Photo de profil">
+<p class="nomPrenom" mat-line [routerLink]="['/utilisateur', utilisateur.id]">{{utilisateur.prenom | titlecase}} {{utilisateur.nom | titlecase}}</p>
+<p class="pseudo" mat-line>{{utilisateur.pseudo}}</p>
+  </div>
+</div>
