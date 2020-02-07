@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PromoService} from '../promo.service';
 import {Promo} from '../model/promo';
-import {AuthService} from '../auth.service';
-import {Utilisateur} from '../model/utilisateur';
 
 @Component({
   selector: 'app-navbar',

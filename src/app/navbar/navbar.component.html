@@ -3,12 +3,24 @@
 
   <div fxLayout="row" fxLayoutAlign.gt-sm="flex-end center" class="nav" fxLayoutAlign="space-between center ">
 
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/">Accueil</div>
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'"  mat-button routerLink="/utilisateur">Utilisateur</div>
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button [matMenuTriggerFor]="promos">Promo</div>
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/projet">Projets</div>
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/galerie">Galerie</div>
-    <div class="mat-headline" [ngClass.lt-sm]="'mat-small'" mat-button routerLink="/connexion">Connexion</div>
+    <a mat-button routerLink="/">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Accueil</span>
+    </a>
+    <a mat-button routerLink="/utilisateur">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Utilisateur</span>
+    </a>
+    <a mat-button [matMenuTriggerFor]="promos">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Promo</span>
+    </a>
+    <a mat-button routerLink="/projet">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'" >Projets</span>
+    </a>
+    <a mat-button routerLink="/galerie">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Galerie</span>
+    </a>
+    <a mat-button routerLink="/connexion">
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Connexion</span>
+    </a>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
       <button mat-menu-item [matMenuTriggerFor]="cybersecu" *ngIf="cyber">Cyber sécurité</button>

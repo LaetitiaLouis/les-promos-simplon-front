@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {PhotoService} from '../photo.service';
+import {PhotoService} from '../../photo.service';
 import {ActivatedRoute} from '@angular/router';
-import {Photo} from '../model/photo';
+import {Photo} from '../../model/photo';
 
 @Component({
   selector: 'app-affichage-photo',

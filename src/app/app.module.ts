@@ -23,13 +23,14 @@ import {AccueilComponent} from './accueil/accueil.component';
 import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { DetailUtilisateurComponent } from './détail-utilisateur/detail-utilisateur.component';
+import { DetailUtilisateurComponent } from './utilisateur/detail-utilisateur/detail-utilisateur.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './connexion/register/register.component';
 import { PageComponent } from './page/page.component';
-import { AppercuPhotoComponent } from './appercu-photo/appercu-photo.component';
-import { AffichagePhotoComponent } from './affichage-photo/affichage-photo.component';
+import { AppercuPhotoComponent } from './photo/appercu-photo/appercu-photo.component';
+import { AffichagePhotoComponent } from './photo/affichage-photo/affichage-photo.component';
 import { RetourComponent } from './retour/retour.component';
+import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -61,7 +62,8 @@ const routes: Routes =  [
     PageComponent,
     AppercuPhotoComponent,
     AffichagePhotoComponent,
-    RetourComponent
+    RetourComponent,
+    ListUtilisateurComponent
   ],
   imports: [
     BrowserModule,

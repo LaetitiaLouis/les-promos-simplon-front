@@ -3,12 +3,12 @@
 
   <mat-list *ngIf="promo.apprenants.length > 0" fxLayout="row">
     <h3>Apprenants:</h3>
-    <mat-list-item *ngFor="let apprenant of promo.apprenants">
-      <app-utilisateur [utilisateurs]="apprenant"></app-utilisateur>
-    </mat-list-item>
+
+      <app-list-utilisateur [utilisateurs]="promo.apprenants"></app-list-utilisateur>
+
     <h3>Formateurs:</h3>
-    <mat-list-item *ngFor="let formateur of promo.formateurs">
-      <app-utilisateur [utilisateurs]="formateur"></app-utilisateur>
-    </mat-list-item>
+
+    <app-list-utilisateur [utilisateurs]="promo.formateurs"></app-list-utilisateur>
+
   </mat-list>
 </div>
