@@ -1,1 +1,15 @@
-<p>projet works!</p>
+<div *ngIf="projets" fxLayout="column" fxLayoutAlign="start center" class="mat-typography container">
+
+  <mat-list *ngIf="projets > 0" fxLayout="row">
+    <h3>Veille:</h3>
+    
+    <mat-list-item *ngFor="let projets of projets">
+      <p class="appercu" mat-line>{{projets.nom}}</p>
+    </mat-list-item>
+    <h3>Projets:</h3>
+
+    <mat-list-item *ngFor="let projets of projets">
+      <p class="appercu" mat-line>{{projets.nom}}</p>
+    </mat-list-item>
+  </mat-list>
+</div>
