@@ -1,17 +1,19 @@
 .container {
   padding-top: 20px;
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
+  border: 1px red solid;
 }
 h1{
   text-align: center;
   font-size: 40px;
 }
-.userList{
-  width: 100%;
-  margin: 100px auto 0 auto;
 
+mat-list-item {
+  border: 1px yellow solid;
+  width: 100%;
 }
-mat-list, mat-list-item {
+mat-list {
+  border: 1px deeppink solid;
   width: 100%;
 }
