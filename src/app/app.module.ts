@@ -24,12 +24,12 @@ import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailUtilisateurComponent } from './détail-utilisateur/detail-utilisateur.component';
-import { AppercuUtilisateurComponent } from './appercu-utilisateur/appercu-utilisateur.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { PageComponent } from './page/page.component';
 import { AppercuPhotoComponent } from './appercu-photo/appercu-photo.component';
 import { AffichagePhotoComponent } from './affichage-photo/affichage-photo.component';
+import { RetourComponent } from './retour/retour.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -57,11 +57,11 @@ const routes: Routes =  [
     RegisterComponent,
     ConnexionComponent,
     DetailUtilisateurComponent,
-    AppercuUtilisateurComponent,
     RegisterComponent,
     PageComponent,
     AppercuPhotoComponent,
-    AffichagePhotoComponent
+    AffichagePhotoComponent,
+    RetourComponent
   ],
   imports: [
     BrowserModule,

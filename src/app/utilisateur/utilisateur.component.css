@@ -1,19 +1,29 @@
-.container {
+.list-container {
   padding-top: 20px;
-  max-width: 800px;
   margin: 0 auto;
-  border: 1px red solid;
+  max-width: 920px;
 }
 h1{
   text-align: center;
   font-size: 40px;
 }
-
-mat-list-item {
-  border: 1px yellow solid;
-  width: 100%;
+.card {
+  margin-top: 10px;
+  padding: 10px;
+  width: 180px;
 }
-mat-list {
-  border: 1px deeppink solid;
-  width: 100%;
+.avatar {
+  cursor: pointer;
+  margin-top: 40px;
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
+  border: 4px white solid;
+}
+.nomPrenom {
+  text-align: center;
+  font-weight: 500;
+}
+.pseudo {
+  text-align: center;
 }
