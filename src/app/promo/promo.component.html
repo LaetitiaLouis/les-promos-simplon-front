@@ -1,14 +1,13 @@
-<div *ngIf="promo" fxLayout="column" fxLayoutAlign="start center" class="mat-typography container">
-  <h1>{{promo.specialite.toUpperCase() + ' ' + promo.anneeFin + ':'}}</h1>
+<div *ngIf="promo">
+  <div class="mat-display-2">{{promo.specialite | titlecase }} {{ promo.anneeFin }}</div>
 
-  <mat-list *ngIf="promo.apprenants.length > 0" fxLayout="row">
-    <h3>Apprenants:</h3>
-
-      <app-list-utilisateur [utilisateurs]="promo.apprenants"></app-list-utilisateur>
-
-    <h3>Formateurs:</h3>
-
+  <div *ngIf="promo.apprenants.length > 0" fxLayout="column" fxLayoutAlign="start center" class="apprenant-list">
+    <div class="mat-title">Apprenants</div>
+    <app-list-utilisateur [utilisateurs]="promo.apprenants"></app-list-utilisateur>
+  </div>
+  <div *ngIf="promo.formateurs.length > 0" fxLayout="column" fxLayoutAlign="start center">
+    <div class="mat-title">Formateur</div>
     <app-list-utilisateur [utilisateurs]="promo.formateurs"></app-list-utilisateur>
+  </div>
 
-  </mat-list>
 </div>
