@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PromoService} from '../promo.service';
+import {PromoService} from '../service/promo.service';
 import {Promo} from '../model/promo';
 
 @Component({

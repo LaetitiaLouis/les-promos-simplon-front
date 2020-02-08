@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import {PromoService} from '../promo.service';
+import {PromoService} from '../service/promo.service';
 import {ActivatedRoute} from '@angular/router';
 import {Promo} from '../model/promo';
 
