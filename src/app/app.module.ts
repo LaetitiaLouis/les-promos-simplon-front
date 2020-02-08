@@ -17,7 +17,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { PhotoComponent } from './photo/photo.component';
-import {ExtendedModule, FlexModule} from '@angular/flex-layout';
+import {ExtendedModule, FlexModule, GridModule} from '@angular/flex-layout';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from './accueil/accueil.component';
 import { PromoComponent } from './promo/promo.component';
@@ -83,7 +83,8 @@ const routes: Routes =  [
     MatInputModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

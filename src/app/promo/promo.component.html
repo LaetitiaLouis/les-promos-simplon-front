@@ -1,12 +1,12 @@
-<div *ngIf="promo">
-  <div class="mat-display-2">{{promo.specialite | titlecase }} {{ promo.anneeFin }}</div>
+<div *ngIf="promo" gdAreas="title title | left right" gdColumns="1fr 1fr" gdAreas.lt-sm="title | left | right" gdColumns.lt-sm="1fr" gdRows="auto auto">
+  <div class="mat-display-2" gdArea="title">{{promo.specialite | titlecase }} {{ promo.anneeFin }}</div>
 
-  <div *ngIf="promo.apprenants.length > 0" fxLayout="column" fxLayoutAlign="start center" class="apprenant-list">
-    <div class="mat-title">Apprenants</div>
+  <div *ngIf="promo.apprenants.length > 0" gdArea="left" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
+    <div class="mat-title mat-elevation-z2">Les apprenants</div>
     <app-list-utilisateur [utilisateurs]="promo.apprenants"></app-list-utilisateur>
   </div>
-  <div *ngIf="promo.formateurs.length > 0" fxLayout="column" fxLayoutAlign="start center">
-    <div class="mat-title">Formateur</div>
+  <div *ngIf="promo.formateurs.length > 0" gdArea="right" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
+    <div class="mat-title mat-elevation-z2">Les formateurs</div>
     <app-list-utilisateur [utilisateurs]="promo.formateurs"></app-list-utilisateur>
   </div>
 
