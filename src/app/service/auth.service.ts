@@ -13,9 +13,18 @@ export class AuthService {
   login(pseudo, motDePasse) {
     this.http.post('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).subscribe(
       (user: Utilisateur) => {
-        console.log(user);
-        this.router.navigate(['']);
+        sessionStorage.setItem('pseudo', user.pseudo);
+        this.router.navigate(['/profil']);
       }
     );
+  }
+  isLoggedIn() {
+    const pseudo = sessionStorage.getItem('pseudo');
+    return !(pseudo === null);
+  }
+
+  logout() {
+    sessionStorage.removeItem('pseudo');
+    this.router.navigate(['/connexion']);
   }
 }

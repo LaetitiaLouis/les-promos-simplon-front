@@ -2,7 +2,8 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mat-elevation-z2">
     <div class="mat-title">Formulaire d'enregistrement</div>
     <div class="form-content">
-      <mat-radio-group aria-label="Choisir une option" formControlName="isApprenant" fxLayout fxLayoutAlign="center center">
+      <mat-radio-group aria-label="Choisir une option" formControlName="isApprenant" (change)="isApprenant = !isApprenant" fxLayout
+                       fxLayoutAlign="center center">
         <mat-radio-button value="true" checked>Appprenant</mat-radio-button>
         <mat-radio-button value="false">Formateur</mat-radio-button>
       </mat-radio-group>
@@ -14,52 +15,61 @@
           <span *ngIf="f.pseudo.errors?.pseudoExists">Ce pseudo est déjà utilisé</span>
         </mat-error>
       </mat-form-field>
-            <mat-form-field>
-              <input type="password" matInput placeholder="Entrez votre mot de passe" formControlName="motDePasse">
-              <mat-error *ngIf="f.motDePasse.errors && (f.motDePasse.dirty || f.motDePasse.touched)">
+      <mat-form-field>
+        <input type="password" matInput placeholder="Entrez votre mot de passe" formControlName="motDePasse">
+        <mat-error *ngIf="f.motDePasse.errors && (f.motDePasse.dirty || f.motDePasse.touched)">
                 <span *ngIf="f.motDePasse.errors.required">Vous devez
                   saisir un mot de passe</span>
-                <span *ngIf="f.motDePasse.errors.minlength">Le mot de
+          <span *ngIf="f.motDePasse.errors.minlength">Le mot de
                   passe doit avoir 8 caractères au minimum</span>
-              </mat-error>
-            </mat-form-field>
+        </mat-error>
+      </mat-form-field>
 
-             <mat-form-field>
-               <input type="password" matInput placeholder="Vérifier le mot de passe" formControlName="confirmPass">
-               <mat-error *ngIf="f.confirmPass.errors && (f.confirmPass.dirty || f.confirmPass.touched)">
-                 <span *ngIf="f.confirmPass.errors.required">Vous devez confirmer votre mot de passe</span>
-                 <span *ngIf="f.confirmPass.errors.passwordMismatch">Le mot de passe est différent</span>
-               </mat-error>
-             </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Vérifier le mot de passe" formControlName="confirmPass">
+        <mat-error *ngIf="f.confirmPass.errors && (f.confirmPass.dirty || f.confirmPass.touched)">
+          <span *ngIf="f.confirmPass.errors.required">Vous devez confirmer votre mot de passe</span>
+          <span *ngIf="f.confirmPass.errors.passwordMismatch">Le mot de passe est différent</span>
+        </mat-error>
+      </mat-form-field>
 
-            <mat-form-field>
-              <input type="email" matInput placeholder="Entrez votre adresse mail" formControlName="email">
-              <mat-error *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
-                <span *ngIf="f.email.errors.required">Adresse mail requise</span>
-                <span *ngIf="f.email.errors.email">Adresse mail invalide</span>
-                <span *ngIf="f.email.errors?.emailExists">Cette adresse mail est déjà utilisée</span>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Entrez votre nom" formControlName="nom">
-              <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
-                <span *ngIf="f.nom.errors.required">Le champ nom est requis</span>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Entrez votre prénom" formControlName="prenom">
-              <mat-error *ngIf="f.prenom.errors && (f.prenom.dirty || f.prenom.touched)">
-                <span *ngIf="f.prenom.errors.required">Le champ prénom est requis</span>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput [matDatepicker]="picker" formControlName="dateDeNaissance" placeholder="Sélectionnez votre date de naissance">
-              <mat-datepicker #picker></mat-datepicker>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-             <!-- <mat-error *ngIf="f.dateDeNaissance.errors && (f.dateDeNaissance.dirty || f.dateDeNaissance.touched)">
-                <span *ngIf="f.dateDeNaissance.errors.required">Merci de saisir votre date de naissance</span>
-              </mat-error> -->
-            </mat-form-field>
+      <mat-form-field>
+        <input type="email" matInput placeholder="Entrez votre adresse mail" formControlName="email">
+        <mat-error *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
+          <span *ngIf="f.email.errors.required">Adresse mail requise</span>
+          <span *ngIf="f.email.errors.email">Adresse mail invalide</span>
+          <span *ngIf="f.email.errors?.emailExists">Cette adresse mail est déjà utilisée</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Entrez votre nom" formControlName="nom">
+        <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
+          <span *ngIf="f.nom.errors.required">Le champ nom est requis</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Entrez votre prénom" formControlName="prenom">
+        <mat-error *ngIf="f.prenom.errors && (f.prenom.dirty || f.prenom.touched)">
+          <span *ngIf="f.prenom.errors.required">Le champ prénom est requis</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" formControlName="dateDeNaissance"
+               placeholder="Sélectionnez votre date de naissance">
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <!-- <mat-error *ngIf="f.dateDeNaissance.errors && (f.dateDeNaissance.dirty || f.dateDeNaissance.touched)">
+           <span *ngIf="f.dateDeNaissance.errors.required">Merci de saisir votre date de naissance</span>
+         </mat-error> -->
+      </mat-form-field>
+      <mat-form-field *ngIf="isApprenant">
+        <mat-label>Entité d'affectation</mat-label>
+        <mat-select  formControlName="entiteAffectation">
+          <mat-option *ngFor="let entite of entites" [value]="entite">
+            {{entite}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div fxLayout fxLayoutAlign="center center">
       <button mat-raised-button color="accent">Envoyer</button>

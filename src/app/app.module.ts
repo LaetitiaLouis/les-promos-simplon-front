@@ -12,7 +12,7 @@ import {
   MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatMenuModule, MatNativeDateModule, MatRadioModule,
+  MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -24,13 +24,14 @@ import { PromoComponent } from './promo/promo.component';
 import { ProjetComponent } from './projet/projet.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailUtilisateurComponent } from './utilisateur/detail-utilisateur/detail-utilisateur.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './connexion/register/register.component';
 import { PageComponent } from './page/page.component';
 import { AppercuPhotoComponent } from './photo/appercu-photo/appercu-photo.component';
 import { AffichagePhotoComponent } from './photo/affichage-photo/affichage-photo.component';
 import { RetourComponent } from './retour/retour.component';
 import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
+import { ProfilComponent } from './connexion/profil/profil.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -41,7 +42,8 @@ const routes: Routes =  [
   {path: 'connexion', component: ConnexionComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'galerie', component: PhotoComponent},
-  {path: 'galerie/:id', component: AffichagePhotoComponent}
+  {path: 'galerie/:id', component: AffichagePhotoComponent},
+  {path: 'profil', component: ProfilComponent}
 ];
 
 @NgModule({
@@ -63,7 +65,8 @@ const routes: Routes =  [
     AppercuPhotoComponent,
     AffichagePhotoComponent,
     RetourComponent,
-    ListUtilisateurComponent
+    ListUtilisateurComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,9 @@ const routes: Routes =  [
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    GridModule
+    GridModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

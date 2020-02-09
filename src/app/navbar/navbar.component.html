@@ -18,8 +18,11 @@
     <a mat-button routerLink="/galerie">
       <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Galerie</span>
     </a>
-    <a mat-button routerLink="/connexion">
+    <a *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
       <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Connexion</span>
+    </a>
+    <a *ngIf="auth.isLoggedIn()" mat-button>
+      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
     </a>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
@@ -30,6 +33,11 @@
     </mat-menu>
     <mat-menu #cybersecu="matMenu">
       <button *ngFor="let promo of cyber" [routerLink]="['/promo', promo.specialite, promo.nom]" mat-menu-item>{{promo.nom}}</button>
+    </mat-menu>
+
+    <mat-menu #profil="matMenu">
+      <button routerLink="/profil" mat-menu-item>Profil</button>
+      <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
     </mat-menu>
 </div>
 

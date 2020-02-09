@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {FormValidatorService} from '../../service/form-validator.service';
+import {UtilisateurService} from '../../service/utilisateur.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +11,12 @@ import {FormValidatorService} from '../../service/form-validator.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm;
-
+  entites = ['Paris', 'Nantes', 'Gradignan'];
+  isApprenant = true;
   constructor(private fb: FormBuilder,
-              private validator: FormValidatorService) {
+              private validator: FormValidatorService,
+              private userService: UtilisateurService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -24,7 +29,8 @@ export class RegisterComponent implements OnInit {
         nom: ['', [Validators.required]],
         prenom: ['', [Validators.required]],
         presentation: ['', Validators.required],
-        dateDeNaissance: [null, Validators.required]
+        dateDeNaissance: [null, Validators.required],
+        entiteAffectation: ['', Validators.required]
       },
       {
         validators: this.validator.passwordMatch
@@ -38,6 +44,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.f.invalid) { return; }
+    this.userService.registerUser(this.registerForm.value).subscribe(
+      user => user && this.router.navigate(['/connexion'])
+    );
   }
 
 }

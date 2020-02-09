@@ -8,9 +8,10 @@ export class Utilisateur {
   commentaires: string[];
   presentation: string;
   email: string;
-  avatarUrl: string;
+  avatarUrl = 'http://localhost:8080/api/photos/download/avatar.png';
   role: object;
   photos: object[];
   hobbies: object[];
-
+  isApprenant: boolean;
+  entiteAffectation: string;
 }
