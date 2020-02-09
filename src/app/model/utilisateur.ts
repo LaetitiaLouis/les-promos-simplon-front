@@ -1,3 +1,5 @@
+import {Promo} from './promo';
+
 export class Utilisateur {
   id: number;
   nom: string;
@@ -14,4 +16,6 @@ export class Utilisateur {
   hobbies: object[];
   isApprenant: boolean;
   entiteAffectation: string;
+  promo: Promo;
+  promos: Promo[];
 }

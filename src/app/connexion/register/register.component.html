@@ -70,6 +70,14 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field *ngIf="isApprenant && promos">
+        <mat-label>Promo</mat-label>
+        <mat-select  formControlName="promo">
+          <mat-option *ngFor="let promo of promos" [value]="promo">
+            {{promo.nom}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div fxLayout fxLayoutAlign="center center">
       <button mat-raised-button color="accent">Envoyer</button>
