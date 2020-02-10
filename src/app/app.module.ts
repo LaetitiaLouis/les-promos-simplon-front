@@ -32,6 +32,7 @@ import { AffichagePhotoComponent } from './photo/affichage-photo/affichage-photo
 import { RetourComponent } from './retour/retour.component';
 import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { ProfilComponent } from './connexion/profil/profil.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -66,7 +67,8 @@ const routes: Routes =  [
     AffichagePhotoComponent,
     RetourComponent,
     ListUtilisateurComponent,
-    ProfilComponent
+    ProfilComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
