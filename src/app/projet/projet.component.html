@@ -2,7 +2,7 @@
 
   <div class="projet" class="mat-typography container-vp">
 
-    <h3>Projets:</h3>
+    <div class="mat-title mat-elevation-z2">Projets:</div>
 
     <mat-list *ngIf="projets.length > 0" class="list-container" fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
       <mat-list-item *ngFor="let projets of projets" fxLayout="column" fxLayoutAlign="center" class="card mat-elevation-z2">
@@ -13,7 +13,7 @@
   </div>
 
 <div class="veille" class="mat-typography container-vp">
-  <h3>Veille:</h3>
+  <div class="mat-title mat-elevation-z2">Veille:</div>
   <mat-list *ngIf="veille.length > 0" class="list-container" fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
     <mat-list-item *ngFor="let veille of veille" fxLayout="column" fxLayoutAlign="center" class="card mat-elevation-z2">
       <p class="appercu" mat-line>{{veille.nom}}</p>
