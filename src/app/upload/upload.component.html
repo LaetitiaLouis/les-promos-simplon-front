@@ -1,7 +1,29 @@
 <div class="container">
 
+  <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+    <mat-radio-group aria-label="Choisir une option"  (change)="isProfile = !isProfile" fxLayout
+                     fxLayoutAlign="center center">
+      <mat-radio-button value="true" checked>Profil</mat-radio-button>
+      <mat-radio-button value="false">Gallerie</mat-radio-button>
+    </mat-radio-group>
 
-  <input type="file" placeholder="Maximum 5Mo" (change)="onFileSelected($event.target.files)">
-  <button mat-raised-button (click)="uploadPhoto()">Envoyer</button>
+      <mat-form-field *ngIf="!isProfile">
+        <mat-label>Catégorie</mat-label>
+        <mat-select  formControlName="categorie">
+          <mat-option *ngFor="let categorie of categories" [value]="categorie">
+            {{categorie}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Donnez un nom à votre photo" formControlName="nom">
+      <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
+        <span *ngIf="f.nom.errors.required">Un nom est requis</span>
+      </mat-error>
+    </mat-form-field>
+    <input type="file" placeholder="Maximum 5Mo" (change)="onFileSelected($event.target.files)" class="file-input">
+    <button mat-raised-button color="accent" type="submit">Envoyer</button>
+  </form>
+
 </div>
 

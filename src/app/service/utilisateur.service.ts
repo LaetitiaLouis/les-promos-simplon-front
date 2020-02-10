@@ -33,7 +33,9 @@ export class UtilisateurService {
   checkIfEmailExists(email: string) {
     return this.http.get(`${this.BASE_URL}/emailExists?email=${email}`);
   }
-
+  updateUser(user: Utilisateur): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(`http://localhost:8080/api/apprenants/update`, user);
+  }
   registerUser(formData: Utilisateur): Observable<Utilisateur> {
     let url = 'http://localhost:8080/api';
     if (formData.isApprenant) {
