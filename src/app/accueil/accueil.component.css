@@ -21,7 +21,15 @@
   border-radius: 60%;
   border: 4px white solid;
 }
-
+.img-div {
+  height: 180px;
+  width: 180px;
+  border-radius: 60%;
+  border: 4px white solid;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .img-full {
   border-radius: 5px;
   border: 5px white solid;
