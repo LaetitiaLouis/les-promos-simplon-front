@@ -2,11 +2,13 @@
      fxLayoutGap.gt-xs="32px" >
   <div fxLayout="column" [routerLink]="['/utilisateur', utilisateur.id]"
        fxLayoutAlign="flex-start center" fxFlex.gt-md="0 1 calc(33.3% - 32px)"  fxFlex.gt-sm="0 1 calc(50% - 32px)" fxFlex="0 0 100%" *ngFor="let utilisateur of utilisateurs"
-       class="card mat-elevation-z2">
-    <div  class="avatar" [ngStyle]="{'background-image': 'url('+utilisateur.avatarUrl+')'}"
+       class="card mat-elevation-z6" [ngClass.lt-sm]="'card-column'">
+    <div  class="avatar" [ngClass.lt-sm]="'avatar-column'" [ngStyle]="{'background-image': 'url('+utilisateur.avatarUrl+')'}"
           alt="Photo de profil"></div>
-    <p class="nomPrenom">{{utilisateur.prenom | titlecase}} {{utilisateur.nom | titlecase}}</p>
-    <p class="pseudo">{{utilisateur.pseudo}}</p>
+    <div class="card-content" [ngClass.lt-sm]="'card-content-column'">
+      <p class="nomPrenom">{{utilisateur.prenom | titlecase}} {{utilisateur.nom | titlecase}}</p>
+    </div>
+
   </div>
 </div>
 
