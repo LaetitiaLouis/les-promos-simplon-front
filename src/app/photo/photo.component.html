@@ -1,8 +1,11 @@
-<div *ngIf="photos" class="mat-typography container">
-  <h1 >Galerie</h1>
-  <mat-list fxLayout="row" fxLayoutAlign="space-evenly start" fxHide.lt-sm="true" class="photoList" *ngIf="photos.length > 0">
-    <mat-list-item class="photo" *ngFor="let photo of photos">
+<div *ngIf="photos" class="container">
+  <div class="mat-typography">
+    <h1 >Galerie</h1>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center" class="photoList" *ngIf="photos.length > 0">
+    <div class="photo" *ngFor="let photo of photos">
       <app-appercu-photo [photo]="photo"></app-appercu-photo>
-    </mat-list-item>
-  </mat-list>
+    </div>
+  </div>
 </div>
