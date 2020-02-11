@@ -52,7 +52,6 @@ export class UploadComponent implements OnInit {
       )
     );
   }
-
   get f() {
     return this.photoForm.controls;
   }

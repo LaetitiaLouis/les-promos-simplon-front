@@ -19,6 +19,9 @@ body {
   color: black;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.mat-typography, .mat-display-2,.mat-display-3,.mat-display-4 {
   font-family: 'Lato', sans-serif;
+}
+.mat-body,.mat-body-1,.mat-body-2,.mat-body-strong,.mat-small,.mat-caption{
+  font-family: 'Merriweather', serif;
 }
