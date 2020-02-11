@@ -5,7 +5,6 @@ mat-toolbar {
   z-index: 20;
   color: white;
   background: #333333;
-
 }
 
 .brand {
@@ -13,6 +12,10 @@ mat-toolbar {
   display: flex;
   align-items: center;
   font-size: x-large;
+}
+
+.brand img {
+  height:70%;
 }
 .nav {
   width: 100%;

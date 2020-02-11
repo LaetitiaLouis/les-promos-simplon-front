@@ -2,9 +2,8 @@
   <div class="column photo-column">
     <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
     <div class="detail-presentation">
-      <p class="detail">{{user.nom | titlecase}}</p>
-      <p class="detail">{{user.prenom | titlecase}}</p>
-      <p class="detail">{{'Pseudo :' + ' ' + user.pseudo}}</p>
+      <p class="detail">{{user.prenom | titlecase}} {{user.nom | titlecase}}</p>
+      <p class="detail-pseudo">{{'Pseudo :' + ' ' + user.pseudo}}</p>
     </div>
   </div>
   <div class="column column-presentation">
@@ -14,7 +13,7 @@
       numquam quam quia repellendus soluta vel vitae. Accusamus architecto aspernatur cum dolorum fugiat qui, tempore
       ut. Ducimus.</p>
   </div>
-  <div class="column column-pratiques">
+    <div class="column column-pratiques">
     <h3>Bonne pratiques</h3>
     <p class="detail">
       Lor em ipsum dolor sit amet, consectetur adipisicing elit. Dicta eos exercitationem minima obcaecati optio, quos
@@ -22,6 +21,16 @@
       iure nam odio officiis quisquam ullam. Beatae, distinctio, quae.
     </p>
   </div>
+  <div class="column-realisation">
+    <h3>Réalisations</h3>
+    <ul>
+      <li>Projet1</li>
+      <li>Projet2</li>
+      <li>Veille1</li>
+      <li>Veille2</li>
+    </ul>
+  </div>
+
 </div>
 
 <div class="container" *ngIf="user" gdLayout="column" gdLayoutAlign="center center">
