@@ -2,8 +2,8 @@
   <h1>Liste des utilisateurs</h1>
   <form [formGroup]="searchForm"  >
   <div class="input-field" fxLayout="row" fxLayoutAlign="center">
-    <input id="search" type="search" required formControlName="search">
-    <label (click)="onSubmitNomPrenom(searchForm.value)"  class="label-icon" for="search"><i class="material-icons">search</i></label>
+    <input (keydown.enter)="onSubmitNomPrenom(searchForm.value)" id="search" type="search" required formControlName="search">
+    <label  (click)="onSubmitNomPrenom(searchForm.value)"  class="label-icon" for="search"><i class="material-icons">search</i></label>
   </div>
   </form>
 </div>

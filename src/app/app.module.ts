@@ -13,7 +13,7 @@ import {
   MatIconModule, MatInputModule,
   MatListModule,
   MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import { PhotoComponent } from './photo/photo.component';
@@ -94,7 +94,8 @@ const routes: Routes =  [
     MatNativeDateModule,
     GridModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
