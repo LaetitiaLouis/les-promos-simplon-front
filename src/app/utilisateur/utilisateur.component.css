@@ -6,4 +6,11 @@ h1{
 
 .input-field{
   text-align: center;
+  margin-bottom: 10px;
+}
+.choix-User~.choix-User{
+  margin-left: 10px;
+}
+.choix-filtre{
+  margin: 0 auto;
 }
