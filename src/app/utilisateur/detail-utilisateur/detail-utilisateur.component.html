@@ -1,13 +1,11 @@
-<div class="container1" *ngIf="user">
-<img class="avatarList" [src]="user.avatarUrl">
-<p class="detail" mat-line>{{'Nom :'+ ' ' +user.nom}}</p>
-<p class="detail" mat-line>{{'Prenom :'+ ' ' +user.prenom}}</p>
-<p class="detail" mat-line>{{'Pseudo :'+ ' ' +user.pseudo}}</p>
-<p class="detail" mat-line>{{'Date de naissance :'+ ' ' +user.dateDeNaissance}}</p>
+<div class="container" *ngIf="user" gdLayout="column" gdLayoutAlign="center center">
+  <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
+  <p class="detail" mat-line>{{'Nom :' + ' ' + user.nom}}</p>
+  <p class="detail" mat-line>{{'Prenom :' + ' ' + user.prenom}}</p>
+  <p class="detail" mat-line>{{'Pseudo :' + ' ' + user.pseudo}}</p>
+  <p class="detail" mat-line>{{'Date de naissance :' + ' ' + user.dateDeNaissance}}</p>
+  <p class="detail" mat-line>{{'Présentation :' + ' ' + user.presentation}}</p>
+  <p class="detail" mat-line>{{'Commentaires :' + ' ' + user.commentaires}}</p>
+  <app-retour></app-retour>
 </div>
-<div class="container2" *ngIf="user">
-<p class="detail" mat-line>{{'Présentation :'+ ' ' +user.presentation}}</p>
-<p class="detail" mat-line>{{'Commentaires :'+ ' ' +user.commentaires}}</p>
-</div>
-<app-retour></app-retour>
 
