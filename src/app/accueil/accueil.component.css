@@ -1,13 +1,13 @@
 .banner {
-  background:blue;
+  background: rgba(17, 17, 23, 0.32);
   text-align: center;
-  color: white;
+  color: black;
   padding: 30px;
 }
 
 .mat-title, .mat-subheading-2 {
   font-style: italic;
-  color: white;
+  color: black;
 }
 .img-container {
   display: inline-block;
