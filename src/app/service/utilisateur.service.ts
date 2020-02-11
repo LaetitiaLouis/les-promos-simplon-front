@@ -1,11 +1,15 @@
+// @ts-ignore
 import { Injectable } from '@angular/core';
+// @ts-ignore
 import {HttpClient} from '@angular/common/http';
+// @ts-ignore
 import {Observable} from 'rxjs';
 import {Utilisateur} from '../model/utilisateur';
 import {FormGroup} from '@angular/forms';
 
 
 
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +21,9 @@ export class UtilisateurService {
   getAllUsers(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.BASE_URL}/all`);
   }
-
+getUserByNomPrenom(nomPrenom: string): Observable<Utilisateur[]> {
+    return this.http.get<Utilisateur[]>(`${this.BASE_URL}/findByNomPrenom?nomPrenom=${nomPrenom}`);
+}
   getUserById(id: number): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(`${this.BASE_URL}/findById?id=${id}`);
   }

@@ -1,7 +1,10 @@
+// @ts-ignore
 import { Component, OnInit } from '@angular/core';
+// @ts-ignore
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../service/auth.service';
 
+// @ts-ignore
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',

@@ -1,6 +1,6 @@
 <div *ngIf="projets" fxLayout="row" fxLayoutAlign="center" class="mat-typography container">
 
-  <div class="projet" class="mat-typography container-vp">
+  <div class="mat-typography container-projet">
 
     <div class="mat-title mat-elevation-z2">Projets</div>
 
@@ -12,7 +12,7 @@
     </mat-list>
   </div>
 
-<div class="veille" class="mat-typography container-vp">
+<div class="mat-typography container-veille">
   <div class="mat-title mat-elevation-z2">Veille</div>
   <mat-list *ngIf="veille.length > 0" class="list-container" fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
     <mat-list-item *ngFor="let veille of veille" fxLayout="column" fxLayoutAlign="center" class="card mat-elevation-z2">

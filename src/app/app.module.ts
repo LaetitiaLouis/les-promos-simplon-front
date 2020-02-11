@@ -33,11 +33,13 @@ import { RetourComponent } from './retour/retour.component';
 import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { ProfilComponent } from './connexion/profil/profil.component';
 import { UploadComponent } from './upload/upload.component';
+import { RechercheComponent } from './utilisateur/recherche/recherche.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
   {path: 'utilisateur', component: UtilisateurComponent},
   {path: 'utilisateur/:id', component: DetailUtilisateurComponent},
+  {path: 'utilisateur/:nomPrenom', component: RechercheComponent},
   {path: 'promo/:specialite/:nom', component: PromoComponent},
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
@@ -68,7 +70,8 @@ const routes: Routes =  [
     RetourComponent,
     ListUtilisateurComponent,
     ProfilComponent,
-    UploadComponent
+    UploadComponent,
+    RechercheComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
+// @ts-ignore
 import {Component, Input, OnInit} from '@angular/core';
 import {Utilisateur} from '../../model/utilisateur';
 
+// @ts-ignore
 @Component({
   selector: 'app-list-utilisateur',
   templateUrl: './list-utilisateur.component.html',

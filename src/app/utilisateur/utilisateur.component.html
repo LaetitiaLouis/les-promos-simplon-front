@@ -1,7 +1,12 @@
 <div class="mat-typography">
   <h1>Liste des utilisateurs</h1>
+  <form [formGroup]="searchForm"  class="form-container mat-elevation-z2">
+  <div class="input-field" fxLayout="row" fxLayoutAlign="center">
+    <label (click)="onSubmitNomPrenom(searchForm.value)"  class="label-icon" for="search"><i class="material-icons">search</i></label>
+    <input id="search" type="search" required formControlName="search">
+  </div>
+  </form>
 </div>
-<div *ngIf="utilisateurs">
-  <app-list-utilisateur [utilisateurs]="utilisateurs"></app-list-utilisateur>
-</div>
+<app-recherche [utilisateurs]="utilisateurs" ></app-recherche>
+
 
