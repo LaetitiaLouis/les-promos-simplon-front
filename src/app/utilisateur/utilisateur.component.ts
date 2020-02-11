@@ -30,7 +30,7 @@ export class UtilisateurComponent implements OnInit {
   }
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 10000000000,
+      duration: 10000,
     });
   }
   onSubmitNomPrenom(form) {
