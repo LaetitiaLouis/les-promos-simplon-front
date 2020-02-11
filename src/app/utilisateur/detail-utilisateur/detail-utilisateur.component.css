@@ -1,4 +1,45 @@
 
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 40px;
+  align-items: start;
+  grid-column-gap: 40px;
+  margin: 50px auto 0 auto;
+}
+
+.column {
+  padding: 20px;
+  max-height: 180px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.photo-column {
+  display: grid;
+  grid-column: span 6;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  min-width: 300px;
+  max-width: 350px;
+  border-radius: 80px;
+}
+.detail-presentation {
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+
+.column-presentation {
+  grid-column: 2  / span 2;
+}
+
+.column-pratiques {
+  grid-column: 4 / span 2;
+}
 .avatarList {
   height: 27px;
   margin-left: 10px;
@@ -13,12 +54,11 @@
 .container{
   margin: 0 auto;
   max-width: 920px;
-  border: 1px red solid;
 }
 
 .photo {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

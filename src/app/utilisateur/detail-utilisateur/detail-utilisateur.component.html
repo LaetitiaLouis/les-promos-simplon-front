@@ -1,11 +1,30 @@
+<div class="grid">
+  <div class="column photo-column">
+    <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
+    <div class="detail-presentation">
+      <p class="detail">{{user.nom | titlecase}}</p>
+      <p class="detail">{{user.prenom | titlecase}}</p>
+      <p class="detail">{{'Pseudo :' + ' ' + user.pseudo}}</p>
+    </div>
+  </div>
+  <div class="column column-presentation">
+    <h3>Présentation</h3>
+    <p class="detail" mat-line>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+      autem consectetur deleniti dicta dolores enim inventore iure iusto labore maiores molestias necessitatibus nobis
+      numquam quam quia repellendus soluta vel vitae. Accusamus architecto aspernatur cum dolorum fugiat qui, tempore
+      ut. Ducimus.</p>
+  </div>
+  <div class="column column-pratiques">
+    <h3>Bonne pratiques</h3>
+    <p class="detail">
+      Lor em ipsum dolor sit amet, consectetur adipisicing elit. Dicta eos exercitationem minima obcaecati optio, quos
+      vitae! A ab aliquam aut consequuntur est incidunt mollitia, nihil odit similique velit? Asperiores deleniti, eos
+      iure nam odio officiis quisquam ullam. Beatae, distinctio, quae.
+    </p>
+  </div>
+</div>
+
 <div class="container" *ngIf="user" gdLayout="column" gdLayoutAlign="center center">
-  <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
-  <p class="detail" mat-line>{{'Nom :' + ' ' + user.nom}}</p>
-  <p class="detail" mat-line>{{'Prenom :' + ' ' + user.prenom}}</p>
-  <p class="detail" mat-line>{{'Pseudo :' + ' ' + user.pseudo}}</p>
-  <p class="detail" mat-line>{{'Date de naissance :' + ' ' + user.dateDeNaissance}}</p>
-  <p class="detail" mat-line>{{'Présentation :' + ' ' + user.presentation}}</p>
-  <p class="detail" mat-line>{{'Commentaires :' + ' ' + user.commentaires}}</p>
-  <app-retour></app-retour>
+
 </div>
 
