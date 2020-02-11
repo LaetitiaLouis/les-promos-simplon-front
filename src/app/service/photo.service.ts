@@ -20,6 +20,10 @@ export class PhotoService {
     return this.http.get<Photo>(`${this.BASE_URL}/findById?id=${id}`);
   }
 
+  getPhotoByCategorie(categorie: string): Observable<Photo[]> {
+    return this.http.get<Photo[]>(`${this.BASE_URL}/findByCategorie?categorie=${categorie}`);
+  }
+
   uploadPhotoInfos(photo: Photo): Observable<Photo> {
     return this.http.post<Photo>(`${this.BASE_URL}/new`, photo);
   }

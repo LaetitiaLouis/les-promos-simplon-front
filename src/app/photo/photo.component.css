@@ -7,3 +7,9 @@ h1{
   font-size: 40px;
   margin-top: 100px;
 }
+.choix-catégorie~.choix-catégorie{
+  margin-left: 10px;
+}
+.choix-filtre{
+  margin: 0 auto;
+}
