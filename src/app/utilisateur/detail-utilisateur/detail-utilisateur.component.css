@@ -22,6 +22,7 @@
   min-width: 300px;
   max-width: 450px;
   border-radius: 80px;
+  justify-self: center;
 }
 
 .detail-presentation {
