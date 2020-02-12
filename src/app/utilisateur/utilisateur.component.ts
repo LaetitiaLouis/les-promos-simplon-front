@@ -33,7 +33,7 @@ export class UtilisateurComponent implements OnInit {
   ngOnInit() {
     this.searchForm = this.fb.group({
       search: ['', Validators.required],
-      query: ['', Validators.required]
+      query: ['prenom-1', Validators.required]
     });
     this.choixUser = this.fb.group({
       choixFiltreUser: ['Tous les utilisateurs', Validators.required]
