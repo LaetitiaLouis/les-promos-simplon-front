@@ -1,62 +1,66 @@
 .grid{
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(4, 25px);
   background: rgba(17, 17, 23, 0.32);
   width: 100%;
 }
 
 img {
-  grid-column: 12/ span 1;
+  grid-column: 16/ span 1;
   height: 27px;
   cursor: pointer;
   grid-row: 3;
-  margin: 0 10px 0 30px;
+  margin: 0 0 0 30px;
 }
 
 p {
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
   margin: 0px;
   color: black;
-  grid-column: 11/ span 1;
+  grid-column: 15/ span 1;
   grid-row: 3;
+}
+
+a {
+  text-align: left;
 }
 
 .accueil{
-  grid-column: 1 /span 1;
+  grid-column: 2 /span 1;
   grid-row: 2;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .utilisateur{
-  grid-column: 2 /span 1;
+  grid-column: 3 /span 1;
   grid-row: 2;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .promo{
-  grid-column: 3 /span 1;
+  grid-column: 4 /span 1;
   grid-row: 2;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .projet{
-  grid-column: 1 /span 1;
+  grid-column: 2 /span 1;
   grid-row: 3;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .galerie {
-  grid-column: 2 /span 1;
+  grid-column: 3 /span 1;
   grid-row: 3;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .connexion{
-  grid-column: 3 /span 1;
+  grid-column: 4 /span 1;
   grid-row: 3;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 

@@ -12,8 +12,8 @@ export class PhotoService {
   constructor(private http: HttpClient) {
   }
 
-  getAllPhotos() {
-    return this.http.get(`${this.BASE_URL}/all`);
+  getAllPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>(`${this.BASE_URL}/all`);
   }
 
   getPhotoById(id: number): Observable<Photo> {

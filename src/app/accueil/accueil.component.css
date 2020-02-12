@@ -24,6 +24,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 .img-full {
   border-radius: 5px;
@@ -38,6 +39,7 @@
 .presentation-container {
   text-align: center;
   width: 100%;
+  margin-bottom: -40px;
 }
 
 .presentation-container .mat-headline, .presentation-container .mat-title {

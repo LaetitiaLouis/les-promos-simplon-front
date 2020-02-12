@@ -1,1 +1,6 @@
-<img [src]="photo.imageUrl" alt="Photo galerie">
+<div class="image-container">
+  <div class="image" [ngStyle]="{'background-image': 'url(' + photo.imageUrl + ')'}">
+  </div>
+</div>
+<app-retour fxLayout fxLayoutAlign="center start"></app-retour>
+
