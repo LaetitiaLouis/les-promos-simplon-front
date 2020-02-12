@@ -13,19 +13,19 @@ mat-toolbar {
   align-items: center;
   font-size: x-large;
 }
-
-.brand img {
-  height:70%;
+.logo {
+  height: 50px;
 }
 .nav {
   width: 100%;
   height: 100%;
 }
-.mat-headline, .mat-small {
+.mat-title, .mat-small {
   cursor: pointer;
   margin: 0 15px 0 0;
 
 }
+
 @media (max-width: 360px) {
   .mat-small {
     margin: 0 8px 0 0;

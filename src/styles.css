@@ -27,6 +27,7 @@ h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.
 }
 .mat-snack-bar-container {
   background-color: red;
+  color: white;
 }
 .mat-snack-bar-container .mat-simple-snackbar {
   display: flex;

@@ -1,28 +1,30 @@
 <mat-toolbar class="mat-elevation-z6 navbar">
-  <a class="brand" mat-button routerLink="/" fxHide.lt-md="true">Les Promos Simplon</a>
+  <a class="brand" mat-button routerLink="/" fxHide.lt-md="true">
+    <img src="../../assets/logoBlanc.png" alt="" class="logo">
+  </a>
 
   <div fxLayout="row" fxLayoutAlign.gt-sm="flex-end center" class="nav" fxLayoutAlign="space-between center ">
 
     <a mat-button routerLink="/">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Accueil</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'">Accueil</span>
     </a>
     <a mat-button routerLink="/utilisateur">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Utilisateur</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'">Utilisateur</span>
     </a>
     <a mat-button [matMenuTriggerFor]="promos">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Promo</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'">Promo</span>
     </a>
     <a mat-button routerLink="/projet">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'" >Projets</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'" >Projets</span>
     </a>
     <a mat-button routerLink="/galerie">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Galerie</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'">Galerie</span>
     </a>
     <a *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'">Connexion</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'">Connexion</span>
     </a>
     <a *ngIf="auth.isLoggedIn()" mat-button>
-      <span class="mat-headline" [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
+      <span class="mat-title" [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
     </a>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
