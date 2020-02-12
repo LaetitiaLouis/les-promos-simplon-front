@@ -19,9 +19,9 @@
   </form>
   <form [formGroup]="choixUser" fxLayout="row">
     <mat-radio-group class="choix-filtre" formControlName= "choixFiltreUser" (change)="affichageUtilisateur(choixUser.value)">
-      <mat-radio-button  class="choix-User" value="Tous les utilisateurs">Tous les utilisateurs</mat-radio-button>
-      <mat-radio-button  class="choix-User" value="Apprenants">Apprenants</mat-radio-button>
-      <mat-radio-button  class="choix-User" value="Formateurs">Formateurs</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-User" value="Tous les utilisateurs">Tous les utilisateurs</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-User" value="Apprenants">Apprenants</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-User" value="Formateurs">Formateurs</mat-radio-button>
     </mat-radio-group>
   </form>
 </div>

@@ -1,0 +1,11 @@
+mat-carousel{
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+mat-carousel-slide{
+  border: 4px white solid;
+}

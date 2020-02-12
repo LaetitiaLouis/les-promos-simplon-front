@@ -34,6 +34,8 @@ import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-ut
 import { ProfilComponent } from './connexion/profil/profil.component';
 import { UploadComponent } from './upload/upload.component';
 import { RechercheComponent } from './utilisateur/recherche/recherche.component';
+import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
+import {MatCarouselModule} from '@ngmodule/material-carousel';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -96,7 +98,9 @@ const routes: Routes =  [
     GridModule,
     MatSelectModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
