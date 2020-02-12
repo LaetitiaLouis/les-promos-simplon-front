@@ -1,13 +1,14 @@
 <div class="container">
 
   <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+    <!--
     <mat-radio-group aria-label="Choisir une option"  (change)="isProfile = !isProfile" fxLayout
                      fxLayoutAlign="center center">
       <mat-radio-button value="true" checked>Profil</mat-radio-button>
       <mat-radio-button value="false">Gallerie</mat-radio-button>
     </mat-radio-group>
-
-      <mat-form-field *ngIf="!isProfile">
+-->
+      <mat-form-field *ngIf="!profile">
         <mat-label>Catégorie</mat-label>
         <mat-select  formControlName="categorie">
           <mat-option *ngFor="let categorie of categories" [value]="categorie">

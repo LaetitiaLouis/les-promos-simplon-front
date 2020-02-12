@@ -1,6 +1,6 @@
 <div class="container mat-elevation-z2">
   <div [routerLink]="['/galerie', photo.id]" class="div-img" [ngStyle]="{'background-image': 'url(' + photo.imageUrl + ')'}" alt="Photo galerie"></div>
-  <p class="appercu">{{photo.nom}}</p>
+  <p class="appercu">{{photo.nom | titlecase}}</p>
 </div>
 
 

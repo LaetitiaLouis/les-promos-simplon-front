@@ -1,2 +1,21 @@
 <div class="mat-display-2" *ngIf="user">{{'Bienvenue ' + user.prenom | titlecase}}</div>
-<app-upload></app-upload>
+<div class="container" fxLayout fxLayoutAlign="center">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Photo de profil
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-upload [profile]="true"></app-upload>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Ajouter une photo à la galerie
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-upload [profile]="false"></app-upload>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

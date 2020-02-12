@@ -8,13 +8,13 @@ import { NavbarComponent } from './page/navbar/navbar.component';
 import { FooterComponent } from './page/footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {
-  MatButtonModule, MatDatepickerModule,
-  MatFormFieldModule,
-  MatIconModule, MatInputModule,
-  MatListModule,
-  MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
-  MatSidenavModule, MatSnackBarModule,
-  MatToolbarModule
+    MatButtonModule, MatDatepickerModule, MatExpansionModule,
+    MatFormFieldModule,
+    MatIconModule, MatInputModule,
+    MatListModule,
+    MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
+    MatSidenavModule, MatSnackBarModule,
+    MatToolbarModule
 } from '@angular/material';
 import { PhotoComponent } from './photo/photo.component';
 import {ExtendedModule, FlexModule, GridModule} from '@angular/flex-layout';
@@ -34,8 +34,6 @@ import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-ut
 import { ProfilComponent } from './connexion/profil/profil.component';
 import { UploadComponent } from './upload/upload.component';
 import { RechercheComponent } from './utilisateur/recherche/recherche.component';
-import { CarrouselComponent } from './accueil/carrousel/carrousel.component';
-import {MatCarouselModule} from '@ngmodule/material-carousel';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -98,8 +96,7 @@ const routes: Routes =  [
     GridModule,
     MatSelectModule,
     FormsModule,
-    MatSnackBarModule,
-    MatCarouselModule
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

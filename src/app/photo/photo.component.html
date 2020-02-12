@@ -11,7 +11,7 @@
       <mat-radio-button  class="choix-catégorie" value="Travail">Travail</mat-radio-button>
     </mat-radio-group>
   </form>
-  <div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center" class="photoList" *ngIf="photos.length > 0">
+  <div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center" class="photoList" *ngIf="photos.length">
     <div class="photo" *ngFor="let photo of photos">
       <app-appercu-photo [photo]="photo"></app-appercu-photo>
     </div>

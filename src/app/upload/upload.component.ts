@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Photo} from '../model/photo';
 import {PhotoService} from '../service/photo.service';
 import {UtilisateurService} from '../service/utilisateur.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -12,12 +13,13 @@ import {UtilisateurService} from '../service/utilisateur.service';
 export class UploadComponent implements OnInit {
   photoFile: File;
   photoForm: FormGroup;
-  isProfile = true;
-  categories = ['groupe', 'évenement', 'restaurant', 'bar', 'travail'];
+  @Input() profile = true;
+  categories = ['groupe', 'évenement', 'convivialité', 'travail'];
 
   constructor(private fb: FormBuilder,
               private photoService: PhotoService,
-              private userService: UtilisateurService) {
+              private userService: UtilisateurService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -34,7 +36,8 @@ export class UploadComponent implements OnInit {
   onSubmit() {
     const photo = new Photo();
     photo.nom = this.photoForm.get('nom').value;
-    photo.categorie = this.isProfile ? 'profile' : this.photoForm.get('categorie').value;
+    photo.datePhoto = new Date();
+    photo.categorie = this.profile ? 'profil' : this.photoForm.get('categorie').value;
     this.uploadPhotoInfos(photo);
   }
 
@@ -44,11 +47,12 @@ export class UploadComponent implements OnInit {
   }
 
   uploadPhotoFile(photo: Photo) {
+    const returnUrl = this.profile ? '/galerie' :  '/utilisateur';
     const formData: FormData = new FormData();
     formData.append('file', this.photoFile, this.photoFile.name);
     this.userService.getUserByPseudo(sessionStorage.getItem('pseudo')).subscribe(
-      user => this.photoService.uploadPhotoFile(formData, photo.id, user.id, this.isProfile).subscribe(
-        photoResult => console.log(photoResult)
+      user => this.photoService.uploadPhotoFile(formData, photo.id, user.id, this.profile).subscribe(
+        photoResult => this.router.navigate([returnUrl])
       )
     );
   }
