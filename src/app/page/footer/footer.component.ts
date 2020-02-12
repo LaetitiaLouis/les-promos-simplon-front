@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {PromoService} from '../service/promo.service';
-import {Promo} from '../model/promo';
-import {AuthService} from '../service/auth.service';
+import {Promo} from '../../model/promo';
+import {PromoService} from '../../service/promo.service';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class FooterComponent implements OnInit {
   web: Promo[];
   cyber: Promo[];
   constructor(private promoService: PromoService,

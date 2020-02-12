@@ -17,7 +17,7 @@
   <a class="connexion"  *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
     <span [ngClass.lt-sm]="'mat-small'">Connexion</span>
   </a>
-  <a *ngIf="auth.isLoggedIn()" mat-button>
+  <a class="connexion" *ngIf="auth.isLoggedIn()" mat-button>
     <span [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
   </a>
   <mat-menu #promos="matMenu">
@@ -38,6 +38,6 @@
   </mat-menu>
 
   <p>Nous contacter</p>
-  <img src="../../assets/discord.png">
+  <img src="../../../assets/discord.png">
 </div>
 

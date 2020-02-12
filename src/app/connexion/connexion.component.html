@@ -1,19 +1,19 @@
-    <div class="page" fxLayout fxLayoutAlign="center center">
-<form [formGroup]="connexionForm" (ngSubmit)="onSubmit(connexionForm.value)" class="form-container mat-elevation-z2">
-  <div class="form-title mat-headline">Connexion</div>
-  <div class="form-content">
-  <mat-form-field>
-    <input type="text" matInput placeholder="Entrez votre pseudo" formControlName="pseudo">
-    <mat-error *ngIf="submitted && f.pseudo.errors">Vous devez saisir un pseudo</mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Entrez votre mot de passe" formControlName="motDePasse">
-    <mat-error *ngIf="submitted && f.motDePasse.errors">Vous devez saisir un mot de passe</mat-error>
-  </mat-form-field>
-  <div class="mat-small" routerLink="/register">S'enregistrer</div>
-  </div>
-  <div fxLayout fxLayoutAlign="center center">
-    <button mat-raised-button type="submit" color="accent">Se connecter</button>
-  </div>
-</form>
+<div class="page" fxLayout fxLayoutAlign="center center">
+  <form [formGroup]="connexionForm" (ngSubmit)="onSubmit(connexionForm.value)" class="form-container mat-elevation-z2">
+    <div class="form-title mat-headline">Connexion</div>
+    <div class="form-content">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Entrez votre pseudo" formControlName="pseudo">
+        <mat-error *ngIf="submitted && f.pseudo.errors">Vous devez saisir un pseudo</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Entrez votre mot de passe" formControlName="motDePasse">
+        <mat-error *ngIf="submitted && f.motDePasse.errors">Vous devez saisir un mot de passe</mat-error>
+      </mat-form-field>
+      <div class="mat-small" routerLink="/register">S'enregistrer</div>
+    </div>
+    <div fxLayout fxLayoutAlign="center center">
+      <button mat-raised-button type="submit" color="accent">Se connecter</button>
+    </div>
+  </form>
 </div>

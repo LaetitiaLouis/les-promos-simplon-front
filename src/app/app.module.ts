@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './page/navbar/navbar.component';
+import { FooterComponent } from './page/footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {
   MatButtonModule, MatDatepickerModule,
