@@ -1,4 +1,43 @@
-<mat-toolbar class="footer" fxLayout="row" fxLayoutAlign="end center">
+<div class="grid">
+  <a class="accueil" mat-button routerLink="/">
+    <span [ngClass.lt-sm]="'mat-small'">Accueil</span>
+  </a>
+  <a class="utilisateur" mat-button routerLink="/utilisateur">
+    <span [ngClass.lt-sm]="'mat-small'">Utilisateur</span>
+  </a>
+  <a class="promo" mat-button [matMenuTriggerFor]="promos">
+    <span [ngClass.lt-sm]="'mat-small'">Promo</span>
+  </a>
+  <a class="projet" mat-button routerLink="/projet">
+    <span [ngClass.lt-sm]="'mat-small'">Projets</span>
+  </a>
+  <a class="galerie" mat-button routerLink="/galerie">
+    <span [ngClass.lt-sm]="'mat-small'">Galerie</span>
+  </a>
+  <a class="connexion"  *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
+    <span [ngClass.lt-sm]="'mat-small'">Connexion</span>
+  </a>
+  <a *ngIf="auth.isLoggedIn()" mat-button>
+    <span [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
+  </a>
+  <mat-menu #promos="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
+    <button mat-menu-item [matMenuTriggerFor]="cybersecu" *ngIf="cyber">Cyber sécurité</button>
+  </mat-menu>
+  <mat-menu #webdev="matMenu">
+    <button *ngFor="let promo of web" [routerLink]="['/promo', promo.specialite, promo.nom]"
+            mat-menu-item>{{promo.nom}}</button>
+  </mat-menu>
+  <mat-menu #cybersecu="matMenu">
+    <button *ngFor="let promo of cyber" [routerLink]="['/promo', promo.specialite, promo.nom]"
+            mat-menu-item>{{promo.nom}}</button>
+  </mat-menu>
+  <mat-menu #profil="matMenu">
+    <button routerLink="/profil" mat-menu-item>Profil</button>
+    <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
+  </mat-menu>
+
   <p>Nous contacter</p>
   <img src="../../assets/discord.png">
-</mat-toolbar>
+</div>
+
