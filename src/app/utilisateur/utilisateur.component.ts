@@ -7,12 +7,21 @@ import {MatSnackBar} from '@angular/material';
 import {ApprenantService} from '../service/aprennant.service';
 import {FormateurService} from '../service/formateur.service';
 
+interface Recherche {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-utilisateur',
   templateUrl: './utilisateur.component.html',
   styleUrls: ['./utilisateur.component.css']
 })
 export class UtilisateurComponent implements OnInit {
+  searchQuerys: Recherche[] = [
+    {value: 'nom-0', viewValue: 'Nom'},
+    {value: 'prenom-1', viewValue: 'Prenom'},
+    {value: 'nomPrenom-2', viewValue: 'Nom/Prenom'}
+  ];
   @Input() utilisateurs: Utilisateur[];
   searchForm: FormGroup;
   submitted = false;
@@ -23,7 +32,8 @@ export class UtilisateurComponent implements OnInit {
 
   ngOnInit() {
     this.searchForm = this.fb.group({
-      search: ['', Validators.required]
+      search: ['', Validators.required],
+      query: ['', Validators.required]
     });
     this.choixUser = this.fb.group({
       choixFiltreUser: ['Tous les utilisateurs', Validators.required]
@@ -51,7 +61,7 @@ export class UtilisateurComponent implements OnInit {
         this.formateurService.getAllFormateurs().subscribe(
           (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs
         );
-    } else {
+      } else {
         if (form.choixFiltreUser === 'Tous les utilisateurs') {
           this.utilisateurService.getAllUsers().subscribe(
             (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs
@@ -62,6 +72,17 @@ export class UtilisateurComponent implements OnInit {
   }
   onSubmitNomPrenom(form) {
     this.submitted = true;
+    if (form.query === 'nomPrenom-2') {
+      this.searchNomPrenom(form);
+    }
+    if (form.query === 'nom-0') {
+      this.searchNom(form);
+    }
+    if (form.query === 'prenom-1') {
+      this.searchPrenom(form);
+    }
+  }
+  searchNomPrenom(form) {
     if (form.search) {
       this.utilisateurService.getUserByNomPrenom(form.search).subscribe(
         (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs,
@@ -71,6 +92,24 @@ export class UtilisateurComponent implements OnInit {
     } else {
       this.utilisateurService.getAllUsers().subscribe(
         (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs
+      );
+    }
+  }
+  searchNom(form) {
+    if (form.search) {
+      this.utilisateurService.getUserByNom(form.search).subscribe(
+        (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs,
+        error => { this.openSnackBar('Pas de résultats', 'Ok'), this.ngOnInit();
+        }
+      );
+    }
+  }
+  searchPrenom(form) {
+    if (form.search) {
+      this.utilisateurService.getUserByPrenom(form.search).subscribe(
+        (utilisateurs: Utilisateur[]) => this.utilisateurs = utilisateurs,
+        error => { this.openSnackBar('Pas de résultats', 'Ok'), this.ngOnInit();
+        }
       );
     }
   }

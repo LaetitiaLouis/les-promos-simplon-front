@@ -24,6 +24,13 @@ export class UtilisateurService {
 getUserByNomPrenom(nomPrenom: string): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.BASE_URL}/findByNomPrenom?nomPrenom=${nomPrenom}`);
 }
+
+  getUserByNom(nom: string): Observable<Utilisateur[]> {
+    return this.http.get<Utilisateur[]>(`${this.BASE_URL}/findByNom?nom=${nom}`);
+  }
+  getUserByPrenom(prenom: string): Observable<Utilisateur[]> {
+    return this.http.get<Utilisateur[]>(`${this.BASE_URL}/findByPrenom?prenom=${prenom}`);
+  }
   getUserById(id: number): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(`${this.BASE_URL}/findById?id=${id}`);
   }
