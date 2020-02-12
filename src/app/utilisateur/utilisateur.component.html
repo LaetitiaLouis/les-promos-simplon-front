@@ -1,5 +1,5 @@
-<div class="mat-typography">
-  <h1>Liste des utilisateurs</h1>
+<div>
+  <h1 class="mat-headline">Liste des utilisateurs</h1>
   <form [formGroup]="searchForm"  fxLayout fxLayoutAlign="center">
   <mat-form-field class="input-field">
     <input matInput (keydown.enter)="onSubmitNomPrenom(searchForm.value)" id="search" type="text" placeholder="Rechercher un utilisateur" formControlName="search">
@@ -14,6 +14,7 @@
     </mat-radio-group>
   </form>
 </div>
+
 <app-recherche [utilisateurs]="utilisateurs" ></app-recherche>
 
 

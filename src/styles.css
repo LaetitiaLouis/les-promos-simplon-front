@@ -25,3 +25,10 @@ h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.
 .mat-body,.mat-body-1,.mat-body-2,.mat-body-strong,.mat-small,.mat-caption{
   font-family: 'Merriweather', serif;
 }
+.mat-snack-bar-container {
+  background-color: red;
+}
+.mat-snack-bar-container .mat-simple-snackbar {
+  display: flex;
+  justify-content: center;
+}
