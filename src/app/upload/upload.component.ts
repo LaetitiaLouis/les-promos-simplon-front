@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Photo} from '../model/photo';
 import {PhotoService} from '../service/photo.service';
@@ -11,9 +11,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  photoFile: File;
-  photoForm: FormGroup;
+
   @Input() profile = true;
+  photoFile: File;
+  photoUrl: any;
+  photoForm: FormGroup;
   categories = ['groupe', 'évenement', 'convivialité', 'travail'];
 
   constructor(private fb: FormBuilder,
@@ -31,6 +33,9 @@ export class UploadComponent implements OnInit {
 
   onFileSelected(files: FileList) {
     this.photoFile = files.item(0);
+    const reader = new FileReader();
+    reader.readAsDataURL(this.photoFile);
+    reader.onload = e => { this.photoUrl = reader.result; }
   }
 
   onSubmit() {
@@ -47,7 +52,7 @@ export class UploadComponent implements OnInit {
   }
 
   uploadPhotoFile(photo: Photo) {
-    const returnUrl = this.profile ? '/galerie' :  '/utilisateur';
+    const returnUrl = this.profile ? '/utilisateur' :  '/galerie';
     const formData: FormData = new FormData();
     formData.append('file', this.photoFile, this.photoFile.name);
     this.userService.getUserByPseudo(sessionStorage.getItem('pseudo')).subscribe(

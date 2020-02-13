@@ -1,13 +1,6 @@
 <div class="container">
 
   <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
-    <!--
-    <mat-radio-group aria-label="Choisir une option"  (change)="isProfile = !isProfile" fxLayout
-                     fxLayoutAlign="center center">
-      <mat-radio-button value="true" checked>Profil</mat-radio-button>
-      <mat-radio-button value="false">Gallerie</mat-radio-button>
-    </mat-radio-group>
--->
       <mat-form-field *ngIf="!profile">
         <mat-label>Catégorie</mat-label>
         <mat-select  formControlName="categorie">
@@ -16,7 +9,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <mat-form-field>
+    <div *ngIf="photoFile" [ngStyle]="{'background-image': 'url('+ photoUrl + ')'}" class="preview"></div>
+    <mat-form-field *ngIf="!profile">
       <input type="text" matInput placeholder="Donnez un nom à votre photo" formControlName="nom">
       <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
         <span *ngIf="f.nom.errors.required">Un nom est requis</span>
