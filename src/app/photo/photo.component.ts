@@ -25,7 +25,7 @@ export class PhotoComponent implements OnInit {
     );
   }
 
-  affichagePhoto(form) {
+    affichagePhoto(form) {
     if (form.choix === 'Toutes les photos') {
       this.photoService.getAllPhotos().subscribe(
         (photos: Photo[]) => this.photos = photos

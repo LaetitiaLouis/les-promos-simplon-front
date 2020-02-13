@@ -4,11 +4,11 @@
   </div>
   <form [formGroup]="choixForm" fxLayout="row">
     <mat-radio-group class="choix-filtre" formControlName= "choix" (change)="affichagePhoto(choixForm.value)" >
-      <mat-radio-button  class="choix-catégorie" value="Toutes les photos">Toutes les photos</mat-radio-button>
-      <mat-radio-button  class="choix-catégorie" value="Evenements">Evenements</mat-radio-button>
-      <mat-radio-button  class="choix-catégorie" value="Profils">Profils</mat-radio-button>
-      <mat-radio-button  class="choix-catégorie" value="Groupe">Groupe</mat-radio-button>
-      <mat-radio-button  class="choix-catégorie" value="Travail">Travail</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-catégorie" value="Toutes les photos">Toutes les photos</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-catégorie" value="Evenements">Evenements</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-catégorie" value="Profils">Profils</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-catégorie" value="Groupe">Groupe</mat-radio-button>
+      <mat-radio-button  color="primary" class="choix-catégorie" value="Travail">Travail</mat-radio-button>
     </mat-radio-group>
   </form>
   <div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center" class="photoList" *ngIf="photos.length">

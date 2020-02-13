@@ -4,8 +4,8 @@
     <div class="form-content">
       <mat-radio-group aria-label="Choisir une option" formControlName="isApprenant" (change)="isApprenant = !isApprenant" fxLayout
                        fxLayoutAlign="center center">
-        <mat-radio-button value="true" checked>Appprenant</mat-radio-button>
-        <mat-radio-button value="false">Formateur</mat-radio-button>
+        <mat-radio-button color="primary" value="true" checked>Appprenant</mat-radio-button>
+        <mat-radio-button color="primary" value="false">Formateur</mat-radio-button>
       </mat-radio-group>
 
       <mat-form-field>
@@ -80,7 +80,7 @@
       </mat-form-field>
     </div>
     <div fxLayout fxLayoutAlign="center center">
-      <button mat-raised-button color="accent">Envoyer</button>
+      <button mat-raised-button color="primary">Envoyer</button>
     </div>
 
   </form>

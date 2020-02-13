@@ -31,4 +31,8 @@ export class PhotoService {
   uploadPhotoFile(formData: FormData, photoId: number, userId: number, isProfile: boolean): Observable<Photo> {
     return this.http.post<Photo>(`${this.BASE_URL}/upload?photoId=${photoId}&userId=${userId}&isProfile=${isProfile}`, formData);
   }
+
+  deletePhoto(id: number) {
+    return this.http.delete(`${this.BASE_URL}/delete?id=${id}`,{responseType: 'text'});
+  }
 }

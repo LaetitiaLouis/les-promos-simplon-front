@@ -26,6 +26,6 @@ mat-form-field {
 
 .mat-small {
   text-align: right;
-  color: #FF4081;
+  color: red;
   cursor: pointer;
 }
