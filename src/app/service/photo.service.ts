@@ -36,7 +36,7 @@ export class PhotoService {
     return this.http.delete(`${this.BASE_URL}/delete?id=${id}`,{responseType: 'text'});
   }
 
-  getPhotosByIdUser(id: number): Observable<Photo[]> {
+  getPhotosByUser(id: number): Observable<Photo[]> {
     return this.http.get<Photo[]>(`${this.BASE_URL}/findByUser?id=${id}`);
   }
 }
