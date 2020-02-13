@@ -13,4 +13,8 @@ export class ProjetService {
   getAllProjets() {
     return this.http.get(`${this.BASE_URL}/all`);
   }
+
+  getByIdApprenant(id: number) {
+    return this.http.get(`${this.BASE_URL}/findByIdApprenant?idApprenant=${id}`);
+  }
 }

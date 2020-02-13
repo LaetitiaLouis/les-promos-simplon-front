@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="grid" *ngIf="user">
   <div class="column photo-column">
     <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
     <div class="detail-presentation">
@@ -8,22 +8,19 @@
   </div>
   <div class="column column-presentation">
     <h3>Présentation</h3>
-    <p class="detail">{{user.presentation | titlecase}} </p>
+    <p class="detail">{{user.presentation}} </p>
   </div>
-    <div class="column column-pratiques">
+  <div class="column column-pratiques">
     <h3>Bonne pratiques</h3>
-      <p class="detail" >{{user.commentaires | titlecase}} </p>
+    <p class="detail">{{user.commentaires}} </p>
   </div>
   <div class="column-realisation">
+  <div *ngIf="projets && projets.length" class="projets-list">
     <h3>Réalisations</h3>
-    <ul>
-      <li>Projet1</li>
-      <li>Projet2</li>
-      <li>Veille1</li>
-      <li>Veille2</li>
+    <ul class="projets" *ngFor="let projet of projets">
+      <li>{{projet.nom}}</li>
     </ul>
   </div>
-
+  </div>
 </div>
-
 

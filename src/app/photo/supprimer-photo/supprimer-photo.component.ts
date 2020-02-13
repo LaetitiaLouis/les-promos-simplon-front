@@ -16,8 +16,8 @@ export class SupprimerPhotoComponent implements OnInit {
   ngOnInit() {
   }
 
-deletePhoto() {
-    this.photoService.deletePhoto(1).subscribe(message => console.log(message));
+deletePhoto(id) {
+    this.photoService.deletePhoto(id).subscribe();
   }
 
 }
