@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
-  grid-template-rows: 280px;
+  grid-template-rows: auto;
   padding: 60px;
   align-items: start;
   grid-column-gap: 10px;
@@ -77,6 +77,7 @@ li{
   }
   .column-pratiques{
     grid-template-columns: 1fr;
+    word-wrap:break-word;
   }
   .column-realisation{
     grid-template-columns: 1fr;

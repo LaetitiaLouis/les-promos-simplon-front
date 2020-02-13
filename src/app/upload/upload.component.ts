@@ -16,6 +16,7 @@ export class UploadComponent implements OnInit {
   photoFile: File;
   photoUrl: any;
   photoForm: FormGroup;
+  @Input() profile = true;
   categories = ['groupe', 'évenement', 'convivialité', 'travail'];
 
   constructor(private fb: FormBuilder,

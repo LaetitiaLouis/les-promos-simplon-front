@@ -7,7 +7,7 @@ export class Utilisateur {
   dateDeNaissance: Date;
   pseudo: string;
   motDePasse: string;
-  commentaires: string[];
+  commentaires: string;
   presentation: string;
   email: string;
   avatarUrl = 'http://localhost:8080/api/photos/download/avatar.png';

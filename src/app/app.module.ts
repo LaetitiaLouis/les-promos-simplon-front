@@ -38,6 +38,7 @@ import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import { SupprimerPhotoComponent } from './photo/supprimer-photo/supprimer-photo.component';
 
+
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
   {path: 'utilisateur', component: UtilisateurComponent},
