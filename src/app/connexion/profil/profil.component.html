@@ -25,8 +25,15 @@
       </mat-expansion-panel-header>
       <app-register></app-register>
     </mat-expansion-panel>
+   <mat-expansion-panel>
+    <mat-expansion-panel-header [routerLink]="['/mes-photos']">
+      <mat-panel-title>
+        Afficher mes photos
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    </mat-expansion-panel>
   </mat-accordion>
 </div>
-<app-supprimer-photo></app-supprimer-photo>
-<button mat-raised-button class="listPhotosUser" [routerLink]="['/galerie/profil']">Afficher mes photos</button>
+
+
 

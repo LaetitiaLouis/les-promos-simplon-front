@@ -20,4 +20,8 @@ export class UtilisateurPhotoComponent implements OnInit {
       this.photoService.getPhotosByUser(user.id).subscribe(photos => this.photos = photos);
     });
   }
+  deletePhoto(id) {
+    this.photoService.deletePhoto(id).subscribe();
+    location.reload();
+  }
 }

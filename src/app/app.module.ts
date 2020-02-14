@@ -36,7 +36,6 @@ import { UploadComponent } from './upload/upload.component';
 import { RechercheComponent } from './utilisateur/recherche/recherche.component';
 import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
-import { SupprimerPhotoComponent } from './photo/supprimer-photo/supprimer-photo.component';
 import { UtilisateurPhotoComponent } from './photo/utilisateur-photo/utilisateur-photo.component';
 
 
@@ -52,7 +51,7 @@ const routes: Routes =  [
   {path: 'galerie', component: PhotoComponent},
   {path: 'galerie/:id', component: AffichagePhotoComponent},
   {path: 'profil', component: ProfilComponent},
-  {path: 'galerie/:profil', component: UtilisateurPhotoComponent}
+  {path: 'mes-photos', component: UtilisateurPhotoComponent}
 ];
 
 @NgModule({
@@ -79,7 +78,6 @@ const routes: Routes =  [
     UploadComponent,
     RechercheComponent,
     CarrouselComponent,
-    SupprimerPhotoComponent,
     UtilisateurPhotoComponent
   ],
   imports: [
