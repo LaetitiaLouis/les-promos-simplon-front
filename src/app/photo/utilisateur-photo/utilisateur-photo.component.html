@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center center" class="photoList" *ngIf="photos.length">
+<div fxLayout="row wrap" fxLayoutGap="32px"fxLayoutAlign="center" class="photoList" *ngIf="photos.length">
   <div class="photo" *ngFor="let photo of photos">
     <app-appercu-photo [photo]="photo"></app-appercu-photo>
     <button mat-raised-button (click)="deletePhoto(photo.id)">Supprimer</button>

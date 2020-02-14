@@ -14,9 +14,11 @@ export class UtilisateurPhotoComponent implements OnInit {
 
   constructor(private photoService: PhotoService, private userService: UtilisateurService) {
   }
+
   ngOnInit() {
     const pseudo = sessionStorage.getItem('pseudo');
     this.userService.getUserByPseudo(pseudo).subscribe(user => {
+      console.log(user);
       this.photoService.getPhotosByUser(user.id).subscribe(photos => this.photos = photos);
     });
   }

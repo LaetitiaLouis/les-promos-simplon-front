@@ -1,22 +1,21 @@
 <div class="page-container">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mat-elevation-z2">
-    <div class="mat-title">Formulaire d'enregistrement</div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
     <div class="form-content">
-      <mat-radio-group aria-label="Choisir une option" formControlName="isApprenant" (change)="isApprenant = !isApprenant" fxLayout
+      <mat-radio-group  *ngIf="!update" aria-label="Choisir une option" formControlName="isApprenant" (change)="isApprenant = !isApprenant" fxLayout
                        fxLayoutAlign="center center">
         <mat-radio-button color="primary" value="true" checked>Appprenant</mat-radio-button>
         <mat-radio-button color="primary" value="false">Formateur</mat-radio-button>
       </mat-radio-group>
 
-      <mat-form-field>
-        <input type="text" matInput placeholder="Entrez votre pseudo" formControlName="pseudo">
+      <mat-form-field (click)="f.pseudo.enable()">
+        <input type="text" matInput [placeholder]="!update && 'Entrez votre pseudo'" [value]="update && user ? user.pseudo : '' " formControlName="pseudo">
         <mat-error *ngIf="f.pseudo.errors && (f.pseudo.dirty || f.pseudo.touched)">
           <span *ngIf="f.pseudo.errors.required">Vous devez saisir un pseudo</span>
           <span *ngIf="f.pseudo.errors?.pseudoExists">Ce pseudo est déjà utilisé</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <input type="password" matInput placeholder="Entrez votre mot de passe" formControlName="motDePasse">
+      <mat-form-field (click)="f.motDePasse.enable() && f.confirmPass.enable()">
+        <input type="password" matInput [placeholder]="!update && 'Entrez votre mot de passe'" [value]="update && user ? user.motDePasse : '' " formControlName="motDePasse">
         <mat-error *ngIf="f.motDePasse.errors && (f.motDePasse.dirty || f.motDePasse.touched)">
                 <span *ngIf="f.motDePasse.errors.required">Vous devez
                   saisir un mot de passe</span>
@@ -25,55 +24,53 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <input type="password" matInput placeholder="Vérifier le mot de passe" formControlName="confirmPass">
+      <mat-form-field (click)="f.confirmPass.enable() && f.motDePasse.enable()">
+        <input type="password" matInput [placeholder]="!update && 'Vérifier le mot de passe'" [value]="update && user ? user.motDePasse : '' " formControlName="confirmPass" >
         <mat-error *ngIf="f.confirmPass.errors && (f.confirmPass.dirty || f.confirmPass.touched)">
           <span *ngIf="f.confirmPass.errors.required">Vous devez confirmer votre mot de passe</span>
           <span *ngIf="f.confirmPass.errors.passwordMismatch">Le mot de passe est différent</span>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <input type="email" matInput placeholder="Entrez votre adresse mail" formControlName="email">
+      <mat-form-field (click)="f.email.enable()">
+        <input type="email" matInput [placeholder]="!update && 'Entrez votre adresse mail'" [value]="update && user ? user.email : '' " formControlName="email">
         <mat-error *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
           <span *ngIf="f.email.errors.required">Adresse mail requise</span>
           <span *ngIf="f.email.errors.email">Adresse mail invalide</span>
           <span *ngIf="f.email.errors?.emailExists">Cette adresse mail est déjà utilisée</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Entrez votre nom" formControlName="nom">
+      <mat-form-field (click)="f.nom.enable()">
+        <input type="text" matInput [placeholder]="!update && 'Entrez votre nom'" [value]="update && user ? user.nom : '' " formControlName="nom">
         <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
           <span *ngIf="f.nom.errors.required">Le champ nom est requis</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Entrez votre prénom" formControlName="prenom">
+      <mat-form-field (click)="f.prenom.enable()">
+        <input type="text" matInput [placeholder]="!update && 'Entrez votre prénom'" [value]="update && user ? user.prenom : '' " formControlName="prenom">
         <mat-error *ngIf="f.prenom.errors && (f.prenom.dirty || f.prenom.touched)">
           <span *ngIf="f.prenom.errors.required">Le champ prénom est requis</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field (click)="f.dateDeNaissance.enable()">
         <input matInput [matDatepicker]="picker" formControlName="dateDeNaissance"
-               placeholder="Sélectionnez votre date de naissance">
+               [placeholder]="!update && 'Sélectionnez votre date de naissance'" [value]="update && user ? user.dateDeNaissance : '' ">
         <mat-datepicker #picker></mat-datepicker>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <!-- <mat-error *ngIf="f.dateDeNaissance.errors && (f.dateDeNaissance.dirty || f.dateDeNaissance.touched)">
-           <span *ngIf="f.dateDeNaissance.errors.required">Merci de saisir votre date de naissance</span>
-         </mat-error> -->
+
       </mat-form-field>
-      <mat-form-field *ngIf="isApprenant">
+      <mat-form-field *ngIf="isApprenant" (click)="f.entiteAffectation.enable()">
         <mat-label>Entité d'affectation</mat-label>
-        <mat-select  formControlName="entiteAffectation">
+        <mat-select   [value]="update && user ? user.entiteAffectation  : ''" formControlName="entiteAffectation">
           <mat-option *ngFor="let entite of entites" [value]="entite">
             {{entite}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="isApprenant && promos">
+      <mat-form-field *ngIf="isApprenant && promos" (click)="f.promo.enable()">
         <mat-label>Promo</mat-label>
-        <mat-select  formControlName="promo">
-          <mat-option *ngFor="let promo of promos" [value]="promo">
+        <mat-select  formControlName="promo" [value]="update && user ? user.promo.nom : '' ">
+          <mat-option *ngFor="let promo of promos" [value]="promo.nom">
             {{promo.nom}}
           </mat-option>
         </mat-select>

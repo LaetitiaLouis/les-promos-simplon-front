@@ -36,7 +36,10 @@ import { UploadComponent } from './upload/upload.component';
 import { RechercheComponent } from './utilisateur/recherche/recherche.component';
 import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
+import { SupprimerPhotoComponent } from './photo/supprimer-photo/supprimer-photo.component';
 import { UtilisateurPhotoComponent } from './photo/utilisateur-photo/utilisateur-photo.component';
+import { CardComponent } from './card/card.component';
+
 
 
 const routes: Routes =  [
@@ -78,7 +81,9 @@ const routes: Routes =  [
     UploadComponent,
     RechercheComponent,
     CarrouselComponent,
-    UtilisateurPhotoComponent
+    SupprimerPhotoComponent,
+    UtilisateurPhotoComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

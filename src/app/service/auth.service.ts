@@ -29,7 +29,7 @@ export class AuthService {
 
   isLoggedIn() {
     const pseudo = sessionStorage.getItem('pseudo');
-    return !(pseudo === null);
+    return (pseudo !== null);
   }
 
   logout() {
@@ -43,3 +43,4 @@ export class AuthService {
     });
   }
 }
+

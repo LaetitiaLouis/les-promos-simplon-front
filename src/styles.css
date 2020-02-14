@@ -33,3 +33,13 @@ h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.
   display: flex;
   justify-content: center;
 }
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 5px;
+}

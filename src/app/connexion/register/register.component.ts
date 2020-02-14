@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {FormValidatorService} from '../../service/form-validator.service';
 import {UtilisateurService} from '../../service/utilisateur.service';
 import {Router} from '@angular/router';
-import {Utilisateur} from '../../model/utilisateur';
 import {Promo} from '../../model/promo';
 import {PromoService} from '../../service/promo.service';
+import {Utilisateur} from '../../model/utilisateur';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +13,8 @@ import {PromoService} from '../../service/promo.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @Input() update = false;
+  @Input() user: Utilisateur;
   registerForm;
   entites = ['Paris', 'Nantes', 'Gradignan'];
   promos: Promo[];
@@ -28,17 +30,16 @@ export class RegisterComponent implements OnInit {
     this.promoService.getAll().subscribe(promos => this.promos = promos);
     this.registerForm = this.fb.group({
         isApprenant: [true, Validators.required],
-        pseudo: ['', [Validators.required], [this.validator.pseudoExists()]],
-        motDePasse: ['', [Validators.required, Validators.minLength(8)]],
-        confirmPass: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.email], [this.validator.emailExists()]],
-        nom: ['', [Validators.required]],
-        prenom: ['', [Validators.required]],
-        presentation: ['', Validators.required],
-        dateDeNaissance: [null, Validators.required],
-        entiteAffectation: ['', Validators.required],
-        avatarUrl: ['http://localhost:8080/api/photos/download/avatar.png'],
-        promo: [null, Validators.required]
+        pseudo: [{value: '', disabled: this.update} , [Validators.required], [this.validator.pseudoExists()]],
+        motDePasse: [{value: '', disabled: this.update}, [Validators.required, Validators.minLength(8)]],
+        confirmPass: [{value: '', disabled: this.update}, [Validators.required]],
+        email: [{value: '', disabled: this.update}, [Validators.required, Validators.email], [this.validator.emailExists()]],
+        nom: [{value: '', disabled: this.update}, [Validators.required]],
+        prenom: [{value: '', disabled: this.update}, [Validators.required]],
+        presentation: [{value: '', disabled: this.update}, Validators.required],
+        dateDeNaissance: [{value: null, disabled: this.update}, Validators.required],
+        entiteAffectation: [{value: '', disabled: this.update}, Validators.required],
+        promo: [{value: null, disabled: this.update}, Validators.required]
       },
       {
         validators: this.validator.passwordMatch
@@ -50,12 +51,27 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  updateUserObject() {
+    Object.entries(this.registerForm.value).forEach(([key, value]) => {
+      if (value) {
+        this.user[key] = value;
+      }
+    });
+  }
+
   onSubmit() {
     if (this.f.invalid) { return; }
-    console.log(this.registerForm.value);
-    this.userService.registerUser(this.registerForm.value).subscribe(
-      user => user && this.router.navigate(['/connexion'])
-    );
+    if (this.update) {
+      this.updateUserObject();
+      this.userService.updateUser(this.user).subscribe(
+        user => console.log(user)
+      );
+    } else {
+      this.userService.registerUser(this.registerForm.value).subscribe(
+        user => user && this.router.navigate(['/connexion'])
+      );
+    }
+
   }
 
 }

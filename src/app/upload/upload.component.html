@@ -9,7 +9,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <div *ngIf="photoFile" [ngStyle]="{'background-image': 'url('+ photoUrl + ')'}" class="preview"></div>
+    <div *ngIf="photoFile" [ngStyle]="{'background-image': 'url('+ photoUrl + ')'}" class="preview mat-elevation-z4"></div>
     <mat-form-field *ngIf="!profile">
       <input type="text" matInput placeholder="Donnez un nom à votre photo" formControlName="nom">
       <mat-error *ngIf="f.nom.errors && (f.nom.dirty || f.nom.touched)">
