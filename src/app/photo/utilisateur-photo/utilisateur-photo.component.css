@@ -1,0 +1,10 @@
+.mat-display-2 {
+  text-align: center;
+  margin-top: 40px;
+}
+button {
+  width: 100%;
+}
+mat-spinner {
+  margin: 0 auto;
+}

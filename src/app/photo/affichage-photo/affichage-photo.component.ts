@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PhotoService} from '../../service/photo.service';
 import {ActivatedRoute} from '@angular/router';
 import {Photo} from '../../model/photo';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-affichage-photo',
@@ -9,15 +10,13 @@ import {Photo} from '../../model/photo';
   styleUrls: ['./affichage-photo.component.css']
 })
 export class AffichagePhotoComponent implements OnInit {
-photo: Photo;
+  photo$: Observable<Photo>;
   constructor(private photoService: PhotoService,
               private route: ActivatedRoute)  { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
-      this.photoService.getPhotoById(+params.get('id')).subscribe(
-        (photo: Photo) => this.photo = photo
-      )
+      this.photo$ = this.photoService.getPhotoById(+params.get('id'))
     );
   }
 

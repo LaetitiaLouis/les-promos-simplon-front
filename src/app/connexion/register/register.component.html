@@ -69,7 +69,7 @@
       </mat-form-field>
       <mat-form-field *ngIf="isApprenant && promos" (click)="f.promo.enable()">
         <mat-label>Promo</mat-label>
-        <mat-select  formControlName="promo" [value]="update && user ? user.promo.nom : '' ">
+        <mat-select  formControlName="promo" [value]="update && user && user.promo ? user.promo.nom : '' ">
           <mat-option *ngFor="let promo of promos" [value]="promo.nom">
             {{promo.nom}}
           </mat-option>

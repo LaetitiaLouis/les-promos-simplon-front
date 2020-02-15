@@ -2,11 +2,17 @@
     <div class="container-projet mat-elevation-z2" gdColumn="2" gdColumn.lt-lg="1" gdGridAlign.gt-xs="center">
       <div class="mat-headline" [ngClass.lt-md]="'card-header'" [ngClass.gt-sm]="'mat-elevation-z4'">Projets</div>
       <mat-list *ngIf="projets.length" class="list-container" fxLayout="column">
-        <mat-list-item *ngFor="let projets of projets" fxLayout="column" [ngClass.gt-sm]="'mat-elevation-z2'"
+        <mat-list-item *ngFor="let projet of projets" fxLayout="column" [ngClass.gt-sm]="'mat-elevation-z2'"
                        [ngClass.lt-md]="'card-small'">
-          <p mat-line><strong>{{projets.nom}}</strong></p>
-          <p mat-line>{{projets.descriptif}}</p>
+          <p mat-line><strong>{{projet.nom}}</strong></p>
+          <p mat-line>{{projet.descriptif}}</p>
+          <div class="mat-title" mat-line><b>Crée par:</b>
+            <ul>
+              <li *ngFor="let user of projet.apprenants">{{user.prenom | titlecase}}</li>
+            </ul>
+          </div>
         </mat-list-item>
+
       </mat-list>
     </div>
 
@@ -14,14 +20,18 @@
 
   <div class="container-projet mat-elevation-z2" gdGridAlign.gt-xs="center">
     <div class="mat-headline" [ngClass.lt-md]="'card-header'" [ngClass.gt-sm]="'mat-elevation-z4'">Veilles</div>
-    <mat-list *ngIf="veille.length" class="list-container" fxLayout="column">
-      <mat-list-item *ngFor="let veille of veille" fxLayout="column" [ngClass.gt-sm]="'mat-elevation-z2'"
+    <mat-list *ngIf="veilles.length" class="list-container" fxLayout="column">
+      <mat-list-item *ngFor="let veille of veilles" fxLayout="column" [ngClass.gt-sm]="'mat-elevation-z2'"
                      [ngClass.lt-md]="'card-small'">
         <p mat-line><strong>{{veille.nom}}</strong></p>
         <p mat-line>{{veille.descriptif}}</p>
+        <div class="mat-title" mat-line><b>Crée par:</b>
+          <ul>
+            <li *ngFor="let user of veille.apprenants">{{user.prenom | titlecase}}</li>
+          </ul>
+        </div>
       </mat-list-item>
     </mat-list>
   </div>
-
 
 </div>

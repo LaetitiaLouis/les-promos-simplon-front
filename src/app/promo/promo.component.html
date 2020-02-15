@@ -1,13 +1,20 @@
-<div *ngIf="promo" gdAreas="title title | left right" gdColumns="1fr 1fr" gdAreas.lt-sm="title | left | right" gdColumns.lt-sm="1fr" gdRows="auto auto">
-  <div class="mat-display-2" gdArea="title">{{promo.specialite | titlecase }} {{ promo.anneeFin }}</div>
-
-  <div *ngIf="promo.apprenants.length > 0" gdArea="left" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
+<div gdAreas="title title | left right" gdColumns="1fr 1fr" gdAreas.lt-sm="title | left | right"
+     gdColumns.lt-sm="1fr" gdRows="auto auto" *ngIf="promo$ | async as promo">
+  <div class="mat-display-2" gdArea="title">{{promo.specialite | titlecase}} {{ promo.anneeFin  | titlecase }}</div>
+  <div gdArea="left" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
     <div class="mat-title mat-elevation-z2">Les apprenants</div>
-    <app-list-utilisateur [utilisateurs]="promo.apprenants"></app-list-utilisateur>
+    <div class="card-list">
+      <app-card *ngFor="let apprenant of promo.apprenants" [photo]="apprenant.avatarUrl"
+                [link]="['/utilisateur', apprenant.id]"
+                [text]="apprenant.prenom + ' ' + apprenant.nom |titlecase"></app-card>
+    </div>
   </div>
-  <div *ngIf="promo.formateurs.length > 0" gdArea="right" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
+  <div gdArea="right" fxLayout="column" fxLayoutAlign="start" class="utilisateur-list">
     <div class="mat-title mat-elevation-z2">Les formateurs</div>
-    <app-list-utilisateur [utilisateurs]="promo.formateurs"></app-list-utilisateur>
+    <div class="card-list">
+      <app-card *ngFor="let formateur of promo.formateurs" [photo]="formateur.avatarUrl"
+                [link]="['/utilisateur', formateur.id]"
+                [text]="formateur.prenom + ' ' + formateur.nom |titlecase"></app-card>
+    </div>
   </div>
-
 </div>

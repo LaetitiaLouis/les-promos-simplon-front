@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Photo} from '../../model/photo';
 import {PhotoService} from '../../service/photo.service';
 import {UtilisateurService} from '../../service/utilisateur.service';
+import {Observable} from 'rxjs';
+import {Utilisateur} from '../../model/utilisateur';
 
 
 @Component({
@@ -10,20 +11,18 @@ import {UtilisateurService} from '../../service/utilisateur.service';
   styleUrls: ['./utilisateur-photo.component.css']
 })
 export class UtilisateurPhotoComponent implements OnInit {
-  photos: Photo[];
+  user$: Observable<Utilisateur>;
 
   constructor(private photoService: PhotoService, private userService: UtilisateurService) {
   }
 
   ngOnInit() {
     const pseudo = sessionStorage.getItem('pseudo');
-    this.userService.getUserByPseudo(pseudo).subscribe(user => {
-      console.log(user);
-      this.photoService.getPhotosByUser(user.id).subscribe(photos => this.photos = photos);
-    });
+    this.user$ = this.userService.getUserByPseudo(pseudo);
   }
   deletePhoto(id) {
-    this.photoService.deletePhoto(id).subscribe();
-    location.reload();
+    this.photoService.deletePhoto(id).subscribe(
+      result => location.reload()
+    );
   }
 }

@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import {PromoService} from '../service/promo.service';
 import {ActivatedRoute} from '@angular/router';
 import {Promo} from '../model/promo';
+import {Utilisateur} from '../model/utilisateur';
+import {UtilisateurService} from '../service/utilisateur.service';
+import {FormateurService} from '../service/formateur.service';
+import {ApprenantService} from '../service/aprennant.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-promo',
@@ -10,16 +15,16 @@ import {Promo} from '../model/promo';
   styleUrls: ['./promo.component.css']
 })
 export class PromoComponent implements OnInit {
-  promo: Promo;
+  promo$: Observable<Promo>;
+
   constructor(private promoService: PromoService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params =>
-      this.promoService.findByNom(params.get('nom')).subscribe(
-        promo => this.promo = promo
-      )
+    this.route.paramMap.subscribe(params => {
+        const nomPromo = params.get('nom');
+        this.promo$ = this.promoService.findByNom(nomPromo);
+      }
     );
   }
-
 }

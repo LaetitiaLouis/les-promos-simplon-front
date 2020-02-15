@@ -10,8 +10,6 @@ export class CardComponent implements OnInit {
   @Input() text;
   @Input() photo;
   @Input() link;
-
-
   constructor(private router: Router) { }
 
   ngOnInit() {

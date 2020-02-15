@@ -5,5 +5,4 @@ export class Projet {
   descriptif: string;
   typeProjet: string;
   apprenants: Utilisateur[];
-  formateurs: Utilisateur[];
 }

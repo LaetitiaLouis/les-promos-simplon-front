@@ -8,13 +8,13 @@ import { NavbarComponent } from './page/navbar/navbar.component';
 import { FooterComponent } from './page/footer/footer.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {
-    MatButtonModule, MatDatepickerModule, MatExpansionModule,
-    MatFormFieldModule,
-    MatIconModule, MatInputModule,
-    MatListModule,
-    MatMenuModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
-    MatSidenavModule, MatSnackBarModule,
-    MatToolbarModule
+  MatButtonModule, MatDatepickerModule, MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule, MatInputModule,
+  MatListModule,
+  MatMenuModule, MatNativeDateModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatSnackBarModule,
+  MatToolbarModule
 } from '@angular/material';
 import { PhotoComponent } from './photo/photo.component';
 import {ExtendedModule, FlexModule, GridModule} from '@angular/flex-layout';
@@ -27,26 +27,20 @@ import { DetailUtilisateurComponent } from './utilisateur/detail-utilisateur/det
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './connexion/register/register.component';
 import { PageComponent } from './page/page.component';
-import { AppercuPhotoComponent } from './photo/appercu-photo/appercu-photo.component';
 import { AffichagePhotoComponent } from './photo/affichage-photo/affichage-photo.component';
 import { RetourComponent } from './retour/retour.component';
-import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { ProfilComponent } from './connexion/profil/profil.component';
 import { UploadComponent } from './upload/upload.component';
-import { RechercheComponent } from './utilisateur/recherche/recherche.component';
 import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
-import { SupprimerPhotoComponent } from './photo/supprimer-photo/supprimer-photo.component';
 import { UtilisateurPhotoComponent } from './photo/utilisateur-photo/utilisateur-photo.component';
 import { CardComponent } from './card/card.component';
-
-
+import { ErrorComponent } from './service/error/error.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
   {path: 'utilisateur', component: UtilisateurComponent},
   {path: 'utilisateur/:id', component: DetailUtilisateurComponent},
-  {path: 'utilisateur/:nomPrenom', component: RechercheComponent},
   {path: 'promo/:specialite/:nom', component: PromoComponent},
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
@@ -73,15 +67,11 @@ const routes: Routes =  [
     DetailUtilisateurComponent,
     RegisterComponent,
     PageComponent,
-    AppercuPhotoComponent,
     AffichagePhotoComponent,
     RetourComponent,
-    ListUtilisateurComponent,
     ProfilComponent,
     UploadComponent,
-    RechercheComponent,
     CarrouselComponent,
-    SupprimerPhotoComponent,
     UtilisateurPhotoComponent,
     CardComponent
   ],
@@ -109,7 +99,8 @@ const routes: Routes =  [
     FormsModule,
     MatSnackBarModule,
     MatExpansionModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

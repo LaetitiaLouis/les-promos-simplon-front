@@ -1,4 +1,6 @@
 import {Promo} from './promo';
+import {Photo} from './photo';
+import {Projet} from './projet';
 
 export class Utilisateur {
   id: number;
@@ -12,7 +14,7 @@ export class Utilisateur {
   email: string;
   avatarUrl = 'http://localhost:8080/api/photos/download/avatar.png';
   role: object;
-  photos: object[];
+  photos: Photo[];
   hobbies: object[];
   isApprenant: boolean;
   entiteAffectation: string;

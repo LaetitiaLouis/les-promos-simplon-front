@@ -25,15 +25,22 @@ h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.
 .mat-body,.mat-body-1,.mat-body-2,.mat-body-strong,.mat-small,.mat-caption{
   font-family: 'Merriweather', serif;
 }
-.mat-snack-bar-container {
-  background-color: red;
-  color: white;
+
+.error-dialog {
+  background-color: #F8D7DA;
+  color: #721C24;
+}
+.success-dialog {
+  background-color: #F5C6CB;
+  color: #8EB698;
 }
 .mat-snack-bar-container .mat-simple-snackbar {
   display: flex;
   justify-content: center;
 }
-
+.mat-simple-snackbar-action {
+  color: grey;
+}
 .card-list {
   display: flex;
   flex-direction: row;
@@ -42,4 +49,17 @@ h1,h2,h3,h4,h5,h6,.mat-title,.mat-headline,.mat-subheading-1,.mat-subheading-2,.
   max-width: 920px;
   margin: 0 auto;
   padding: 5px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 56px);
+}
+
+@media (min-width: 800px) {
+  .card-list {
+    justify-content: center;
+  }
 }

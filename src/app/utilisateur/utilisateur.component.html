@@ -1,8 +1,8 @@
 <div>
   <h1 class="mat-headline">Liste des utilisateurs</h1>
-  <form [formGroup]="searchForm"  fxLayout fxLayoutAlign="center">
+  <form [formGroup]="searchForm" fxLayout fxLayoutAlign="center">
 
-    <mat-form-field >
+    <mat-form-field>
       <mat-label>Recherchez dans :</mat-label>
       <mat-select formControlName="query">
         <mat-option *ngFor="let searchQuery of searchQuerys" [value]="searchQuery.value">
@@ -12,20 +12,26 @@
     </mat-form-field>
 
     <mat-form-field class="input-field">
-      <input matInput (keydown.enter)="onSubmitNomPrenom(searchForm.value)" id="search" type="text" placeholder="Rechercher un utilisateur" formControlName="search">
+      <input matInput (keydown.enter)="onSubmitNomPrenom(searchForm.value)" id="search" type="text"
+             placeholder="Rechercher un utilisateur" formControlName="search">
       <mat-icon (click)="onSubmitNomPrenom(searchForm.value)" matSuffix>search</mat-icon>
     </mat-form-field>
 
   </form>
   <form [formGroup]="choixUser" fxLayout="row">
-    <mat-radio-group class="choix-filtre" formControlName= "choixFiltreUser" (change)="affichageUtilisateur(choixUser.value)">
-      <mat-radio-button  color="primary" class="choix-User" value="Tous les utilisateurs">Tous les utilisateurs</mat-radio-button>
-      <mat-radio-button  color="primary" class="choix-User" value="Apprenants">Apprenants</mat-radio-button>
-      <mat-radio-button  color="primary" class="choix-User" value="Formateurs">Formateurs</mat-radio-button>
+    <mat-radio-group class="choix-filtre" formControlName="choixFiltreUser"
+                     (change)="affichageUtilisateur(choixUser.value)">
+      <mat-radio-button color="primary" class="choix-User" value="Tous les utilisateurs">Tous les utilisateurs
+      </mat-radio-button>
+      <mat-radio-button color="primary" class="choix-User" value="Apprenants">Apprenants</mat-radio-button>
+      <mat-radio-button color="primary" class="choix-User" value="Formateurs">Formateurs</mat-radio-button>
     </mat-radio-group>
   </form>
 </div>
 
-<app-recherche [utilisateurs]="utilisateurs" ></app-recherche>
+<div class="card-list" *ngIf="users$ | async as users">
+  <app-card *ngFor="let user of users" [text]="user.prenom + ' ' + user.nom | titlecase"
+            [link]="['/utilisateur', user.id]" [photo]="user.avatarUrl"></app-card>
+</div>
 
 

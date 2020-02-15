@@ -9,13 +9,13 @@ import { Projet} from '../model/projet';
   styleUrls: ['./projet.component.css']
 })
 export class ProjetComponent implements OnInit {
-veille: Projet[];
+veilles: Projet[];
 projets: Projet[];
   constructor(private projetService: ProjetService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.projetService.getAllProjets().subscribe((projets: Projet[]) => {
-      this.veille = projets.filter(projet => projet.typeProjet === 'veille');
+      this.veilles = projets.filter(projet => projet.typeProjet === 'veille');
       this.projets = projets.filter(projet => projet.typeProjet === 'projet');
     });
   }

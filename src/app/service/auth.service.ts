@@ -1,13 +1,9 @@
-// @ts-ignore
 import { Injectable } from '@angular/core';
-// @ts-ignore
 import {HttpClient} from '@angular/common/http';
 import {Utilisateur} from '../model/utilisateur';
-// @ts-ignore
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
-// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })

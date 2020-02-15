@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="photoForm" (ngSubmit)="onSubmit(photoForm.value)">
       <mat-form-field *ngIf="!profile">
         <mat-label>Catégorie</mat-label>
         <mat-select  formControlName="categorie">

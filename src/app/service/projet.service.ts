@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Projet} from '../model/projet';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,11 @@ export class ProjetService {
   constructor(private http: HttpClient) {
   }
 
-  getAllProjets() {
-    return this.http.get(`${this.BASE_URL}/all`);
+  getAllProjets(): Observable<Projet[]> {
+    return this.http.get<Projet[]>(`${this.BASE_URL}/all`);
   }
 
-  getByIdApprenant(id: number) {
-    return this.http.get(`${this.BASE_URL}/findByIdApprenant?idApprenant=${id}`);
+  getByIdApprenant(id: number): Observable<Projet[]> {
+    return this.http.get<Projet[]>(`${this.BASE_URL}/findByIdApprenant?idApprenant=${id}`);
   }
 }

@@ -1,26 +1,10 @@
-<div *ngIf="photos" class="container">
-  <div class="mat-typography">
-    <h1>Galerie</h1>
-  </div>
-  <form [formGroup]="choixForm" fxLayout="row">
-    <mat-radio-group class="choix-filtre" formControlName="choix" (change)="affichagePhoto(choixForm.value)">
-      <mat-radio-button color="primary" class="choix-catégorie" value="Toutes les photos">Toutes les photos
-      </mat-radio-button>
-      <mat-radio-button color="primary" class="choix-catégorie" value="Evenements">Evenements</mat-radio-button>
-      <mat-radio-button color="primary" class="choix-catégorie" value="Profils">Profils</mat-radio-button>
-      <mat-radio-button color="primary" class="choix-catégorie" value="Groupe">Groupe</mat-radio-button>
-      <mat-radio-button color="primary" class="choix-catégorie" value="Travail">Travail</mat-radio-button>
-    </mat-radio-group>
-  </form>
-  <!--
-  <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="center" class="photoList" *ngIf="photos.length">
-    <div class="photo" *ngFor="let photo of photos">
-      <app-appercu-photo [photo]="photo"></app-appercu-photo>
-    </div>
-  </div>
-  -->
-</div>
-<div class="card-list" *ngIf="photos.length">
+<div class="mat-display-2">Galerie</div>
+<mat-radio-group class="filtre" [(ngModel)]="filter" (change)="filterPhotos()">
+      <mat-radio-button color="primary" value="toutes">Toutes les photos</mat-radio-button>
+      <mat-radio-button *ngFor="let categorie of categories" color="primary" [value]="categorie">{{categorie | titlecase}}</mat-radio-button>
+</mat-radio-group>
+
+<div class="card-list" *ngIf="photos$ | async as photos">
   <app-card *ngFor="let photo of photos" [text]="photo.nom" [link]="['/galerie', photo.id]" [photo]="photo.imageUrl">
   </app-card>
 </div>

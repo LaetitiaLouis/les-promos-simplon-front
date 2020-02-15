@@ -1,4 +1,4 @@
-<div class="image-container">
+<div class="image-container" *ngIf="photo$ | async as photo">
   <div class="image" [ngStyle]="{'background-image': 'url(' + photo.imageUrl + ')'}">
   </div>
 </div>
