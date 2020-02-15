@@ -5,6 +5,7 @@ import {Utilisateur} from '../../model/utilisateur';
 import {Observable} from 'rxjs';
 import {Projet} from '../../model/projet';
 import {ProjetService} from '../../service/projet.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class DetailUtilisateurComponent implements OnInit {
   projets$: Observable<Projet[]>;
   constructor(private utilisateurService: UtilisateurService,
               private projetService: ProjetService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -28,5 +30,8 @@ export class DetailUtilisateurComponent implements OnInit {
 
       }
     );
+  }
+  getTrustedUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
 }

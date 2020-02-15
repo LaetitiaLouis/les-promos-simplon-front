@@ -1,5 +1,5 @@
 <div class="image-container" *ngIf="photo$ | async as photo">
-  <div class="image" [ngStyle]="{'background-image': 'url(' + photo.imageUrl + ')'}">
+  <div class="image" [style.background-image]="getTrustedUrl(photo.imageUrl)">
   </div>
 </div>
 <app-retour fxLayout fxLayoutAlign="center start"></app-retour>

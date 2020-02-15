@@ -1,6 +1,6 @@
 <div class="grid" *ngIf="user$ | async as user; else spinner">
   <div class="column photo-column">
-    <div class="photo" [ngStyle]="{'background-image': 'url('+ user.avatarUrl + ')'}"></div>
+    <div class="photo" [style.background-image]="getTrustedUrl(user.avatarUrl)"></div>
     <div class="detail-presentation">
       <p class="detail">{{user.prenom | titlecase}} {{user.nom | titlecase}}</p>
       <p class="detail-pseudo">{{'Pseudo :' + ' ' + user.pseudo}}</p>

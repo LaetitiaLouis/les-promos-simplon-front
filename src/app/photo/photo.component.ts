@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class PhotoComponent implements OnInit {
   photos$: Observable<Photo[]>;
-  filter;
+  filter = 'toutes';
   categories = ['groupe', 'convivialité', 'travail'];
   constructor(private fb: FormBuilder, private photoService: PhotoService) {
   }

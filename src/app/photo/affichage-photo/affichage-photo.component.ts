@@ -3,6 +3,7 @@ import {PhotoService} from '../../service/photo.service';
 import {ActivatedRoute} from '@angular/router';
 import {Photo} from '../../model/photo';
 import {Observable} from 'rxjs';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-affichage-photo',
@@ -12,12 +13,17 @@ import {Observable} from 'rxjs';
 export class AffichagePhotoComponent implements OnInit {
   photo$: Observable<Photo>;
   constructor(private photoService: PhotoService,
-              private route: ActivatedRoute)  { }
+              private route: ActivatedRoute,
+              private sanitizer: DomSanitizer)  { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
       this.photo$ = this.photoService.getPhotoById(+params.get('id'))
     );
+  }
+
+  getTrustedUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
 
 }

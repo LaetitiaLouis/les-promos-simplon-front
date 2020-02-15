@@ -35,7 +35,6 @@ import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import { UtilisateurPhotoComponent } from './photo/utilisateur-photo/utilisateur-photo.component';
 import { CardComponent } from './card/card.component';
-import { ErrorComponent } from './service/error/error.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},

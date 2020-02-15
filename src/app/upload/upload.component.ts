@@ -4,7 +4,7 @@ import {Photo} from '../model/photo';
 import {PhotoService} from '../service/photo.service';
 import {UtilisateurService} from '../service/utilisateur.service';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-upload',
@@ -22,7 +22,8 @@ export class UploadComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private photoService: PhotoService,
               private userService: UtilisateurService,
-              private router: Router) {
+              private router: Router,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -36,12 +37,16 @@ export class UploadComponent implements OnInit {
     this.photoFile = files.item(0);
     const reader = new FileReader();
     reader.readAsDataURL(this.photoFile);
-    reader.onload = e => { this.photoUrl = reader.result; };
+    reader.onload = (event: any) => this.photoUrl = this.sanitizer.bypassSecurityTrustStyle(`url(${event.target.result})`);
   }
 
   onSubmit(form) {
-    if (!this.photoFile) { return; }
-    if (!this.profile && this.photoForm.invalid) { return; }
+    if (!this.photoFile) {
+      return;
+    }
+    if (!this.profile && this.photoForm.invalid) {
+      return;
+    }
     const photo = new Photo();
     photo.nom = form.nom;
     photo.datePhoto = new Date();
@@ -55,13 +60,13 @@ export class UploadComponent implements OnInit {
   }
 
   uploadPhotoFile(photo: Photo) {
-    const returnUrl = this.profile ? '/utilisateur' :  '/galerie';
+    const returnUrl = this.profile ? '/utilisateur' : '/galerie';
     const formData: FormData = new FormData();
     formData.append('file', this.photoFile, this.photoFile.name);
     this.userService.getUserByPseudo(sessionStorage.getItem('pseudo')).subscribe(
       user => this.photoService.uploadPhotoFile(formData, photo.id, user.id)
-        .subscribe( result => this.router.navigate([`${returnUrl}`]))
-      );
+        .subscribe(result => this.router.navigate([`${returnUrl}`]))
+    );
   }
 
   get f() {

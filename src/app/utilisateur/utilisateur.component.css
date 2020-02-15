@@ -1,16 +1,20 @@
-h1{
-  margin-top: 80px;
+.mat-display-2 {
   text-align: center;
-  font-size: 40px;
+  margin: 50px auto 20px auto;
+}
+mat-radio-group {
+  width: 350px;
+  margin: 0 auto 15px auto;
+}
+mat-radio-button ~ mat-radio-button {
+
 }
 
-.input-field{
-  text-align: center;
-  margin-bottom:  10px;
-}
-.choix-User~.choix-User{
-  margin-left: 10px;
-}
-.choix-filtre{
+.field-container {
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 420px;
+
 }
