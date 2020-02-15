@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Photo} from '../model/photo';
 import {PhotoService} from '../service/photo.service';
-import {UtilisateurService} from '../service/utilisateur.service';
 import {Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -21,15 +20,14 @@ export class UploadComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private photoService: PhotoService,
-              private userService: UtilisateurService,
               private router: Router,
               private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
     this.photoForm = this.fb.group({
-      nom: ['', Validators.required],
-      categorie: ['', Validators.required]
+      nom: ['', !this.profile && Validators.required],
+      categorie: ['', !this.profile &&  [Validators.required, Validators.maxLength(25)]]
     });
   }
 
@@ -41,34 +39,19 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit(form) {
-    if (!this.photoFile) {
-      return;
-    }
-    if (!this.profile && this.photoForm.invalid) {
+    if (!this.photoFile || this.photoForm.invalid) {
       return;
     }
     const photo = new Photo();
     photo.nom = form.nom;
     photo.datePhoto = new Date();
     photo.categorie = this.profile ? 'profil' : form.categorie;
-    this.uploadPhotoInfos(photo);
-  }
-
-  uploadPhotoInfos(photo: Photo) {
-    this.photoService.savePhotoInfos(photo).subscribe(
-      photoResult => this.uploadPhotoFile(photoResult));
-  }
-
-  uploadPhotoFile(photo: Photo) {
-    const returnUrl = this.profile ? '/utilisateur' : '/galerie';
     const formData: FormData = new FormData();
     formData.append('file', this.photoFile, this.photoFile.name);
-    this.userService.getUserByPseudo(sessionStorage.getItem('pseudo')).subscribe(
-      user => this.photoService.uploadPhotoFile(formData, photo.id, user.id)
-        .subscribe(result => this.router.navigate([`${returnUrl}`]))
+    this.photoService.savePhoto(photo, formData).subscribe(
+      success => this.router.navigate(['/galerie'])
     );
   }
-
   get f() {
     return this.photoForm.controls;
   }

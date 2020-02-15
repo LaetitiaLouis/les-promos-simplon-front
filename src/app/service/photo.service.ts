@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Photo} from '../model/photo';
 import {ErrorService} from './error.service';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, map, mergeMap, switchMap} from 'rxjs/operators';
+import {UtilisateurService} from './utilisateur.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class PhotoService {
   BASE_URL = 'http://localhost:8080/api/photos';
 
   constructor(private http: HttpClient,
+              private userService: UtilisateurService,
               private es: ErrorService) {
   }
 
@@ -37,22 +39,23 @@ export class PhotoService {
   }
 
   uploadPhotoFile(formData: FormData, photoId: number, userId: number): Observable<Photo> {
-    return this.http.post<Photo>(`${this.BASE_URL}/upload?photoId=${photoId}&userId=${userId}`, formData)
-      .pipe(
-        map(photo => this.es.handleSuccess('Photo sauvegardée')),
-        catchError(this.es.handleError())
-      );
+    return this.http.post<Photo>(`${this.BASE_URL}/upload?photoId=${photoId}&userId=${userId}`, formData);
   }
-
+  savePhoto(photo: Photo, formData: FormData): Observable<any> {
+    const pseudo = sessionStorage.getItem('pseudo');
+    return this.savePhotoInfos(photo).pipe(
+      mergeMap(photoResult => this.userService.getUserByPseudo(pseudo).pipe(
+        mergeMap(user => this.uploadPhotoFile(formData, photoResult.id, user.id)),
+        map(this.es.handleSuccess('Photo sauvegardée')),
+        catchError(this.es.handleError()))
+      )
+    );
+  }
   deletePhoto(id: number) {
     return this.http.delete(`${this.BASE_URL}/delete?id=${id}`, { responseType: 'text'})
       .pipe(
-        map(message => {
-          this.es.handleSuccess(message);
-          console.log(message);
-        },
+        map(this.es.handleSuccess()),
         catchError(this.es.handleError())
-      ));
+      );
   }
-
 }

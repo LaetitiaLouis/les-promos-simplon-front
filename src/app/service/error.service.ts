@@ -28,8 +28,8 @@ export class ErrorService {
     };
   }
   handleSuccess(message?: string) {
-    return (e: Error): Observable<any> => {
-      this.openSnackBar(message || e.error, 'Ok', false);
+    return (response): Observable<any> => {
+      this.openSnackBar(message || response, 'Ok', false);
       return of([]);
     };
   }
