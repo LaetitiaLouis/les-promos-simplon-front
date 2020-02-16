@@ -1,22 +1,33 @@
-
-<div class="project-container mat-elevation-z6">
-  <div class="mat-display-1 title" *ngIf="projets; else spinner">Les projets</div>
-  <div class="content">
-    <div class="project" *ngFor="let projet of projets">
-      <div class="mat-title project-title">{{projet.nom | uppercase}}</div>
-      <div class="descriptif mat-subheading-2">Description:</div>
-      <div class="mat-body-1 element">{{projet.descriptif}}</div>
-      <div class="descriptif mat-subheading-2">Langages et technos utilisés:</div>
-      <div class="mat-body element" *ngFor="let lang of projet.langages">
-        {{lang.nom}}
+<div class="container" gdColumns.gt-md="1fr 3fr 3fr 1fr" gdGap="20px">
+  <div class="project-container mat-elevation-z6" ngClass.gt-sm="medium-container" ngClass.sm="small-container" gdColumn.gt-md="2">
+    <div class="mat-display-1 title" *ngIf="projets; else spinner">Les projets</div>
+    <div class="content" gdColumns.gt-sm="1fr 1fr">
+      <div class="project" *ngFor="let projet of projets">
+        <div class="mat-title project-title">{{projet.nom | uppercase}}</div>
+        <div class="descriptif mat-subheading-2">Description:</div>
+        <div class="mat-body-1 element">{{projet.descriptif}}</div>
+        <div class="descriptif mat-subheading-2">Langages et technos utilisés:</div>
+        <div class="mat-body element" *ngFor="let lang of projet.langages">
+          {{lang.nom}}
+        </div>
+        <div class="descriptif mat-subheading-2">Crée par:</div>
+        <div class="mat-body element" *ngFor="let user of projet.apprenants">{{user.prenom | titlecase}}</div>
       </div>
-      <div class="descriptif mat-subheading-2">Crée par:</div>
-      <div class="mat-body element" *ngFor="let user of projet.apprenants">{{user.prenom | titlecase}}</div>
     </div>
   </div>
-
+  <div class="project-container mat-elevation-z6" ngClass.gt-sm="medium-container" ngClass.sm="small-container" gdColumn.gt-md="3">
+    <div class="mat-display-1 title" *ngIf="veilles">Les veilles</div>
+    <div class="content" gdColumns.gt-sm="1fr 1fr">
+      <div class="project" *ngFor="let veille of veilles">
+        <div class="mat-title project-title">{{veille.nom | uppercase}}</div>
+        <div class="descriptif mat-subheading-2">Description:</div>
+        <div class="mat-body-1 element">{{veille.descriptif}}</div>
+        <div class="descriptif mat-subheading-2">Crée par:</div>
+        <div class="mat-body element" *ngFor="let user of veille.apprenants">{{user.prenom | titlecase}}</div>
+      </div>
+    </div>
+  </div>
 </div>
-
 <ng-template #spinner>
   <div class="spinner-container">
     <mat-spinner></mat-spinner>

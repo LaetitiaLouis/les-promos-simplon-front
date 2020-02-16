@@ -1,24 +1,31 @@
 .project-container {
-  border: 2px #333333 solid;
-  max-width: 920px;
+  width: 360px;
   margin: 30px auto;
+}
+.small-container {
+  width: 450px;
+  text-align: center;
+}
+.medium-container {
+  width: 600px;
 }
 .title {
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 20px;
   padding: 20px 0;
-  background-color: #333333;
+  background-color: lightgray;
   width: 100%;
-  color: white;
+  color: #333333;
 }
 .project  {
   padding: 20px;
 }
 .project-title {
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: underline;
 }
+
 .descriptif {
   margin: 10px 0 0 0;
   color: dimgrey;
