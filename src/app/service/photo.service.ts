@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Photo} from '../model/photo';
 import {ErrorService} from './error.service';
-import {catchError, map, mergeMap, switchMap} from 'rxjs/operators';
+import {catchError, map, mergeMap} from 'rxjs/operators';
 import {UtilisateurService} from './utilisateur.service';
 
 @Injectable({
@@ -52,7 +52,8 @@ export class PhotoService {
     );
   }
   deletePhoto(id: number) {
-    return this.http.delete(`${this.BASE_URL}/delete?id=${id}`, { responseType: 'text'})
+
+    return this.http.delete(`${this.BASE_URL}/delete?id=${id}`, {responseType: 'text'})
       .pipe(
         map(this.es.handleSuccess()),
         catchError(this.es.handleError())

@@ -3,6 +3,7 @@ import {PhotoService} from '../../service/photo.service';
 import {UtilisateurService} from '../../service/utilisateur.service';
 import {Observable} from 'rxjs';
 import {Utilisateur} from '../../model/utilisateur';
+import {Photo} from '../../model/photo';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class UtilisateurPhotoComponent implements OnInit {
     const pseudo = sessionStorage.getItem('pseudo');
     this.user$ = this.userService.getUserByPseudo(pseudo);
   }
-  deletePhoto(id) {
+  deletePhoto(id: number) {
     this.photoService.deletePhoto(id).subscribe(
       result => location.reload()
     );
