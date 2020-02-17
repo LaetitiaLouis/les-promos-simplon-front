@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit} from '@angular/core';
 import {PhotoService} from '../../service/photo.service';
 import {UtilisateurService} from '../../service/utilisateur.service';
 import {Observable} from 'rxjs';
 import {Utilisateur} from '../../model/utilisateur';
-
-
 
 @Component({
   selector: 'app-utilisateur-photo',
@@ -14,6 +11,7 @@ import {Utilisateur} from '../../model/utilisateur';
 })
 export class UtilisateurPhotoComponent implements OnInit {
   user$: Observable<Utilisateur>;
+  isLoading = false;
 
   constructor(private photoService: PhotoService, private userService: UtilisateurService) {
   }
@@ -32,8 +30,11 @@ export class UtilisateurPhotoComponent implements OnInit {
    * @param id
    */
   deletePhoto(id: number) {
+    this.isLoading = true;
     this.photoService.deletePhoto(id).subscribe(
-      result => location.reload()
-    );
+      result => {
+        this.isLoading = false;
+        location.reload();
+      });
   }
 }

@@ -16,6 +16,7 @@ export class UploadComponent implements OnInit {
   photoFile: File;
   photoUrl: any;
   photoForm: FormGroup;
+  isLoading = false;
   categories = ['groupe', 'convivialité', 'travail'];
 
   constructor(private fb: FormBuilder,
@@ -43,13 +44,14 @@ export class UploadComponent implements OnInit {
   }
 
   /**
-   * Ajout de la photo si les champs sont remplis  lors du clic sur le boutton
-   * @param form
+   * Ajout de la photo si les champs sont remplis lors du clic sur le boutton
+   *
    */
   onSubmit(form) {
     if (!this.photoFile || this.photoForm.invalid) {
       return;
     }
+    this.isLoading = true;
     const photo = new Photo();
     photo.nom = form.nom;
     photo.datePhoto = new Date();
@@ -57,7 +59,11 @@ export class UploadComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.append('file', this.photoFile, this.photoFile.name);
     this.photoService.savePhoto(photo, formData).subscribe(
-      success => this.router.navigate(['/galerie'])
+      success => {
+        this.isLoading = false;
+        this.router.navigate(['/galerie']);
+    },
+        error => this.isLoading = false
     );
   }
   get f() {
