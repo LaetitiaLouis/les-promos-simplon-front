@@ -13,7 +13,7 @@ photos: Photo[];
   constructor(private photoService: PhotoService) { }
 
   /**
-   * Magnifique Carrousel non utilisé
+   * Magnifique Carousel non utilisé
    */
   ngOnInit() {
     this.photoService.getAllPhotos().subscribe(photosResult => this.photos = photosResult);

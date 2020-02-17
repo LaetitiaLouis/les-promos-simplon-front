@@ -1,4 +1,4 @@
-<div class="mat-display-2">Galerie</div>
+<div fxHide.xs="true" class="mat-display-2">Galerie</div>
 <mat-radio-group class="filtre" [(ngModel)]="filter" (change)="filterPhotos()">
       <mat-radio-button color="primary" value="toutes">Toutes les photos</mat-radio-button>
       <mat-radio-button *ngFor="let categorie of categories" color="primary" [value]="categorie">{{categorie | titlecase}}</mat-radio-button>
@@ -8,3 +8,12 @@
   <app-card *ngFor="let photo of photos" [text]="photo.nom" [link]="['/galerie', photo.id]" [photo]="photo.imageUrl">
   </app-card>
 </div>
+
+<mat-form-field fxHide.gt-xs="true" fxShow.xs="true">
+  <mat-label>Sélectionner par</mat-label>
+   <mat-select>
+    <mat-option *ngFor="let categorie of categories" [value]="categorie">
+      {{categorie | titlecase}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
