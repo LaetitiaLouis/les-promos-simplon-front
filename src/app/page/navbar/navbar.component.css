@@ -26,9 +26,15 @@ mat-toolbar {
 
 }
 
-@media (max-width: 360px) {
-  .mat-small {
-    margin: 0 8px 0 0;
+@media (max-width: 420px) {
+  .mat-small, .mat-title {
+    margin: 0;
+    font-size: 10px;
   }
+  .mat-button-base{
+    padding: 0;
+    margin: 0;
+  }
+
 }
 

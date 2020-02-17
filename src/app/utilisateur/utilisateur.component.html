@@ -1,11 +1,11 @@
-<div class="mat-display-2">Les utilisateurs</div>
-<mat-radio-group [(ngModel)]="usersToShow" (change)="userFilterChanged()" fxLayout fxLayoutAlign="space-around">
+<div class="mat-display-2" fxLayoutAlign.lt-sm="center" >Les utilisateurs</div>
+<mat-radio-group [(ngModel)]="usersToShow" (change)="userFilterChanged()" fxLayout fxLayoutAlign="space-around" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center">
   <mat-radio-button [value]="filter" *ngFor="let filter of usersFilters" color="primary"
                     [name]="filter">
     {{filter | titlecase}}
   </mat-radio-button>
 </mat-radio-group>
-<div class="field-container">
+<div class="field-container" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center">
   <mat-form-field>
     <mat-label>Rechercher par</mat-label>
     <mat-select>

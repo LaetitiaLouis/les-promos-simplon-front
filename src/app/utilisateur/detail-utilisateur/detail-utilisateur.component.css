@@ -68,19 +68,31 @@ li{
   border-radius: 50%;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 920px) {
   .grid {
     grid-template-columns: 1fr;
+    font-size: 15px;
   }
-  .photo-column{
-    grid-template-columns: 1fr;
+
+ .photo-column{
+   grid-column: 1;
+   grid-template-columns: 1fr;
+   justify-items: center;
   }
+
+  .column-presentation{
+   grid-column: 1;
+   }
+
   .column-pratiques{
-    grid-template-columns: 1fr;
-    word-wrap:break-word;
-  }
+    grid-column: 1;
+    }
+
   .column-realisation{
-    grid-template-columns: 1fr;
-  }
+   grid-column: 1;
+   }
+}
+
+@media (max-width: 400px) {
 
 }

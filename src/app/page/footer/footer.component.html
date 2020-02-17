@@ -1,23 +1,23 @@
 <div class="grid">
-  <a class="accueil" mat-button routerLink="/">
+  <a class="accueil" fxHide.lt-md="true" mat-button routerLink="/">
     <span [ngClass.lt-sm]="'mat-small'">Accueil</span>
   </a>
-  <a class="utilisateur" mat-button routerLink="/utilisateur">
+  <a class="utilisateur" fxHide.lt-md="true" mat-button routerLink="/utilisateur">
     <span [ngClass.lt-sm]="'mat-small'">Utilisateur</span>
   </a>
-  <a class="promo" mat-button [matMenuTriggerFor]="promos">
+  <a class="promo" fxHide.lt-md="true"  mat-button [matMenuTriggerFor]="promos">
     <span [ngClass.lt-sm]="'mat-small'">Promo</span>
   </a>
-  <a class="projet" mat-button routerLink="/projet">
+  <a class="projet" fxHide.lt-md="true" mat-button routerLink="/projet">
     <span [ngClass.lt-sm]="'mat-small'">Projets</span>
   </a>
-  <a class="galerie" mat-button routerLink="/galerie">
+  <a class="galerie" fxHide.lt-md="true" mat-button routerLink="/galerie">
     <span [ngClass.lt-sm]="'mat-small'">Galerie</span>
   </a>
-  <a class="connexion"  *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
+  <a class="connexion" fxHide.lt-md="true" *ngIf="!auth.isLoggedIn()" mat-button routerLink="/connexion">
     <span [ngClass.lt-sm]="'mat-small'">Connexion</span>
   </a>
-  <a class="connexion" *ngIf="auth.isLoggedIn()" mat-button>
+  <a class="connexion" fxHide.lt-md="true" *ngIf="auth.isLoggedIn()" mat-button>
     <span [ngClass.lt-sm]="'mat-small'" [matMenuTriggerFor]="profil">Profil</span>
   </a>
   <mat-menu #promos="matMenu">
@@ -37,7 +37,7 @@
     <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
   </mat-menu>
 
-  <p>Nous contacter</p>
-  <img src="../../../assets/discord.png">
+  <p fxLayout.lt-sm="center center">Nous contacter</p>
+  <img fxLayout.lt-sm="center center" src="../../../assets/discord.png">
 </div>
 
