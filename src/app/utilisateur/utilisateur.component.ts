@@ -15,7 +15,7 @@ export class UtilisateurComponent implements OnInit {
   usersFilters = ['tous', 'apprenants', 'formateurs' ];
   searchFilters =  ['nom', 'prénom', 'nom et prénom'];
   usersToShow = 'tous';
-  searchBy: 'nom';
+  searchBy = 'nom';
   searchWord: string;
 
   constructor(private utilisateurService: UtilisateurService,
