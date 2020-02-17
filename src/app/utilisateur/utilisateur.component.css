@@ -15,6 +15,20 @@ mat-radio-group {
   width: 420px;
 }
 
+@media (max-width: 600px){
+  .mat-radio-group {
+    text-align: center;
+    padding-left: 40px;
+  }
+  .mat-radio-container{
+    display: inline;
+  }
+
+  .field-container{
+    width: 200px;
+  }
+}
+
 @media (max-width: 400px){
   .mat-display-2{
     font-size: 35px;
