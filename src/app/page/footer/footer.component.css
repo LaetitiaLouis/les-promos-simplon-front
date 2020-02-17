@@ -64,21 +64,36 @@ a {
   font-size: 14px;
 }
 
-@media (max-width: 920px){
+@media (max-width: 1000px){
   .grid{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    justify-items: center;
+
+  }
+  img{
+    grid-column: 10/ span 1;
+    text-align: left;
+  }
+
+  p{
+    grid-column: 7/ span 2;
+  }
+}
+
+
+@media (max-width: 600px){
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
 
   }
  img{
-   grid-column: 2/ span 1;
-   text-align: center;
-    }
+   grid-column: 3/ span 1;
+   }
 
   p{
-    grid-column: 1/ span 1;
-    text-align: center;
-     }
+    grid-column: 1/ span 2;
+    }
 }
 
 

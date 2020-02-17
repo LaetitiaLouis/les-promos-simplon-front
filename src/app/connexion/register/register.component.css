@@ -31,3 +31,23 @@ mat-form-field {
   margin-bottom: 10px;
 }
 
+@media (max-width: 450px) {
+  button {
+    padding: 6px 0 6px 0;
+    font: bold 9px Arial;
+    background: #478bf9;
+    color: #fff;
+    border-radius: 2px;
+    width: 60px;
+    border: none;
+    margin: 0 auto;
+  }
+
+  .page-container {
+    max-width: 250px;
+    margin: 0 auto;
+    font-size: 10px;
+  }
+
+}
+

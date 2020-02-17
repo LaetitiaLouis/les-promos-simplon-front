@@ -1,14 +1,18 @@
 .project-container {
   width: 360px;
   margin: 30px auto;
+
 }
+
 .small-container {
   width: 450px;
-  text-align: center;
+  text-align: justify;
 }
+
 .medium-container {
   width: 600px;
 }
+
 .title {
   text-align: center;
   font-weight: 500;
@@ -18,9 +22,11 @@
   width: 100%;
   color: #333333;
 }
-.project  {
+
+.project {
   padding: 20px;
 }
+
 .project-title {
   font-weight: 400;
   text-decoration: underline;
@@ -32,8 +38,38 @@
   font-weight: 600;
   font-style: italic;
 }
+
 .element {
   margin-left: 15px;
   font-weight: 100;
+}
+
+@media (max-width: 450px) {
+  .project-container {
+    width: 250px;
+    margin: 5px auto;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .project{
+    padding: 10px;
+  }
+  .project-title {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .descriptif {
+    font-size: 14px;
+    margin: 2px auto;
+  }
+
+   .element {
+    font-size: 12px;
+  }
 }
 

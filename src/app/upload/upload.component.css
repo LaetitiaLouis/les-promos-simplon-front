@@ -1,13 +1,16 @@
-.container{
+.container {
   width: 360px;
   margin: 0 auto;
 }
+
 mat-form-field {
   width: 100%;
 }
+
 mat-radio-button ~ mat-radio-button {
   margin-left: 10px
 }
+
 .preview {
   background-position: center;
   background-size: cover;
@@ -17,3 +20,34 @@ mat-radio-button ~ mat-radio-button {
   margin: 0 auto 20px auto;
   border: 2px lightgray solid;
 }
+
+@media (max-width: 450px) {
+  .container {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 0 auto;
+  }
+
+  input {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  button {
+    padding: 6px 0 6px 0;
+    font: bold 9px Arial;
+    background: #478bf9;
+    color: #fff;
+    border-radius: 2px;
+    width: 60px;
+    border: none;
+    margin: 0 auto;
+  }
+  mat-form-field {
+    width: 200px;
+    font-size: 10px;
+    margin: 0 auto;
+  }
+ }

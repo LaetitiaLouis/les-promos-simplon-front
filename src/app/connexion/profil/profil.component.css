@@ -2,5 +2,38 @@
   text-align: center;
   margin-top: 50px;
 }
-.container {
+
+@media (max-width: 450px) {
+  .mat-display-2 {
+    font-size: 30px;
+  }
+
+  .container{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  mat-expansion-panel-header{
+    width: 200px;
+  }
+
+  mat-expansion-panel{
+    width: 250px;
+  }
+
+  app-register{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  app-upload{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

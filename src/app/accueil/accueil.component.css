@@ -49,3 +49,10 @@
   font-weight: 500;
 }
 
+@media (max-width: 450px){
+  presentation-container .mat-headline, .presentation-container .mat-title{
+    font-size:17px;
+    text-align: justify;
+  }
+}
+
