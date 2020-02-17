@@ -9,6 +9,9 @@ export class RetourComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * boutton qui renvoi à l'url précédente
+   */
   ngOnInit() {
   }
 

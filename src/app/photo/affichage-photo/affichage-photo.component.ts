@@ -16,6 +16,9 @@ export class AffichagePhotoComponent implements OnInit {
               private route: ActivatedRoute,
               private sanitizer: DomSanitizer)  { }
 
+  /**
+   * Permet d'afficher la taille original de la photo selectionné
+   */
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
       this.photo$ = this.photoService.getPhotoById(+params.get('id'))

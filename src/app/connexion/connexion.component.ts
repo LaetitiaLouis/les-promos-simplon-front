@@ -16,6 +16,10 @@ export class ConnexionComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private auth: AuthService) { }
 
+  /**
+   * connexion d'un utilisateur avec son login et mdp
+   * On défini les champs pseudo et mot de passe comme champs obligatoire
+   */
   ngOnInit() {
     this.connexionForm = this.fb.group({
       pseudo: ['', Validators.required],
@@ -23,6 +27,10 @@ export class ConnexionComponent implements OnInit {
     });
   }
 
+  /**
+   * On vérifi que le login et mdp correspond bien à un utilisatueur
+   * @param form
+   */
   onSubmit(form) {
     this.submitted = true;
     if (this.connexionForm.invalid) { return; }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import {PhotoService} from '../../service/photo.service';
 import {UtilisateurService} from '../../service/utilisateur.service';
 import {Observable} from 'rxjs';
 import {Utilisateur} from '../../model/utilisateur';
-import {Photo} from '../../model/photo';
+
 
 
 @Component({
@@ -17,10 +18,19 @@ export class UtilisateurPhotoComponent implements OnInit {
   constructor(private photoService: PhotoService, private userService: UtilisateurService) {
   }
 
+  /**
+   * Ce composant n'est appelé que depuis le profil d'un utilisateur.
+   * On récupère le pseudo de l'utilisateur connecté et on récupère l'Id de cet utilisateur
+   */
   ngOnInit() {
     const pseudo = sessionStorage.getItem('pseudo');
     this.user$ = this.userService.getUserByPseudo(pseudo);
   }
+
+  /**
+   * Suppression d'une photo de l'utilisateur
+   * @param id
+   */
   deletePhoto(id: number) {
     this.photoService.deletePhoto(id).subscribe(
       result => location.reload()

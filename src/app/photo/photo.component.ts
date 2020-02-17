@@ -16,10 +16,16 @@ export class PhotoComponent implements OnInit {
   constructor(private fb: FormBuilder, private photoService: PhotoService) {
   }
 
+  /**
+   * on affiche toutes les photos par defaut
+   */
   ngOnInit() {
     this.photos$ = this.photoService.getAllPhotos();
   }
 
+  /**
+   * recupère la liste des photos en fonction du filtre choisi
+   */
   filterPhotos() {
     if (this.filter !== 'toutes') {
       this.photos$ = this.photoService.getPhotoByCategorie(this.filter);

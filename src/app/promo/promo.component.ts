@@ -20,6 +20,9 @@ export class PromoComponent implements OnInit {
   constructor(private promoService: PromoService,
               private route: ActivatedRoute) { }
 
+  /**
+   * On récupère le nom dans l'url et on récupère l'objet promo
+   */
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
         const nomPromo = params.get('nom');

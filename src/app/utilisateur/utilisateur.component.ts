@@ -22,10 +22,16 @@ export class UtilisateurComponent implements OnInit {
               private apprenantService: ApprenantService,
               private formateurService: FormateurService) { }
 
+  /**
+   * Affichage de tous les utilisateurs par défaut
+   */
   ngOnInit() {
     this.users$ = this.utilisateurService.getAllUsers();
   }
 
+  /**
+   * Affichage des utilisateurs en fonction de la checkbox
+   */
   userFilterChanged() {
     if (this.usersToShow === 'tous') {
       this.users$ = this.utilisateurService.getAllUsers();
@@ -36,6 +42,9 @@ export class UtilisateurComponent implements OnInit {
     }
   }
 
+  /**
+   * récupération et recherche avec le filtre correspondant au menu déroulant
+   */
   search() {
     if (this.searchBy === 'nom') {
       this.users$ = this.utilisateurService.getUserByNom(this.searchWord);

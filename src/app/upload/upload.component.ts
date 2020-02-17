@@ -24,6 +24,10 @@ export class UploadComponent implements OnInit {
               private sanitizer: DomSanitizer) {
   }
 
+  /**
+   * Permet de choisir une photo et de l'ajouter sur le site
+   * Copie cette photo dans le dossier uploads de l'utilisateur windows
+   */
   ngOnInit() {
     this.photoForm = this.fb.group({
       nom: ['', !this.profile && Validators.required],
@@ -38,6 +42,10 @@ export class UploadComponent implements OnInit {
     reader.onload = (event: any) => this.photoUrl = this.sanitizer.bypassSecurityTrustStyle(`url(${event.target.result})`);
   }
 
+  /**
+   * Ajout de la photo si les champs sont remplis  lors du clic sur le boutton
+   * @param form
+   */
   onSubmit(form) {
     if (!this.photoFile || this.photoForm.invalid) {
       return;

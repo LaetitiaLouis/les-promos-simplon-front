@@ -13,6 +13,9 @@ export class ProjetComponent implements OnInit {
   projets: Projet[];
   constructor(private projetService: ProjetService) { }
 
+  /**
+   * on récupère la liste des projets et veilles
+   */
   ngOnInit() {
     this.projetService.getAllProjets().subscribe(projets => {
       this.veilles = projets.filter(projet => projet.typeProjet === 'veille');

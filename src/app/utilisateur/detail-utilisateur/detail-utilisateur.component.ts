@@ -22,6 +22,9 @@ export class DetailUtilisateurComponent implements OnInit {
               private sanitizer: DomSanitizer) {
   }
 
+  /**
+   * lors de l'initialisation de la page on récupère l'id dans l'url et le profil et les projets de l'utilisateurs
+   */
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
         const userId = +params.get('id');
