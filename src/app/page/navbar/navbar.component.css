@@ -24,7 +24,7 @@ mat-toolbar {
   cursor: pointer;
   margin: 0 15px 0 0;
 }
-
+/*responsive*/
 @media (max-width: 420px) {
   .mat-small, .mat-title {
     margin: 0;
