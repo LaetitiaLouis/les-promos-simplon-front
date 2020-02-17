@@ -2,7 +2,7 @@
   text-align: center;
   margin: 50px;
 }
-mat-radio-group {
+mat-radio-group, mat-form-field {
   display: flex;
   justify-content: center;
 }
