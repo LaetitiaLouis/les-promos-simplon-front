@@ -14,9 +14,9 @@
 <div class="field-container" fxLayout.xs="column" fxLayoutAlign.xs="center">
   <mat-form-field>
     <mat-label>Rechercher par</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="searchBy">
       <mat-option *ngFor="let filter of searchFilters" [value]="filter">
-        {{filter}}
+        {{filter | titlecase}}
       </mat-option>
     </mat-select>
   </mat-form-field>
