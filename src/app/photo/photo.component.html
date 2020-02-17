@@ -5,7 +5,7 @@
 </mat-radio-group>
 <mat-form-field fxHide.gt-xs="true" >
   <mat-label>Sélectionner par</mat-label>
-  <mat-select [(ngModel)]="filter" [value]="filter" (change)="filterPhotos()">
+  <mat-select (selectionChange)="filterPhotos()" [(ngModel)]="filter" >
     <mat-option value="toutes">Toutes</mat-option>
     <mat-option *ngFor="let categorie of categories" [value]="categorie">
       {{categorie | titlecase}}
