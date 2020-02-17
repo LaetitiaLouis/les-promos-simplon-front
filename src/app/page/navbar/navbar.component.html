@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6 navbar">
+<mat-toolbar fxHide.xs="true" class="mat-elevation-z6 navbar">
   <a class="brand" mat-button routerLink="/" fxHide.lt-md="true">
     <img src="../../../assets/logoBlanc.png" alt="" class="logo">
   </a>
@@ -42,6 +42,34 @@
       <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
     </mat-menu>
 </div>
+</mat-toolbar>
 
+<mat-toolbar class="mat-elevation-z6" fxHide.gt-xs="true">
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">Accueil</button>
+    <button mat-menu-item routerLink="/utilisateur">Utilisateur</button>
+    <button mat-menu-item [matMenuTriggerFor]="promos">Promo</button>
+    <button mat-menu-item routerLink="/projet">Projets</button>
+    <button mat-menu-item routerLink="/galerie">Galerie</button>
+    <button *ngIf="!auth.isLoggedIn()" mat-menu-item routerLink="/connexion">Connexion</button>
+    <button *ngIf="auth.isLoggedIn()" [matMenuTriggerFor]="profil">Profil</button>
+    <mat-menu #promos="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
+      <button mat-menu-item [matMenuTriggerFor]="cybersecu" *ngIf="cyber">Cyber sécurité</button>
+    </mat-menu>
+    <mat-menu #webdev="matMenu">
+      <button *ngFor="let promo of web" [routerLink]="['/promo', promo.specialite, promo.nom]" mat-menu-item>{{promo.nom}}</button>
+    </mat-menu>
+    <mat-menu #cybersecu="matMenu">
+      <button *ngFor="let promo of cyber" [routerLink]="['/promo', promo.specialite, promo.nom]" mat-menu-item>{{promo.nom}}</button>
+    </mat-menu>
 
+    <mat-menu #profil="matMenu">
+      <button routerLink="/profil" mat-menu-item>Profil</button>
+      <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
+    </mat-menu>
+  </mat-menu>
+</button>
 </mat-toolbar>

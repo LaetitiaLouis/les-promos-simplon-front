@@ -23,7 +23,6 @@ mat-toolbar {
 .mat-title, .mat-small {
   cursor: pointer;
   margin: 0 15px 0 0;
-
 }
 
 @media (max-width: 420px) {
