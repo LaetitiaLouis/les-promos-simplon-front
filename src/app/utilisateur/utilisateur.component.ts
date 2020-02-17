@@ -12,7 +12,7 @@ import {Observable} from 'rxjs';
 })
 export class UtilisateurComponent implements OnInit {
   users$: Observable<Utilisateur[]>;
-  usersFilters = ['apprenants', 'formateurs', 'tous'];
+  usersFilters = ['tous', 'apprenants', 'formateurs' ];
   searchFilters =  ['nom', 'prénom', 'nom et prénom'];
   usersToShow = 'tous';
   searchBy: 'nom';

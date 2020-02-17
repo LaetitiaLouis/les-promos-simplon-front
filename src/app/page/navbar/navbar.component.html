@@ -54,7 +54,7 @@
     <button mat-menu-item routerLink="/projet">Projets</button>
     <button mat-menu-item routerLink="/galerie">Galerie</button>
     <button *ngIf="!auth.isLoggedIn()" mat-menu-item routerLink="/connexion">Connexion</button>
-    <button *ngIf="auth.isLoggedIn()" [matMenuTriggerFor]="profil">Profil</button>
+    <button *ngIf="auth.isLoggedIn()" [matMenuTriggerFor]="profil" mat-menu-item>Profil</button>
     <mat-menu #promos="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="webdev" *ngIf="web">Développeur Web</button>
       <button mat-menu-item [matMenuTriggerFor]="cybersecu" *ngIf="cyber">Cyber sécurité</button>
@@ -67,7 +67,7 @@
     </mat-menu>
 
     <mat-menu #profil="matMenu">
-      <button routerLink="/profil" mat-menu-item>Profil</button>
+      <button routerLink="/profil" mat-menu-item>Mon profil</button>
       <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
     </mat-menu>
   </mat-menu>
