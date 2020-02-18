@@ -12,7 +12,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class UploadComponent implements OnInit {
 
-  @Input() profile = true;
+  @Input() profile;
   photoFile: File;
   photoUrl: any;
   photoForm: FormGroup;
