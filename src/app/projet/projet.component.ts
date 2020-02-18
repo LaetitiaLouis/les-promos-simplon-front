@@ -20,7 +20,6 @@ export class ProjetComponent implements OnInit {
     this.projetService.getAllProjets().subscribe(projets => {
       this.veilles = projets.filter(projet => projet.typeProjet === 'veille');
       this.projets = projets.filter(projet => projet.typeProjet === 'projet');
-      console.log(this.veilles);
     });
   }
 
