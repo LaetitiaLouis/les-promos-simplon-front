@@ -15,7 +15,7 @@ export class ErrorService {
 
   openSnackBar(message: string, action: string, error: boolean) {
     this.snackBar.open(message, action, {
-      duration: 5000,
+      duration: 2000,
       verticalPosition: 'top',
       panelClass: error ? 'error-dialog' : 'success-dialog'
     });

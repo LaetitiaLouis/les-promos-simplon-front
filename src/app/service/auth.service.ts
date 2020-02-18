@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Utilisateur} from '../model/utilisateur';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import {ErrorService} from './error.service';
+import {catchError, map, mergeMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +13,16 @@ import {MatSnackBar} from '@angular/material';
 export class AuthService {
   constructor(private http: HttpClient,
               private router: Router,
-              private snackBar: MatSnackBar) {
-  }
+              private es: ErrorService) {}
 
   login(pseudo, motDePasse) {
-    this.http.post('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).subscribe(
-      (user: Utilisateur) => {
+    this.http.post<Utilisateur>('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).pipe(
+      map((user: Utilisateur) => {
         sessionStorage.setItem('pseudo', user.pseudo);
         this.router.navigate(['/profil']);
-      },
-      error => this.openSnackBar('Pseudo ou mot de passe incorrect', '')
-    );
+      }),
+      catchError(this.es.handleError('Pseudo ou mot de passe invalide'))
+    ).subscribe();
   }
 
   isLoggedIn() {
@@ -33,10 +35,4 @@ export class AuthService {
     this.router.navigate(['/connexion']);
   }
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
 }
-

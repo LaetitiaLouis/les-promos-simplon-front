@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   entites = ['Paris', 'Nantes', 'Gradignan'];
   promos: Promo[];
   isApprenant = true;
+
   constructor(private fb: FormBuilder,
               private validator: FormValidatorService,
               private userService: UtilisateurService,
@@ -29,22 +30,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.promoService.getAll().subscribe(promos => this.promos = promos);
     this.registerForm = this.fb.group({
+
         isApprenant: [true, Validators.required],
-        pseudo: [{value: '', disabled: this.update} , [Validators.required], [this.validator.pseudoExists()]],
+        pseudo: [{value: '', disabled: this.update}, [Validators.required], [this.validator.pseudoExists()]],
         motDePasse: [{value: '', disabled: this.update}, [Validators.required, Validators.minLength(8)]],
         confirmPass: [{value: '', disabled: this.update}, [Validators.required]],
         email: [{value: '', disabled: this.update}, [Validators.required, Validators.email], [this.validator.emailExists()]],
         nom: [{value: '', disabled: this.update}, [Validators.required]],
         prenom: [{value: '', disabled: this.update}, [Validators.required]],
-        presentation: [{value: '', disabled: this.update}, Validators.required],
         dateDeNaissance: [{value: null, disabled: this.update}, Validators.required],
         entiteAffectation: [{value: '', disabled: this.update}, Validators.required],
-        promo: [{value: null, disabled: this.update}, Validators.required]
+        promo: [{value: '', disabled: this.update}, Validators.required],
+        avatarUrl: 'http://localhost:8080/api/photos/download/avatar.png'
       },
       {
         validators: this.validator.passwordMatch
       });
-
   }
 
   get f() {
@@ -60,7 +61,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.f.invalid) { return; }
+    if (this.registerForm.invalid) {
+      return;
+    }
     if (this.update) {
       this.updateUserObject();
       this.userService.updateUser(this.user).subscribe(
