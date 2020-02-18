@@ -2,7 +2,16 @@
   text-align: center;
   margin-top: 50px;
 }
+.avatar {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: -40px auto 30px auto;
 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 @media (max-width: 450px) {
   .mat-display-2 {
     font-size: 30px;
@@ -36,4 +45,18 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+.column {
+  padding-top: 30px;
+}
+.mat-title {
+  text-align: center;
+}
+.row {
+  padding-bottom: 46px;
+  border-bottom: 1px lightgray solid;
+}
+.link {
+  cursor: pointer;
+  color: #3F51B5;
 }

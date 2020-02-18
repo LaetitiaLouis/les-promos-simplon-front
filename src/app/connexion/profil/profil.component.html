@@ -1,5 +1,6 @@
 <div class="mat-display-2" *ngIf="user">{{'Bienvenue ' + user.prenom | titlecase}}</div>
-<div class="container" fxLayout fxLayoutAlign="center">
+<div *ngIf="user" [ngStyle]="{'background-image': 'url('+user.avatarUrl+')'}" class="avatar mat-elevation-z6"></div>
+<div class="container" fxLayout fxLayoutAlign="center" fxHide.gt-sm>
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -25,12 +26,34 @@
       </mat-expansion-panel-header>
       <app-register [update]="true" [user]="user"></app-register>
     </mat-expansion-panel>
-   <mat-expansion-panel>
-    <mat-expansion-panel-header [routerLink]="['/mes-photos']">
-      <mat-panel-title>
-        Afficher mes photos
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header [routerLink]="['/mes-photos']">
+        <mat-panel-title>
+          Afficher mes photos
+        </mat-panel-title>
+      </mat-expansion-panel-header>
     </mat-expansion-panel>
   </mat-accordion>
+</div>
+<div fxHide fxShow.gt-sm>
+<div gdColumns="1fr 2fr 2fr 1fr" gdGap="20px">
+  <div class="column mat-elevation-z2" gdColumn="2">
+    <div class="mat-title">Modifier mon profil</div>
+    <app-register [update]="true" [user]="user"></app-register>
+  </div>
+  <div class="column mat-elevation-z2" gdColumn="3" fxLayout="column" fxLayoutGap="30px">
+    <div class="row">
+      <div class="mat-title">Ajouter une photo à la galerie</div>
+      <app-upload [profile]="false"></app-upload>
+    </div>
+    <div class="row">
+      <div class="mat-title">Modifier ma photo de profil</div>
+      <app-upload [profile]="true"></app-upload>
+    </div>
+    <div class="mat-title link" routerLink="/mes-photos">
+      Voir mes photos
+    </div>
+  </div>
+
+</div>
 </div>
