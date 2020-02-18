@@ -61,7 +61,8 @@ export class UploadComponent implements OnInit {
     this.photoService.savePhoto(photo, formData).subscribe(
       success => {
         this.isLoading = false;
-        this.router.navigate(['/galerie']);
+
+        location.reload();
     },
         error => this.isLoading = false
     );
