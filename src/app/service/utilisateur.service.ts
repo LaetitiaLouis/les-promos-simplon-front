@@ -14,7 +14,6 @@ export class UtilisateurService {
               private es: ErrorService)  {
   }
 
-
   /**
    * Obtenir la liste de tout les utilisateurs
    */
