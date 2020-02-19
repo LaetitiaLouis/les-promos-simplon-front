@@ -65,7 +65,10 @@ a {
   grid-row: 3;
   font-size: 14px;
 }
-
+.copy {
+  grid-column: 2 / span 6;
+  grid-row: 3;
+}
 @media (max-width: 1000px){
   .grid{
     grid-template-columns: repeat(10, 1fr);
@@ -79,6 +82,9 @@ a {
 
   p{
     grid-column: 7/ span 2;
+  }
+  .copy {
+    grid-column: 1 / span 6;
   }
 }
 
