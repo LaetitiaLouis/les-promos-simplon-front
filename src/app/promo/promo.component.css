@@ -11,8 +11,8 @@
 .mat-title {
   box-sizing: border-box;
   margin: 0 auto;
-  background-color: rgba(17, 17, 23, 0.32);
-  color: #1d4273;
+  background-color: white;
+  color: black;
   width: 300px;
   text-align: center;
   padding: 10px;

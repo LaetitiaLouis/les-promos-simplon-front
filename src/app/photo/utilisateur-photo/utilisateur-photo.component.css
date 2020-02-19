@@ -4,10 +4,24 @@
   margin-bottom: 10px;
 }
 button {
-  width: 100%;
+  width: 35%;
+  margin: 0 auto;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+
+}
+.mat-button-wrapper{
+  text-align: center;
 }
 mat-spinner {
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .mat-display-2{
+    font-size: 30px;
+  }
 }
 
 
