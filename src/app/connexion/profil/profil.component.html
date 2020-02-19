@@ -36,12 +36,12 @@
   </mat-accordion>
 </div>
 <div fxHide fxShow.gt-sm>
-<div gdColumns="1fr 2fr 2fr 1fr" gdGap="20px">
+<div gdColumns="1fr 2fr 2fr 1fr" gdRows="1fr 1fr 1fr" gdGap="20px">
   <div class="column mat-elevation-z2" gdColumn="2">
     <div class="mat-title">Modifier mon profil</div>
     <app-register [update]="true" [user]="user"></app-register>
   </div>
-  <div class="column mat-elevation-z2" gdColumn="3" fxLayout="column" fxLayoutGap="30px">
+  <div class="column mat-elevation-z2" gdColumn="3" gridRow="1 /span 2" fxLayout="column" fxLayoutGap="30px">
     <div class="row">
       <div class="mat-title">Ajouter une photo à la galerie</div>
       <app-upload [profile]="false"></app-upload>
@@ -50,8 +50,9 @@
       <div class="mat-title">Modifier ma photo de profil</div>
       <app-upload [profile]="true"></app-upload>
     </div>
+    <app-carrousel [photos]="user.photos"></app-carrousel>
     <div class="mat-title link" routerLink="/mes-photos">
-      Voir mes photos
+      Modifier mes photos
     </div>
   </div>
 

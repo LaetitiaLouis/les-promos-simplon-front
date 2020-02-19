@@ -18,10 +18,5 @@ mat-spinner {
   margin: 0 auto;
 }
 
-@media (max-width: 600px) {
-  .mat-display-2{
-    font-size: 30px;
-  }
-}
 
 

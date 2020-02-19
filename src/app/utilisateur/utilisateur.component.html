@@ -5,12 +5,15 @@
     {{filter | titlecase}}
   </mat-radio-button>
 </mat-radio-group>
+<!-- remplace les radio-buttom par 1 select pour les petits écrans-->
 <mat-form-field fxLayout fxLayoutAlign="center" fxHide.gt-xs="true">
   <mat-label>Afficher</mat-label>
   <mat-select [(ngModel)]="usersToShow" (selectionChange)="userFilterChanged()">
     <mat-option *ngFor="let filter of usersFilters" [value]="filter">{{filter | titlecase}}</mat-option>
   </mat-select>
 </mat-form-field>
+<!---------------------------------------------------------------------->
+
 <div class="field-container" fxLayout.xs="column" fxLayoutAlign.xs="center">
   <mat-form-field>
     <mat-label>Rechercher par</mat-label>
@@ -18,6 +21,26 @@
       <mat-option *ngFor="let filter of searchFilters" [value]="filter">
         {{filter | titlecase}}
       </mat-option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </mat-select>
   </mat-form-field>
   <mat-form-field>

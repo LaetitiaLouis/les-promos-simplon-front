@@ -1,6 +1,6 @@
 
 <div *ngIf="!isLoading; else spinner">
-  <div class="mat-display-2">Mes Photos</div>
+  <div class="mat-display-2"></div>
   <div class="card-list" *ngIf="user$ | async as user; else spinner">
     <app-card [text]="photo.nom" [link]="['/galerie', photo.id]" [photo]="photo.imageUrl"
               *ngFor="let photo of user.photos">

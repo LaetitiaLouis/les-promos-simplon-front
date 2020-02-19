@@ -1,4 +1,4 @@
-.grid{
+.grid {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(4, 25px);
@@ -11,7 +11,7 @@ img, .img {
   height: 27px;
   cursor: pointer;
   grid-row: 3;
-  margin: 0 0 0 30px;
+  margin: 0 10px 0 30px;
 }
 
 p {
@@ -22,7 +22,7 @@ p {
   grid-column: 14/ span 2;
   grid-row: 3;
   text-align: right;
-  }
+}
 
 a {
   color: black;
@@ -30,7 +30,13 @@ a {
   text-align: left;
 }
 
-.accueil{
+.copy {
+  grid-column: 2 / span 6;
+  grid-row: 3;
+  font-size: 15px;
+}
+
+/*.accueil{
   grid-column: 2 /span 1;
   grid-row: 2;
   font-size: 14px;
@@ -64,46 +70,63 @@ a {
   grid-column: 4 /span 1;
   grid-row: 3;
   font-size: 14px;
-}
-.copy {
-  grid-column: 2 / span 6;
-  grid-row: 3;
-}
-@media (max-width: 1000px){
-  .grid{
+}*/
+
+
+@media (max-width: 1000px) {
+  .grid {
     grid-template-columns: repeat(10, 1fr);
     justify-items: center;
 
   }
-  img, .img{
+
+  img, .img {
     grid-column: 10/ span 1;
     text-align: left;
   }
 
-  p{
-    grid-column: 7/ span 2;
+  p {
+    grid-column: 8/ span 3;
+    font-size: 12px;
   }
+
   .copy {
     grid-column: 1 / span 6;
+    font-size: 12px;
   }
 }
 
 
-@media (max-width: 600px){
-  .grid{
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
     justify-items: center;
+    padding-top: 5px;
+  }
+
+  img, .img {
+    grid-column: 4/ span 1;
+    grid-row: 2;
+    justify-content: end ;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    grid-column: 1/ span 3;
+    grid-row: 2;
+    font-size: 12px;
+    margin-top: 5px;
+    justify-self: end;
+  }
+
+  .copy {
+    grid-row: 1;
+    grid-column: 1/ span 3;
+    font-size: 12px;
+    margin-top: 5px;
+    justify-self: end;
 
   }
- img, .img{
-   grid-column: 3/ span 1;
-   }
-
-  p{
-    grid-column: 1/ span 2;
-    }
-}
-
-a.img {
-  display: block;
 }

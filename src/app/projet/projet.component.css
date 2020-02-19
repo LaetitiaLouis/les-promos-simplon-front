@@ -1,3 +1,7 @@
+.container{
+  padding-top: 15px;
+}
+
 .project-container {
   width: 360px;
   margin: 30px auto;
