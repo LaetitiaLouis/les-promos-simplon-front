@@ -4,7 +4,7 @@ import {Utilisateur} from '../model/utilisateur';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {ErrorService} from './error.service';
-import {catchError, map, mergeMap} from 'rxjs/operators';
+import {catchError, map, mergeMap, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -15,14 +15,17 @@ export class AuthService {
               private router: Router,
               private es: ErrorService) {}
 
-  login(pseudo, motDePasse) {
-    this.http.post<Utilisateur>('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).pipe(
-      map((user: Utilisateur) => {
-        sessionStorage.setItem('pseudo', user.pseudo);
-        this.router.navigate(['/profil']);
-      }),
+  /**
+   * T
+   * @param pseudo
+   * @param motDePasse
+   */
+  login(pseudo, motDePasse): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).pipe(
+      tap(user => sessionStorage.setItem('pseudo', user.pseudo)),
+      map(result => this.router.navigate(['/profil'])),
       catchError(this.es.handleError('Pseudo ou mot de passe invalide'))
-    ).subscribe();
+    );
   }
 
   isLoggedIn() {

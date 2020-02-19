@@ -30,7 +30,6 @@ export class DetailUtilisateurComponent implements OnInit {
         const userId = +params.get('id');
         this.user$ = this.utilisateurService.getUserById(userId);
         this.projets$ = this.projetService.getByIdApprenant(userId);
-
       }
     );
   }

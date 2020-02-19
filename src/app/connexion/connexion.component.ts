@@ -14,7 +14,7 @@ export class ConnexionComponent implements OnInit {
               private auth: AuthService) { }
 
   /**
-   * Connexion d'un utilisateur avec son login et mdp
+   * Création du formulaire de connexion
    * On défini les champs pseudo et mot de passe comme champs obligatoire
    */
   ngOnInit() {
@@ -31,7 +31,7 @@ export class ConnexionComponent implements OnInit {
   onSubmit(form) {
     this.submitted = true;
     if (this.connexionForm.invalid) { return; }
-    this.auth.login(form.pseudo, form.motDePasse);
+    this.auth.login(form.pseudo, form.motDePasse).subscribe();
   }
 
   get f() { return this.connexionForm.controls; }

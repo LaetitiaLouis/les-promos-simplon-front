@@ -13,6 +13,9 @@ export class ApprenantService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Obtenir la liste de tous les apprenants
+   */
   getAllApprenants(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.BASE_URL}/all`);
   }
