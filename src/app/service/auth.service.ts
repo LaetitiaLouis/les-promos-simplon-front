@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Utilisateur} from '../model/utilisateur';
 import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
 import {ErrorService} from './error.service';
-import {catchError, map, mergeMap, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 @Injectable({

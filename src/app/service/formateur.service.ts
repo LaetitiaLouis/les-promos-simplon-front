@@ -16,6 +16,9 @@ export class FormateurService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Obtenir la liste de tout les formateurs
+   */
   getAllFormateurs(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.BASE_URL}/all`);
   }
