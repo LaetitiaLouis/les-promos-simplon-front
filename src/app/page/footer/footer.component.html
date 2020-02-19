@@ -1,5 +1,5 @@
 <div class="grid">
-  <a class="accueil" fxHide.lt-lg="true" mat-button routerLink="/">
+ <!-- <a class="accueil" fxHide.lt-lg="true" mat-button routerLink="/">
     <span [ngClass.lt-sm]="'mat-small'">Accueil</span>
   </a>
   <a class="utilisateur" fxHide.lt-lg="true" mat-button routerLink="/utilisateur">
@@ -35,9 +35,11 @@
   <mat-menu #profil="matMenu">
     <button routerLink="/profil" mat-menu-item>Profil</button>
     <button (click)="auth.logout()" mat-menu-item>Déconnexion</button>
-  </mat-menu>
+  </mat-menu> -->
 
-  <p fxLayout.lt-sm="center center">Nous contacter</p>
-  <img fxLayout.lt-sm="center center" src="../../../assets/discord.png">
+  <p fxLayout.lt-sm="center center"><a href="mailto:laetitia.louis.lp4@gmail.com">Nous contacter</a></p>
+  <a class="img" href="https://discord.gg/rNMZwD5" target="_blank">
+    <img fxLayout.lt-sm="center center" src="../../../assets/discord.png">
+  </a>
 </div>
 
