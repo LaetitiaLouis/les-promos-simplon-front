@@ -23,7 +23,7 @@ export class DetailUtilisateurComponent implements OnInit {
   }
 
   /**
-   * lors de l'initialisation de la page on récupère l'id dans l'url et le profil et les projets de l'utilisateurs
+   * A l'initialisation récupérer l'id dans l'url, le profil et les projets de l'utilisateur
    */
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -34,7 +34,5 @@ export class DetailUtilisateurComponent implements OnInit {
       }
     );
   }
-  getTrustedUrl(url: string) {
-    return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
-  }
+
 }

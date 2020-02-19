@@ -23,14 +23,14 @@ export class UtilisateurComponent implements OnInit {
               private formateurService: FormateurService) { }
 
   /**
-   * Affichage de tous les utilisateurs par défaut
+   * Récupérer la liste de tout les utilisateurs lors de l'initialisation
    */
   ngOnInit() {
     this.users$ = this.utilisateurService.getAllUsers();
   }
 
   /**
-   * Affichage des utilisateurs en fonction de la checkbox
+   * Récupérer la liste correspondant au filte séléctionné
    */
   userFilterChanged() {
     if (this.usersToShow === 'tous') {
@@ -43,7 +43,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   /**
-   * récupération et recherche avec le filtre correspondant au menu déroulant
+   * Faire une recherche avec le filtre correspondant au menu déroulant
    */
   search() {
     if (this.searchBy === 'nom') {

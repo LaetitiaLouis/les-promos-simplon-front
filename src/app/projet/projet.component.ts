@@ -14,7 +14,7 @@ export class ProjetComponent implements OnInit {
   constructor(private projetService: ProjetService) { }
 
   /**
-   * on récupère la liste des projets et veilles
+   * On récupère la liste des projets et veilles
    */
   ngOnInit() {
     this.projetService.getAllProjets().subscribe(projets => {

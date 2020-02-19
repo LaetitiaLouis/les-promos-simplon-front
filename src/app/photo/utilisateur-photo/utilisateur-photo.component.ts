@@ -17,8 +17,7 @@ export class UtilisateurPhotoComponent implements OnInit {
   }
 
   /**
-   * Ce composant n'est appelé que depuis le profil d'un utilisateur.
-   * On récupère le pseudo de l'utilisateur connecté et on récupère l'Id de cet utilisateur
+   * Récupérer le pseudo de l'utilisateur puis l'utilisateur grâce à ce pseudo
    */
   ngOnInit() {
     const pseudo = sessionStorage.getItem('pseudo');
@@ -27,7 +26,7 @@ export class UtilisateurPhotoComponent implements OnInit {
 
   /**
    * Suppression d'une photo de l'utilisateur
-   * @param id
+   * @param id L'identifiant de la photo à supprimer
    */
   deletePhoto(id: number) {
     this.isLoading = true;

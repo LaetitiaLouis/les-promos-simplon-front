@@ -17,7 +17,8 @@ export class AffichagePhotoComponent implements OnInit {
               private sanitizer: DomSanitizer)  { }
 
   /**
-   * Permet d'afficher la taille original de la photo selectionné
+   * Récuperer l'id de la photo dans l'url puis faire une requete au
+   * serveur pour obtenir la photo
    */
   ngOnInit() {
     this.route.paramMap.subscribe(params =>
@@ -25,6 +26,10 @@ export class AffichagePhotoComponent implements OnInit {
     );
   }
 
+  /**
+   * Permet d'utiliser l'url de la photo dans style.background-image sans erreur
+   * @param url L'url de la photo
+   */
   getTrustedUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }

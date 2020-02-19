@@ -17,14 +17,14 @@ export class PhotoComponent implements OnInit {
   }
 
   /**
-   * on affiche toutes les photos par defaut
+   * Obtenir la liste des photos du serveur
    */
   ngOnInit() {
     this.photos$ = this.photoService.getAllPhotos();
   }
 
   /**
-   * recupère la liste des photos en fonction du filtre choisi
+   * Obtenir la liste correspondant au filtre choisi
    */
   filterPhotos() {
     if (this.filter !== 'toutes') {

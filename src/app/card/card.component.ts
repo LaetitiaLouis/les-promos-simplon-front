@@ -16,9 +16,18 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  /**
+   * Redirige vers le le lien fourni dans l'input link
+   */
   showDetails() {
     this.router.navigate(this.link);
   }
+
+  /**
+   * Permet de mettre les url des photos via [style.background-image] sans erreur
+   * @param L'url en question
+   */
   getTrustedUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }

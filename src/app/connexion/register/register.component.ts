@@ -28,9 +28,11 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Récupération des promos pour le select du formaulaire
     this.promoService.getAll().subscribe(promos => this.promos = promos);
-    this.registerForm = this.fb.group({
 
+    // Créer les champs du fomulaires et leur associer des validateurs
+    this.registerForm = this.fb.group({
         isApprenant: [true, Validators.required],
         pseudo: [{value: '', disabled: this.update}, [Validators.required], [this.validator.pseudoExists()]],
         motDePasse: [{value: '', disabled: this.update}, [Validators.required, Validators.minLength(8)]],
@@ -48,10 +50,17 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  /**
+   * Getter pour obtenir les control du formulaire
+   */
   get f() {
     return this.registerForm.controls;
   }
 
+  /**
+   * Dans le cas d'une mise à jour de profil s'assurer que l'objet user est complet
+   * avant de faire le put vers le serveur
+   */
   updateUserObject() {
     Object.entries(this.registerForm.value).forEach(([key, value]) => {
       if (value) {
@@ -60,6 +69,11 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  /**
+   * Soumission du formulaire:
+   * - Définir si c'est un new ou un update
+   * - Faire la requète correspondante
+   */
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
