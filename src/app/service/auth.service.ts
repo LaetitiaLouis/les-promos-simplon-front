@@ -16,9 +16,11 @@ export class AuthService {
               private es: ErrorService) {}
 
   /**
-   * T
-   * @param pseudo
-   * @param motDePasse
+   * Vérifier si les identifiants correspondent:
+   *  - Si oui enregistrer le pseudo dans le session storage
+   *  - Si non afficher un message d'erreur
+   * @param pseudo Le champ pseudo du formulaire
+   * @param motDePasse Le champ mot de passe du formulaire
    */
   login(pseudo, motDePasse): Observable<Utilisateur> {
     return this.http.post<Utilisateur>('http://localhost:8080/api/utilisateurs/connect', {pseudo, motDePasse}).pipe(
@@ -28,11 +30,18 @@ export class AuthService {
     );
   }
 
+  /**
+   * Vérifier qu'un utilisateur est connecté en regardant si
+   * le champ pseudo est rempli dans le session storage
+   */
   isLoggedIn() {
     const pseudo = sessionStorage.getItem('pseudo');
     return (pseudo !== null);
   }
 
+  /**
+   * Se déconnecter en supprimant le champ pseudo du session storage
+   */
   logout() {
     sessionStorage.removeItem('pseudo');
     this.router.navigate(['/connexion']);
