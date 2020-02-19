@@ -35,6 +35,7 @@ import {CarrouselComponent} from './accueil/carrousel/carrousel.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import { UtilisateurPhotoComponent } from './photo/utilisateur-photo/utilisateur-photo.component';
 import { CardComponent } from './card/card.component';
+import { RegisterPageComponent } from './connexion/register-page/register-page.component';
 
 const routes: Routes =  [
   {path: '', component: AccueilComponent},
@@ -43,7 +44,7 @@ const routes: Routes =  [
   {path: 'promo/:specialite/:nom', component: PromoComponent},
   {path: 'projet', component: ProjetComponent},
   {path: 'connexion', component: ConnexionComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'register', component: RegisterPageComponent},
   {path: 'galerie', component: PhotoComponent},
   {path: 'galerie/:id', component: AffichagePhotoComponent},
   {path: 'profil', component: ProfilComponent},
@@ -72,7 +73,8 @@ const routes: Routes =  [
     UploadComponent,
     CarrouselComponent,
     UtilisateurPhotoComponent,
-    CardComponent
+    CardComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
