@@ -121,6 +121,7 @@ a {
     justify-self: end;
   }
 
+
   .copy {
     grid-row: 1;
     grid-column: 1/ span 3;
