@@ -50,7 +50,7 @@
       <div class="mat-title">Modifier ma photo de profil</div>
       <app-upload [profile]="true"></app-upload>
     </div>
-    <app-carrousel [photos]="user.photos"></app-carrousel>
+    <app-carrousel *ngIf="user" [photos]="user.photos"></app-carrousel>
     <div class="mat-title link" routerLink="/mes-photos">
       Modifier mes photos
     </div>

@@ -8,13 +8,19 @@ import {Photo} from '../../model/photo';
   styleUrls: ['./carrousel.component.css']
 })
 export class CarrouselComponent implements OnInit {
-@Input() photos: Photo[];
-
+  @Input() photos: Photo[];
+  photoList;
   constructor(private photoService: PhotoService) { }
 
-
+  /**
+   * Si aucune photos fournis par le parent alors requete pour les obtenir
+   */
   ngOnInit() {
-    if (!this.photos && !this.photos.length)
-    this.photoService.getAllPhotos().subscribe(photosResult => this.photos = photosResult);
+    if (!this.photos) {
+      this.photoService.getAllPhotos().subscribe(photosResult => this.photoList = photosResult);
+    } else {
+      this.photoList = this.photos;
+    }
+
   }
 }

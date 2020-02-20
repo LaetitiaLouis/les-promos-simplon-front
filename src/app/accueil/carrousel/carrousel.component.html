@@ -1,8 +1,8 @@
-<mat-carousel *ngIf="photos && photos.length" proportion="50" maxWidth="400px" [autoplay]="true" [loop]="true"
+<mat-carousel *ngIf="photoList && photoList.length" proportion="50" maxWidth="400px" [autoplay]="true" [loop]="true"
               timings="250ms ease-in"
               interval="1500"
               color="accent">
-  <mat-carousel-slide *ngFor="let photo of photos" [image]="photo.imageUrl">
+  <mat-carousel-slide *ngFor="let photo of photoList" [image]="photo.imageUrl">
   </mat-carousel-slide>
 
 </mat-carousel>
